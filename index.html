@@ -15,11 +15,22 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;700&display=swap"
       rel="stylesheet"
-    />
+      />
     <link rel="stylesheet" href="./css/default.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
     <title>McRay Tech & Freelance Services</title>
+    <!-- Links for Testimonial  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.theme.default.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css'>
+
+    <script
+      src="https://kit.fontawesome.com/cf7352dd8f.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -39,11 +50,10 @@
         </button>
         <a href="index.html" class="logo"></a>
         <ul class="navbar-nav">
-          <li class="nav-link"><a href="#">Home</a></li>
-          <li class="nav-link"><a href="#">Services</a></li>
-          <li class="nav-link"><a href="#">About</a></li>
-          <li class="nav-link"><a href="#">Products</a></li>
-          <li class="nav-link"><a href="#">Contact</a></li>
+          <li class="nav-link"><a href="./index.html">Home</a></li>
+          <li class="nav-link"><a href="#services">Services</a></li>
+          <li class="nav-link"><a href="./pages/about.html">About</a></li>
+          <li class="nav-link"><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -59,14 +69,14 @@
             We are your trusted partner in providing cutting-edge IT solutions
             and services. Our dedicated team of experts is committed to
             delivering exceptional technology solutions that empower your
-            business to thrive in today's fast-paced digital landscape. Our
+            business to thrive in today's fast-paced digital landscape. <br> Our
             services offer flexible solutions to support your business needs,
             whether it's web and mobile application development, photography,
             analysis, copywriting, content creation, virtual assistance, or
             graphic design. Our development process begins with a comprehensive
             analysis of your business requirements, ensuring that we understand
             your goals inside and out. From there, we design a strategic roadmap
-            that outlines the project scope, timeline, and milestones. Our
+            that outlines the project scope, timeline, and milestones. <br> Our
             experienced developers then get to work, using the latest tools and
             methodologies to bring your vision to life. Partner with us to
             harness the full potential of technology for your business.
@@ -96,14 +106,14 @@
           </p>
           <a class="btn btn-primary" href="#">Learn More</a>
         </div>
-        <div>
+        <div class="block-image">
           <img src="./images/svg/problem_solving.svg" alt="icon chart" />
         </div>
       </div>
     </section>
     <!-- Service section  -->
-    <section class="service bg-contrast">
-      <div class="block-text service-header">
+    <section class="service bg-contrast" id="services">
+      <div class="block-text service-header align-center">
         <h2>Our Services</h2>
         <p>
           With our tech services, we can help you establish a strong online
@@ -203,9 +213,9 @@
       </div>
     </section>
     <!-- Video demo  -->
-    <section class="bg-demo">
+    <section class="bg-demo align-center">
       <div class="container">
-        <div class="block-text">
+        <div class="block-text align-center">
           <h2>Telling our story</h2>
           <p>
             Welcome to our journey—a tale of passion, dedication, and
@@ -231,7 +241,7 @@
     </section>
     <!-- Why-choose-us  -->
     <section class="why-choose-us bg-contrast">
-      <div class="block-text why-us">
+      <div class="block-text why-us align-center">
         <h2>Why Choose Us</h2>
         <p>
           At McRay Tech & Freelance Services, we are your trusted partner in
@@ -317,99 +327,278 @@
         </div>
       </div>
     </section>
-    <!-- Team section -->
-    <section class="our-team">
-      <div class="block-text">
-        <h2>- Our Team -</h2>
-        <p>
-          From visionary strategists to skilled developers and meticulous
-          project managers, each member of our team brings a unique set of
-          skills to the table. <br />
-          Explore the faces behind our success and get to know the team that's
-          ready to transform your business through technology.
-        </p>
-      </div>
-      <div class="team-photos">
-        <div class="photo-card">
-          <img
-            src="https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzR8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
-            alt="image"
-            width="150"
-            height="150"
-          />
-          <div class="details">
-            <h3>Melissa Style</h3>
-            <span>Graphic Designer</span>
-            <a href="#">
-              <i class="ion-social-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="ion-social-facebook"></i>
-            </a>
+    <!-- Testimonial section  -->
+    <section class="testimonial-section">
+      <div class="large-container">
+        <div class="sec-title">
+          <span class="title">Testimonial</span>
+          <h2>What Our Clients Say ?</h2>
+        </div>
+  
+        <div class="testimonial-carousel owl-carousel owl-theme">
+          <!-- Testimonial Block -->
+          <div class="testimonial-block">
+            <div class="inner-box">
+              <div class="text">
+                "McRay Tech & Freelance Services' listened to our needs and delivered a final product that exceeded our expectations. They are professional, prompt, creative and patient. During the course of the project, They were attentive and compassionate about the parameters of the project."</div>
+              <div class="info-box">
+                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <h4 class="name">Ali Mohammed</h4>
+                <span class="designation">Abuja</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial Block  -->
+          <div class="testimonial-block">
+            <div class="inner-box">
+              <div class="text">"We engaged McRay Tech & Freelance Services to develop a mobile application for our business via Indeed, and they exceeded our expectations. The app is intuitive, user-friendly, and has significantly enhanced our customer engagement. Their team's technical expertise and attention to detail are commendable."</div>
+              <div class="info-box">
+                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <h4 class="name">Chioma Nwafor</h4>
+                <span class="designation">Lagos</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Block  -->
+          <div class="testimonial-block">
+            <div class="inner-box">
+              <div class="text">"Referred by a friend in Port Harcourt, I hired McRay Tech & Freelance Services for a full coverage of my younger sister's wedding and she loved their work. Their team demonstrated a high level of expertise and ensured ensured a moment was captured. Their prompt support and dedication to customer satisfaction are truly commendable."</div>
+              <div class="info-box">
+                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <h4 class="name"> Uduak Johnson</h4>
+                <span class="designation">Abuja</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Block  -->
+          <div class="testimonial-block">
+            <div class="inner-box">
+              <div class="text">"We hired McRay Tech & Freelance Services to develop our company's website via Indeed, and they exceeded our expectations. Their team demonstrated a deep understanding of our requirements and delivered a visually appealing and user-friendly website. Their attention to detail and commitment to customer satisfaction are commendable."</div>
+              <div class="info-box">
+                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <h4 class="name">Chika O.</h4>
+                <span class="designation">Port Harcourt</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial Block  -->
+          <div class="testimonial-block">
+            <div class="inner-box">
+              <div class="text">"I am extremely satisfied with the IT solutions provided by McRay Tech & Freelance Services. They developed a customized software that streamlined our business operations, resulting in increased productivity and cost savings. Their team is highly skilled and professional, delivering exceptional results within the agreed timeframe."</div>
+              <div class="info-box">
+                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <h4 class="name">Adeola O.</h4>
+                <span class="designation">Lagos</span>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Testimonial Block -->
+          <div class="testimonial-block">
+            <div class="inner-box">
+              <div class="text">"McRay Tech & Freelance Services provided us with an exceptional e-commerce solution that has significantly boosted our online sales. Their team developed a user-friendly platform with advanced features, resulting in an enhanced shopping experience for our customers. We are extremely satisfied with their services."</div>
+              <div class="info-box">
+                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <h4 class="name">Chinedu I.</h4>
+                <span class="designation">Abuja</span>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Testimonial Block -->
+          <div class="testimonial-block">
+            <div class="inner-box">
+              <div class="text">"We recently completed a redesign of our existing website and could not be happier with the results. The cost was reasonable and we now have a clean and sleek website that we anticipate will drive business to our company."</div>
+              <div class="info-box">
+                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <h4 class="name">Ibrahim M.</h4>
+                <span class="designation">Abuja</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="photo-card">
-          <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
-            alt="image"
-            width="150"
-            height="150"
-          />
-          <div class="details">
-            <h3>Frank Star</h3>
-            <span>IOS Developer</span>
-            <a href="#">
-              <i class="ion-social-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="ion-social-facebook"></i>
-            </a>
-            <a href="#">
-              <i class="ion-social-instagram"></i>
-            </a>
-          </div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODZ8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
-            alt="image"
-            width="150"
-            height="150"
-          />
-          <div class="details">
-            <h3>Jane Naismith</h3>
-            <span>Android Developer</span>
-            <a href="#">
-              <i class="ion-social-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="ion-social-facebook"></i>
-            </a>
-          </div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
-            alt="image"
-            width="150"
-            height="150"
-          />
-          <div class="details">
-            <h3>Mark Stoner</h3>
-            <span>Web Developer</span>
-            <a href="#">
-              <i class="ion-social-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="ion-social-facebook"></i>
-            </a>
-            <a href="#">
-              <i class="ion-social-linkedin"></i>
-            </a>
-          </div>
+  
+        <div class="thumb-layer paroller">
+          <figure class="image"><img src="http://t.commonsupport.com/adro/images/resource/user-thumbs.png" alt=""></figure>
         </div>
       </div>
     </section>
-    <script src="#" async defer></script>
+    <!-- Contact section  -->
+    <section class="contact bg-navy" id="contact">
+      <div class="contact-container">
+        <div class="left">
+          <div class="image">
+            <img src="./images/svg/profile_data.svg" alt="contact us image" />
+          </div>
+          <h3>Get In Touch With Us</h3>
+          <p>
+            Whether you're a small or large-scale enterprise, we are here to
+            help you <br />find the best solution that suit your business needs.
+            <br />
+            Tell us about your goals and we'll be in touch.
+          </p>
+          <span>Phone: <span class="color-green">+234 (0) 8160-621093</span></span>
+          <br />
+            <span>Email: <span class="color-green">mcraytechandfreelanceservices@gmail.com</span></span
+            ><br /><br />
+          <p>Visit Our Social Media</p>
+          <a href="#">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/mcray_services">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+        <div class="right">
+          <form action="#" method="POST" class="form">
+            <div class="card">
+              <label for="name">Full Name</label> <br />
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your Fullname"
+                required
+                autocomplete="name"
+                autocapitalize
+              />
+            </div>
+            <div class="card">
+              <label for="email">Email</label> <br />
+              <input
+                type="email"
+                name="email"
+                id="#"
+                placeholder="Enter your Email address"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="card">
+              <label for="company">Company Name</label> <br />
+              <input
+                type="text"
+                name="company"
+                placeholder="Please type in your Company Name"
+                required
+              />
+            </div>
+            <div class="card">
+              <label for="phone">Phone Number</label> <br />
+              <input
+                type="tel"
+                name="phone"
+                id="#"
+                placeholder="Enter your Phone Number"
+                required
+              />
+            </div>
+            <div class="card">
+              <p>Choose the solution that best suit your business needs.</p>
+              <label for="message">Message</label> <br />
+              <textarea name="message" id="#" cols="30" rows="10" required>
+Please provide a short description of your business and any questions you have about McRay Tech & Freelance Services.</textarea
+              >
+            </div>
+            <div class="card float">
+              <button type="submit" class="btn btn-white">Submit</button>
+              <span>
+                By pressing the submit button I agree to McRay Tech & Freelance
+                <br />
+                Services contacting me by email and/ or phone to share
+                opportunities exclusively <br />
+                to selected or Enterprise customers.I also understand that any
+                information i've shared <br />
+                in this form is subject to the McRay Tech & Freelance Services'
+                <span class="color-blue">Privacy Policy</span>.
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Footer section  -->
+    <footer>
+      <div class="container footer">
+        <div class="footer-card">
+          <h2>About</h2>
+          <p>We are an IT solution company that's committed to <br> excellence and dedicated to creating innovative software <br>solutions for small and large-scale businesses. <br>We strive to deliver top-notch results for our clients <br> that empower  their businesses to thrive in today's <br>fast-paced digital landscape.
+        </div>
+        <div class="footer-card">
+          <h2>Links</h2>
+          <ul class="unstyled">
+            <li>
+              <a href="#home"><i class="fa-solid fa-arrow-right"></i>Home</a>
+            </li>
+            <li>
+              <a href="#about"><i class="fa-solid fa-arrow-right"></i>About</a>
+            </li>
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>Services</a>
+            </li>
+            <li>
+              <a href="#contact"><i class="fa-solid fa-arrow-right"></i>Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-card">
+          <h2>Services</h2>
+          <ul class="unstyled">
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>Development</a>
+            </li>
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>Design & UX</a>
+            </li>
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>Analysis</a>
+            </li>
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>IT Consulting</a>
+            </li>
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>Photography</a>
+            </li>
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>SEO</a></li>
+          </ul>
+        </div>
+        <div class="footer-card">
+          <h2>Have a Questions?</h2>
+          <ul class="unstyled">
+          <li>
+            <address>
+              <i class="fa-solid fa-location-dot"></i>Nigeria Army Estate Kurudu Abuja Nigeria. <br>
+            </address>
+          </li>
+          <li><i class="fa-solid fa-phone"></i>+1 (949) 236-7179</li>
+          <li><i class="fa-solid fa-mobile"></i>+234 (0) 8160-621093</li>
+          <li>
+            <a href="mailto:mcraytechandfreelanceservices@gmail.com"><i class="fa-solid fa-envelope"></i><span><span class="__cf_email__" data-cfemail="5c35323a331c2533292e3833313d3532723f3331">[email&#160;protected]</span></span></a>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright bg-navy">
+        <h5 class="align-center">
+          McRay Tech & Freelance Services&#64;2023. View our
+          <span class="color-blue">Policy and Terms</span>
+        </h5>
+      </div>
+    </footer>
+
+  <!-- script for Testimonial  -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js'></script><script  src="./css/script.js"></script>
+
   </body>
 </html>

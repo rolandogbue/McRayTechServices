@@ -2,21 +2,19 @@
   /* font colors */
   --text-color: #333;
   --white: #fefefe;
-  --black: #1a1a1a;
+  --black: #000;
   --green: #80c78a;
   --navy: #012229;
   --font-color-base: #666;
   --font-color-dark: #212529;
   --font-color-light: #babbaebe;
-  --font-color-link: #57a6ff;
-  --footer-base: #2e2645;
+  --font-color-link: #0061ff;
   --contrast: rgba(246, 248, 249, 0.8);
 
-  /* background Colors */
+  /* background */
   --bg-header: url("../images/img/bg-header.jpg");
+  --bg-about: url("../images/img/Building.jpg");
   --bg-demo: url("../images/img/bg-why-choose-us.jpg");
-  --bg-footer: #012229;
-  --bg-copyright: hsl(234, 32%, 12%);
 }
 
 *,
@@ -37,6 +35,7 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  margin-top: 0px;
 }
 a {
   text-decoration: none;
@@ -61,12 +60,44 @@ img {
   vertical-align: middle;
   border-style: none;
 }
+input {
+  border-style: none;
+  border: transparent;
+  background-color: var(--navy);
+}
+section {
+  padding: 0px;
+  margin: 0px;
+}
+footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding-top: 50px;
+  padding-bottom: 0px;
+  font-size: 15px;
+  line-height: 1.6;
+
+}
 .container {
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
+}
+.bg-contrast {
+  background-color: var(--contrast);
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.bg-navy {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.unstyled a {
+  color: var(--white);
 }
 .btn {
   display: inline-block;
@@ -89,12 +120,6 @@ img {
   color: var(--white);
   padding: 7px 25px;
 }
-.btn-white {
-  background-color: var(--white);
-  color: var(---font-color-link);
-  box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.5);
-  padding: 0.475rem 1.75rem;
-}
 .color-green {
   color: var(--green);
 }
@@ -104,22 +129,15 @@ img {
 .color-white {
   color: var(--white);
 }
+.color-blue {
+  color: var(--font-color-link);
+}
 .align-center {
   text-align: center;
 }
 /* Media queries */
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
-  }
-}
-@media (min-width: 786px) {
-  .pricing-table {
-    max-width: 720px;
-  }
-}
-@media (min-width: 786px) {
-  .pricing-table {
-    max-width: 720px;
+    max-width: 1120px;
   }
 }
