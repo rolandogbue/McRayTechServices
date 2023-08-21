@@ -1,4 +1,3 @@
-
 .navbar {
   position: fixed;
   top: 0;
@@ -27,6 +26,11 @@
   transition: ease-in-out 0.3s;
   color: var(--green);
 }
+.logo:hover,
+.logo:focus {
+  text-decoration: none;
+}
+
 .nav-link a {
   color: var(--white);
   font-size: 0.8125rem;
@@ -36,12 +40,14 @@
   line-height: 2.5rem;
   margin-right: 1.5rem;
 }
+
+
 .bg-header,
 .bg-demo {
   background-color: var(--navy);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 20% 80%;
+  background-position: 50% 50%;
   position: relative;
   z-index: 1;
   padding: 7.1875rem 0;
@@ -57,8 +63,8 @@
 .bg-header::before,
 .bg-demo::before {
   background-image: linear-gradient(
-    45deg,
-    rgba(21, 27, 38, 0.8) 8%,
+    30deg,
+    rgba(21, 27, 38, 0.8) 0%,
     rgba(0, 0, 0, 0.2) 100%
   );
   position: absolute;
@@ -70,7 +76,7 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  backdrop-filter:  brightness(30%);
+  backdrop-filter:  brightness(50%);
 }
 .hero-header,
 .hero-text {
@@ -85,9 +91,11 @@
 .who-are-we-wrapper {
   display: flex;
   align-items: center;
+  flex-wrap: wrap-reverse;
 }
 .who-are-we-wrapper div {
-  flex: 1;
+  /* flex: 1; */
+  word-wrap: break-word;
 }
 .block-text {
   margin-right: 50px;
@@ -119,10 +127,13 @@
 .service-grid,
 .why-us-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   margin: 0 auto;
-  max-width: 1200px;
+  padding: 0 20px;
+}
+.service-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1400px;
 }
 .service-card,
 .why-us-card {
@@ -170,13 +181,21 @@
   margin-top: 150px;
   margin-bottom: 80px;
 }
+.why-us-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1200px;
+}
 .large-container {
   position: static;
-  max-width: 1580px;
+  max-width: 1450px;
   padding: 0px 30px;
   margin: 0 auto;
 }
-
+@media (min-width: 1200px) {
+  .large-container {
+    max-width: 1120px;
+  }
+}
 .testimonial-section {
   position: relative;
   padding-top: 80px;
@@ -208,7 +227,6 @@
   max-width: 1100px;
   margin: 0 -50px;
 }
-
 .testimonial-block {
   position: relative;
   padding: 50px;
@@ -298,11 +316,9 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .arrow-right {
   background-image: url(http://t.commonsupport.com/adro/images/icons/arrow-right-2.png);
 }
-
 .testimonial-section .thumb-layer {
   position: absolute;
   right: 30px;
@@ -349,65 +365,75 @@
   }
 }
 .contact {
-  margin-top: 150px;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
 }
 .contact-container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1420px;
-  margin: 0 auto;
-  padding: 20px;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.left {
-  margin-right: auto;
-  margin-bottom: 50px;
+@media (max-width: 600px) {
+  .contact {
+    margin-top: 0px;
+  }
+  .form {
+    display: none;
+  }
 }
-.left .image {
-  width: 500px;
+.left,
+.right {
+  padding: 10px;
+}
+.left img {
+  width: 460px;
 }
 .left i {
   font-size: 18px;
   color: var(--white);
   margin-right: 4px;
 }
-.right .card {
-  margin-bottom: 20px;
+.right {
   display: block;
 }
-.card label {
+.form {
+  padding: 20px;
+}
+.form label {
   font-size: 16px;
 }
-.card input {
+.form input {
   width: 400px;
   height: 30px;
   color: var(--white);
   border-bottom: 1px solid var(--white);
+  margin-bottom: 5px;
 }
-.card textarea {
+.form textarea {
   width: 500px;
+  height: 150px;
 }
-.card.float {
-  float: left;
-}
-.card .btn {
+.form .btn {
   color: var(--white);
   border: 1px solid var(--white);
   background-color: var(--black);
   font-size: 20px;
-  margin-right: 10px;
-}
-.policy {
-  display: inline-flex;
-  flex-wrap: wrap;
-  max-width: 500px;
+  margin-right: 5px;
 }
 .container.footer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 50px;
 }
-.footer-card i {
+.footer-block {
+  margin-right: auto;
+}
+.footer-block i {
   color: var(--font-color-base);
   font-size: 18px;
   margin-right: 10px;

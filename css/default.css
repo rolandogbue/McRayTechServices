@@ -22,6 +22,11 @@
 ::before {
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
@@ -30,6 +35,9 @@ body {
   letter-spacing: 0;
   color: var(--text-color);
   background-color: var(--white);
+}
+div {
+  margin: 0;
 }
 ul {
   margin: 0;
@@ -74,8 +82,10 @@ footer {
   color: var(--white);
   padding-top: 50px;
   padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 25px;
 
 }
 .container {
@@ -139,5 +149,25 @@ footer {
 @media (min-width: 1200px) {
   .container {
     max-width: 1120px;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
   }
 }

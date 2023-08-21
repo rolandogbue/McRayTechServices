@@ -39,16 +39,16 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
+
     <nav class="navbar nav">
       <div class="container">
         <button
-          class="navbar-toggler"
-          aria-expanded="false"
+          class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle"
           aria-controls="navbarDropdown"
-        >
+          data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span>&#9776;</span>
         </button>
-        <a href="index.html" class="logo"></a>
+        <a href="index.html" class="logo navbar-brand"></a>
         <ul class="navbar-nav">
           <li class="nav-link"><a href="./index.html">Home</a></li>
           <li class="nav-link"><a href="#services">Services</a></li>
@@ -57,6 +57,7 @@
         </ul>
       </div>
     </nav>
+  
     <!-- Header section  -->
     <header class="bg-header">
       <div class="container">
@@ -126,13 +127,21 @@
       </div>
       <div class="service-grid">
         <div class="service-card">
+          <img src="./images/img/branding.png" alt="seo" />
+          <div class="service-details">
+            <h3>Branding</h3>
+            <p>
+              A strong brand identity is a non-negotiable asset for any company aiming to stand out, we thus empower your business with a distinct and resonant brand identity that captivates your target audience. Our specialized IT solutions ensure a harmonious alignment between your brand's visual aesthetics, messaging, and digital presence. 
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
           <img src="./images/img/gallery.png" alt="photography" />
           <div class="service-details">
             <h3>Photography</h3>
             <p>
-              Capture moments and memories in stunning clarity with our
-              photography services. Our company brings a tech-savvy touch to the
-              art of photography, ensuring that every shot is a blend of
+              Capture every moments and memories in stunning clarity with our tech-savvy art of photography & videography
+              , ensuring that every shot is a blend of
               creativity and cutting-edge technology. Whether it's corporate
               events, product showcases, or candid moments, our expert
               photographers skillfully use their lenses to frame and freeze
@@ -146,7 +155,7 @@
             <h3>Design & UX</h3>
             <p>
               Our design and UX services encompass a wide range of solutions,
-              including graphics and video editing, web and mobile applications,
+              including graphics, web, desktop and mobile applications designs,
               software interfaces, and interactive platforms. We believe in
               iterative design, continuously refining our work based on user
               feedback and emerging trends to stay ahead of the curve.
@@ -158,7 +167,7 @@
           <div class="service-details">
             <h3>Development</h3>
             <p>
-              Whether you need web and mobile app development, custom software
+              Whether you need web, desktop and mobile app development, custom software
               solutions, or integration services, we have the expertise to
               deliver results that exceed expectations. Our solutions are not
               just about functionality – they're also about creating intuitive
@@ -173,11 +182,33 @@
             <p>
               We offer comprehensive Data and Business Analysis services
               designed to empower businesses with actionable insights and
-              strategic decision-making. Our expert analysts specialize in
-              extracting, interpreting, and visualizing data to provide a clear
+              strategic decision-making by extracting, interpreting, and visualizing data to provide a clear
               understanding of your company's performance, market trends, and
               customer behaviors through advanced data mining, statistical
               analysis, and predictive modeling techniques.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="./images/img/seo.png" alt="seo" />
+          <div class="service-details">
+            <h3>SEO Service</h3>
+            <p>
+              Enhance your online visibility and drive organic growth with our premier SEO (Search Engine Optimization) service. In
+              today's digital landscape of fierce competition, securing a
+              strong online presence is essential. Our dedicated team of SEO
+              experts employs cutting-edge strategies to optimize your website,
+              making it more search engine-friendly and ensuring it ranks higher
+              in relevant search results.
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="./images/img/copywriting.png" alt="seo" />
+          <div class="service-details">
+            <h3>Copywriting</h3>
+            <p>
+              Whether it's website content, product descriptions, promotional emails, or social media posts, our copywriting service is tailored to capture your unique voice and showcase your offerings in the best light. We know that the right words have the ability to inspire action and elevate your business's online presence. We understand the power of effective communication in the digital landscape.
             </p>
           </div>
         </div>
@@ -192,21 +223,6 @@
               solutions. Our IT consulting team comprises seasoned experts who
               possess a deep understanding of industry trends, best practices,
               and cutting-edge technologies.
-            </p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="./images/img/seo.png" alt="seo" />
-          <div class="service-details">
-            <h3>SEO Service</h3>
-            <p>
-              Enhance your online visibility and drive organic growth with our
-              company's premier SEO (Search Engine Optimization) service. In
-              today's digital landscape, where competition is fierce, securing a
-              strong online presence is essential. Our dedicated team of SEO
-              experts employs cutting-edge strategies to optimize your website,
-              making it more search engine-friendly and ensuring it ranks higher
-              in relevant search results.
             </p>
           </div>
         </div>
@@ -232,10 +248,7 @@
           /></a>
           <img
             src="./images/img/demo-video-thumbnail.jpg"
-            alt="video thumbnail"
-            <!--
-          />
-          -->
+            alt="video thumbnail"/>
         </div>
       </div>
     </section>
@@ -427,13 +440,12 @@
         </div>
       </div>
     </section>
+      
     <!-- Contact section  -->
     <section class="contact bg-navy" id="contact">
       <div class="contact-container">
-        <div class="left">
-          <div class="image">
+        <div class="left contact-block">
             <img src="./images/svg/profile_data.svg" alt="contact us image" />
-          </div>
           <h3>Get In Touch With Us</h3>
           <p>
             Whether you're a small or large-scale enterprise, we are here to
@@ -460,8 +472,7 @@
           </a>
         </div>
         <div class="right">
-          <form action="#" method="POST" class="form">
-            <div class="card">
+          <form action="https://formspree.io/f/mjvqyzyo" method="POST" class="form">
               <label for="name">Full Name</label> <br />
               <input
                 type="text"
@@ -470,9 +481,8 @@
                 required
                 autocomplete="name"
                 autocapitalize
-              />
-            </div>
-            <div class="card">
+              /> <br>
+
               <label for="email">Email</label> <br />
               <input
                 type="email"
@@ -481,18 +491,16 @@
                 placeholder="Enter your Email address"
                 required
                 autocomplete="email"
-              />
-            </div>
-            <div class="card">
+              /> <br>
+
               <label for="company">Company Name</label> <br />
               <input
                 type="text"
                 name="company"
                 placeholder="Please type in your Company Name"
                 required
-              />
-            </div>
-            <div class="card">
+              /> <br>
+
               <label for="phone">Phone Number</label> <br />
               <input
                 type="tel"
@@ -500,28 +508,24 @@
                 id="#"
                 placeholder="Enter your Phone Number"
                 required
-              />
-            </div>
-            <div class="card">
+              /> <br>
+
               <p>Choose the solution that best suit your business needs.</p>
               <label for="message">Message</label> <br />
-              <textarea name="message" id="#" cols="30" rows="10" required>
+              <textarea name="message" id="textarea" cols="30" rows="10" required>
 Please provide a short description of your business and any questions you have about McRay Tech & Freelance Services.</textarea
-              >
-            </div>
-            <div class="card float">
-              <button type="submit" class="btn btn-white">Submit</button>
-              <span>
-                By pressing the submit button I agree to McRay Tech & Freelance
-                <br />
-                Services contacting me by email and/ or phone to share
-                opportunities exclusively <br />
-                to selected or Enterprise customers.I also understand that any
-                information i've shared <br />
-                in this form is subject to the McRay Tech & Freelance Services'
-                <span class="color-blue">Privacy Policy</span>.
-              </span>
-            </div>
+              ><br>
+                <button type="submit" class="btn btn-white">Submit</button>
+                <span>
+                  By pressing the submit button I agree to McRay Tech & Freelance
+                  <br />
+                  Services contacting me by email and/ or phone to share
+                  opportunities exclusively <br />
+                  to selected or Enterprise customers. I also understand that any
+                  information i've <br>shared
+                  in this form is subject to the McRay Tech & Freelance Services'
+                  <span class="color-blue">Privacy Policy</span>.
+                </span>
           </form>
         </div>
       </div>
@@ -529,11 +533,11 @@ Please provide a short description of your business and any questions you have a
     <!-- Footer section  -->
     <footer>
       <div class="container footer">
-        <div class="footer-card">
+        <div class="footer-block">
           <h2>About</h2>
           <p>We are an IT solution company that's committed to <br> excellence and dedicated to creating innovative software <br>solutions for small and large-scale businesses. <br>We strive to deliver top-notch results for our clients <br> that empower  their businesses to thrive in today's <br>fast-paced digital landscape.
         </div>
-        <div class="footer-card">
+        <div class="footer-block">
           <h2>Links</h2>
           <ul class="unstyled">
             <li>
@@ -550,9 +554,12 @@ Please provide a short description of your business and any questions you have a
             </li>
           </ul>
         </div>
-        <div class="footer-card">
+        <div class="footer-block">
           <h2>Services</h2>
           <ul class="unstyled">
+            <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>Branding</a>
+            </li>
             <li>
               <a href="#services"><i class="fa-solid fa-arrow-right"></i>Development</a>
             </li>
@@ -566,13 +573,17 @@ Please provide a short description of your business and any questions you have a
               <a href="#services"><i class="fa-solid fa-arrow-right"></i>IT Consulting</a>
             </li>
             <li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>Copywriting</a>
+            </li>
+            <li>
               <a href="#services"><i class="fa-solid fa-arrow-right"></i>Photography</a>
             </li>
             <li>
-              <a href="#services"><i class="fa-solid fa-arrow-right"></i>SEO</a></li>
+              <a href="#services"><i class="fa-solid fa-arrow-right"></i>SEO</a>
+            </li>
           </ul>
         </div>
-        <div class="footer-card">
+        <div class="footer-block">
           <h2>Have a Questions?</h2>
           <ul class="unstyled">
           <li>
