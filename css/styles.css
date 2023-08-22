@@ -3,22 +3,34 @@
   top: 0;
   right: 0;
   left: 0;
+  bottom: 50;
   z-index: 10100;
   transition: ease-in-out 0.3s;
   padding: 1rem;
+  background-color: var(--navy);
 }
 [aria-controls="navbarDropdown"] {
   display: none;
+  cursor: pointer;
 }
-.navbar-nav {
+.navbar-toggler {
+  background-color: transparent;
+  border: transparent;
+  color: var(--white);
+}
+.navbar-toggler > span {
+  font-size: 25px;
+}
+.navbar-menu {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  justify-content: center;
 }
 .navbar .container {
   display: flex;
   align-items: center;
 }
-.logo {
+.navbar-brand {
   margin-right: auto;
   font-size: 2rem;
   font-weight: 700;
@@ -26,22 +38,23 @@
   transition: ease-in-out 0.3s;
   color: var(--green);
 }
-.logo:hover,
-.logo:focus {
+.navbar-brand:hover,
+.navbar-brand:focus {
   text-decoration: none;
 }
-
-.nav-link a {
+.nav-link {
+  margin: 0 15px;
   color: var(--white);
   font-size: 0.8125rem;
   font-family: "Hind", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  line-height: 2.5rem;
+  line-height: 1.5rem;
   margin-right: 1.5rem;
 }
-
-
+.nav-link a {
+  color: var(--white);
+}
 .bg-header,
 .bg-demo {
   background-color: var(--navy);
@@ -90,16 +103,14 @@
 }
 .who-are-we-wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap-reverse;
+  max-width: 1200px;
 }
-.who-are-we-wrapper div {
-  /* flex: 1; */
+.who-are-we-wrapper .block-text {
+  margin-right: 20px;
   word-wrap: break-word;
-}
-.block-text {
-  margin-right: 50px;
-}
+}  
 .block-text h2,
 .service h2,
 .why-choose-us h2,
@@ -115,7 +126,7 @@
   margin-top: 0.5rem;
 }
 .service {
-  margin-top: 150px;
+  margin-top: 100px;
 }
 .service-header {
   margin-bottom: 80px;
@@ -178,7 +189,7 @@
   border-radius: 10px;
 }
 .why-us {
-  margin-top: 150px;
+  margin-top: 100px;
   margin-bottom: 80px;
 }
 .why-us-grid {
@@ -187,14 +198,9 @@
 }
 .large-container {
   position: static;
-  max-width: 1450px;
+  max-width: 1400px;
   padding: 0px 30px;
   margin: 0 auto;
-}
-@media (min-width: 1200px) {
-  .large-container {
-    max-width: 1120px;
-  }
 }
 .testimonial-section {
   position: relative;
@@ -285,7 +291,6 @@
   font-weight: 400;
   font-family: "Muli", sans-serif;
 }
-
 .testimonial-carousel .owl-nav {
   position: absolute;
   right: 75px;
@@ -303,10 +308,9 @@
   transition: all 300ms ease;
 }
 .testimonial-carousel .owl-next:hover, .testimonial-carousel .owl-prev:hover {
-  background-color: #00df97;
+  background-color: var(--navy);
   box-shadow: 0 24px 24px rgba(187, 187, 187, 0.75);
 }
-
 .arrow-right, .arrow-left {
   position: relative;
   display: inline-block;
@@ -333,37 +337,23 @@
   max-width: 100%;
   height: auto;
 }
-
-@media only screen and (max-width: 767px) {
-  .testimonial-section .sec-title {
-    margin-bottom: 50px;
-  }
-
-  .testimonial-block {
+.testimonial-block {
     padding: 0;
   }
-  .testimonial-block .inner-box {
+.testimonial-block .inner-box {
     box-shadow: none;
     border: 2px solid var(--white);
   }
-
-  .testimonial-carousel .owl-nav {
+.testimonial-carousel .owl-nav {
     position: relative;
     left: 0;
     bottom: 0;
     margin-top: 20px;
     text-align: center;
   }
-  .testimonial-carousel .owl-next, .testimonial-carousel .owl-prev {
+.testimonial-carousel .owl-next, .testimonial-carousel .owl-prev {
     border: 2px solid var(--white);
   }
-}
-@media only screen and (max-width: 1366px) {
-  .large-container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
 .contact {
   margin-top: 100px;
   margin-bottom: 0px;
@@ -377,14 +367,6 @@
   justify-content: space-evenly;
   align-items: center;
 }
-@media (max-width: 600px) {
-  .contact {
-    margin-top: 0px;
-  }
-  .form {
-    display: none;
-  }
-}
 .left,
 .right {
   padding: 10px;
@@ -393,9 +375,9 @@
   width: 460px;
 }
 .left i {
-  font-size: 18px;
+  font-size: 25px;
   color: var(--white);
-  margin-right: 4px;
+  margin-right: 10px;
 }
 .right {
   display: block;
@@ -415,7 +397,8 @@
 }
 .form textarea {
   width: 500px;
-  height: 150px;
+  height: 200px;
+  resize: both;
 }
 .form .btn {
   color: var(--white);
@@ -429,6 +412,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
+  max-width: 1400px;
 }
 .footer-block {
   margin-right: auto;

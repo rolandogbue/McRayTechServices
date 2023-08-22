@@ -1,0 +1,53 @@
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+  [aria-controls="navbarDropdown"] {
+    display: block;
+  }
+
+  .navbar-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      width: 100%;
+      top: 62px;
+      background-color: var(--navy);
+      width: 100%;
+      z-index: 1; /*Ensure the menu is above other content*/
+  }
+
+  .navbar-menu.active {
+      display: flex;
+  }
+}
+/* Who are we section  */
+@media (max-width: 600px) {
+  .who-are-we-wrapper {
+    flex-wrap: wrap-reverse;
+  }
+}
+/* Testimonial section  */
+@media (min-width: 1200px) {
+  .large-container {
+    max-width: 1120px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .testimonial-section .sec-title {
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .large-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/* Contact section  */
+@media (max-width: 600px) {
+  .contact {
+    margin-top: 0px;
+  }
+  .form {
+    display: none;
+  }
+}

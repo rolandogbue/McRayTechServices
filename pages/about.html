@@ -36,13 +36,12 @@
       <div class="container">
         <button
           class="navbar-toggler"
-          aria-expanded="false"
           aria-controls="navbarDropdown"
-        >
+          data-toggle="collapse"  aria-expanded="false" id="navbarToggler">
           <span>&#9776;</span>
         </button>
-        <a href="index.html" class="logo"></a>
-        <ul class="navbar-nav">
+        <a href="index.html" class="navbar-brand"></a>
+        <ul class="navbar-menu" id="navbarMenu">
           <li class="nav-link"><a href="../index.html">Home</a></li>
           <li class="nav-link"><a href="#">Services</a></li>
           <li class="nav-link"><a href="#">About</a></li>
@@ -141,17 +140,11 @@
               <span>Email: <span class="color-green">mcraytechandfreelanceservices@gmail.com</span></span
               ><br /><br />
             <p>Visit Our Social Media</p>
-            <a href="#">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/mcray_services">
+            <a href="https://www.instagram.com/mcray_services" target="_blank">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="#">
-              <i class="fa-brands fa-linkedin-in"></i>
+            <a href="https://wa.me/2348160621093" target="_blank">
+              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
           <div class="right">
@@ -191,12 +184,10 @@
                   id="#"
                   placeholder="Enter your Phone Number"
                   required
-                /> <br>
+                /> <br><br>
   
-                <p>Choose the solution that best suit your business needs.</p>
                 <label for="message">Message</label> <br />
-                <textarea name="message" id="textarea" cols="30" rows="10" required>
-  Please provide a short description of your business and any questions you have about McRay Tech & Freelance Services.</textarea
+                <textarea name="message" id="textarea" cols="30" rows="10" required>Please provide a short description of your business and any questions you have about McRay Tech & Freelance Services.</textarea
                 ><br>
                   <button type="submit" class="btn btn-white">Submit</button>
                   <span>
@@ -274,8 +265,8 @@
                 <i class="fa-solid fa-location-dot"></i>Nigeria Army Estate Kurudu Abuja Nigeria. <br>
               </address>
             </li>
-            <li><i class="fa-solid fa-phone"></i>+1 (949) 236-7179</li>
-            <li><i class="fa-solid fa-mobile"></i>+234 (0) 8160-621093</li>
+            <li><a href="tel:+194942367179"><i class="fa-solid fa-phone"></i>+1 (949) 236-7179</a></li>
+            <li><a href="tel:+2348160621093"><i class="fa-solid fa-mobile"></i>+234 (0) 8160-621093</a></li>
             <li>
               <a href="mailto:mcraytechandfreelanceservices@gmail.com"><i class="fa-solid fa-envelope"></i><span><span class="__cf_email__" data-cfemail="5c35323a331c2533292e3833313d3532723f3331">[email&#160;protected]</span></span></a>
             </li>
@@ -290,6 +281,6 @@
         </div>
     </footer>
 
-    <script src="#" async defer></script>
+    <script src="../css/script.js" async defer></script>
   </body>
 </html>

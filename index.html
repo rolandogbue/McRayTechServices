@@ -43,13 +43,13 @@
     <nav class="navbar nav">
       <div class="container">
         <button
-          class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle"
+          class="navbar-toggler"
           aria-controls="navbarDropdown"
-          data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          data-toggle="collapse"  aria-expanded="false" id="navbarToggler">
           <span>&#9776;</span>
         </button>
-        <a href="index.html" class="logo navbar-brand"></a>
-        <ul class="navbar-nav">
+        <a href="index.html" class="navbar-brand">McRAY</a>
+        <ul class="navbar-menu" id="navbarMenu">
           <li class="nav-link"><a href="./index.html">Home</a></li>
           <li class="nav-link"><a href="#services">Services</a></li>
           <li class="nav-link"><a href="./pages/about.html">About</a></li>
@@ -353,11 +353,11 @@
           <div class="testimonial-block">
             <div class="inner-box">
               <div class="text">
-                "McRay Tech & Freelance Services' listened to our needs and delivered a final product that exceeded our expectations. They are professional, prompt, creative and patient. During the course of the project, They were attentive and compassionate about the parameters of the project."</div>
+                "Thanks to McRay Tech & Freelance Services for listening to my business needs, they delivered solution that exceeded my expectations. They are professional, prompt, creative and patient, and were attentive and compassionate about the parameters of my business."</div>
               <div class="info-box">
-                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
-                <h4 class="name">Ali Mohammed</h4>
-                <span class="designation">Abuja</span>
+                <div class="thumb"><img src="./images/img/62.jpg" alt="clara"></div>
+                <h4 class="name">Clara Anthony</h4>
+                <span class="designation">Port Harcourt</span>
               </div>
             </div>
           </div>
@@ -367,7 +367,7 @@
             <div class="inner-box">
               <div class="text">"We engaged McRay Tech & Freelance Services to develop a mobile application for our business via Indeed, and they exceeded our expectations. The app is intuitive, user-friendly, and has significantly enhanced our customer engagement. Their team's technical expertise and attention to detail are commendable."</div>
               <div class="info-box">
-                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <div class="thumb"><img src="./images/img/30.jpg" alt="chioma"></div>
                 <h4 class="name">Chioma Nwafor</h4>
                 <span class="designation">Lagos</span>
               </div>
@@ -379,7 +379,7 @@
             <div class="inner-box">
               <div class="text">"Referred by a friend in Port Harcourt, I hired McRay Tech & Freelance Services for a full coverage of my younger sister's wedding and she loved their work. Their team demonstrated a high level of expertise and ensured ensured a moment was captured. Their prompt support and dedication to customer satisfaction are truly commendable."</div>
               <div class="info-box">
-                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <div class="thumb"><img src="./images/img/54.jpg" alt=""></div>
                 <h4 class="name"> Uduak Johnson</h4>
                 <span class="designation">Abuja</span>
               </div>
@@ -391,7 +391,7 @@
             <div class="inner-box">
               <div class="text">"We hired McRay Tech & Freelance Services to develop our company's website via Indeed, and they exceeded our expectations. Their team demonstrated a deep understanding of our requirements and delivered a visually appealing and user-friendly website. Their attention to detail and commitment to customer satisfaction are commendable."</div>
               <div class="info-box">
-                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <div class="thumb"><img src="./images/img/59.jpg" alt="chika"></div>
                 <h4 class="name">Chika O.</h4>
                 <span class="designation">Port Harcourt</span>
               </div>
@@ -403,7 +403,7 @@
             <div class="inner-box">
               <div class="text">"I am extremely satisfied with the IT solutions provided by McRay Tech & Freelance Services. They developed a customized software that streamlined our business operations, resulting in increased productivity and cost savings. Their team is highly skilled and professional, delivering exceptional results within the agreed timeframe."</div>
               <div class="info-box">
-                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <div class="thumb"><img src="./images/img/91.jpg" alt="adeola"></div>
                 <h4 class="name">Adeola O.</h4>
                 <span class="designation">Lagos</span>
               </div>
@@ -415,7 +415,7 @@
             <div class="inner-box">
               <div class="text">"McRay Tech & Freelance Services provided us with an exceptional e-commerce solution that has significantly boosted our online sales. Their team developed a user-friendly platform with advanced features, resulting in an enhanced shopping experience for our customers. We are extremely satisfied with their services."</div>
               <div class="info-box">
-                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <div class="thumb"><img src="./images/img/55.jpg" alt="chinedu"></div>
                 <h4 class="name">Chinedu I.</h4>
                 <span class="designation">Abuja</span>
               </div>
@@ -427,7 +427,7 @@
             <div class="inner-box">
               <div class="text">"We recently completed a redesign of our existing website and could not be happier with the results. The cost was reasonable and we now have a clean and sleek website that we anticipate will drive business to our company."</div>
               <div class="info-box">
-                <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                <div class="thumb"><img src="./images/img/80.jpg" alt=""></div>
                 <h4 class="name">Ibrahim M.</h4>
                 <span class="designation">Abuja</span>
               </div>
@@ -445,32 +445,26 @@
     <section class="contact bg-navy" id="contact">
       <div class="contact-container">
         <div class="left contact-block">
-            <img src="./images/svg/profile_data.svg" alt="contact us image" />
-          <h3>Get In Touch With Us</h3>
-          <p>
-            Whether you're a small or large-scale enterprise, we are here to
-            help you <br />find the best solution that suit your business needs.
-            <br />
-            Tell us about your goals and we'll be in touch.
-          </p>
-          <span>Phone: <span class="color-green">+234 (0) 8160-621093</span></span>
+          <img src="./images/svg/profile_data.svg" alt="contact us image" />
+        <h3>Get In Touch With Us</h3>
+        <p>
+          Whether you're a small or large-scale enterprise, we are here to
+          help you <br />find the best solution that suit your business needs.
           <br />
-            <span>Email: <span class="color-green">mcraytechandfreelanceservices@gmail.com</span></span
-            ><br /><br />
-          <p>Visit Our Social Media</p>
-          <a href="#">
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-          <a href="#">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/mcray_services">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="#">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-        </div>
+          Tell us about your goals and we'll be in touch.
+        </p>
+        <span>Phone: <span class="color-green">+234 (0) 8160-621093</span></span>
+        <br />
+          <span>Email: <span class="color-green">mcraytechandfreelanceservices@gmail.com</span></span
+          ><br /><br />
+        <p>Visit Our Social Media</p>
+        <a href="https://www.instagram.com/mcray_services" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/2348160621093" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
         <div class="right">
           <form action="https://formspree.io/f/mjvqyzyo" method="POST" class="form">
               <label for="name">Full Name</label> <br />
@@ -508,9 +502,7 @@
                 id="#"
                 placeholder="Enter your Phone Number"
                 required
-              /> <br>
-
-              <p>Choose the solution that best suit your business needs.</p>
+              /> <br><br>
               <label for="message">Message</label> <br />
               <textarea name="message" id="textarea" cols="30" rows="10" required>
 Please provide a short description of your business and any questions you have about McRay Tech & Freelance Services.</textarea
@@ -586,17 +578,17 @@ Please provide a short description of your business and any questions you have a
         <div class="footer-block">
           <h2>Have a Questions?</h2>
           <ul class="unstyled">
-          <li>
-            <address>
-              <i class="fa-solid fa-location-dot"></i>Nigeria Army Estate Kurudu Abuja Nigeria. <br>
-            </address>
-          </li>
-          <li><i class="fa-solid fa-phone"></i>+1 (949) 236-7179</li>
-          <li><i class="fa-solid fa-mobile"></i>+234 (0) 8160-621093</li>
-          <li>
-            <a href="mailto:mcraytechandfreelanceservices@gmail.com"><i class="fa-solid fa-envelope"></i><span><span class="__cf_email__" data-cfemail="5c35323a331c2533292e3833313d3532723f3331">[email&#160;protected]</span></span></a>
-          </li>
-          </ul>
+            <li>
+              <address>
+                <i class="fa-solid fa-location-dot"></i>Nigeria Army Estate Kurudu Abuja Nigeria. <br>
+              </address>
+            </li>
+            <li><a href="tel:+194942367179"><i class="fa-solid fa-phone"></i>+1 (949) 236-7179</a></li>
+            <li><a href="tel:+2348160621093"><i class="fa-solid fa-mobile"></i>+234 (0) 8160-621093</a></li>
+            <li>
+              <a href="mailto:mcraytechandfreelanceservices@gmail.com"><i class="fa-solid fa-envelope"></i><span><span class="__cf_email__" data-cfemail="5c35323a331c2533292e3833313d3532723f3331">[email&#160;protected]</span></span></a>
+            </li>
+            </ul>
         </div>
       </div>
       <div class="copyright bg-navy">
@@ -610,6 +602,9 @@ Please provide a short description of your business and any questions you have a
   <!-- script for Testimonial  -->
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js'></script><script  src="./css/script.js"></script>
+
+<script src="./css/script.js">
+</script>
 
   </body>
 </html>

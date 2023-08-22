@@ -35,6 +35,7 @@ body {
   letter-spacing: 0;
   color: var(--text-color);
   background-color: var(--white);
+  margin: 0px;
 }
 div {
   margin: 0;
@@ -75,7 +76,7 @@ input {
 }
 section {
   padding: 0px;
-  margin: 0px;
+  margin: 0px auto;
 }
 footer {
   background-color: var(--black);
@@ -151,23 +152,4 @@ footer {
     max-width: 1120px;
   }
 }
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
+

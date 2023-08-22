@@ -1,3 +1,15 @@
+// Collapsible navbar
+
+const navbarToggle = document.getElementById("navbarToggler");
+const navbarMenu = document.getElementById("navbarMenu");
+
+navbarToggle.addEventListener("click", () => {
+    navbarMenu.classList.toggle("active");
+});
+
+
+
+
 (function($) {
 	
 	"use strict";
