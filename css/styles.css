@@ -19,7 +19,7 @@
   color: var(--white);
 }
 .navbar-toggler > span {
-  font-size: 25px;
+  font-size: var(--size-30);
 }
 .navbar-menu {
   display: flex;
@@ -34,16 +34,17 @@
   margin-right: auto;
   font-size: 2rem;
   font-weight: 700;
-  width: 100%;
   transition: ease-in-out 0.3s;
-  color: var(--green);
+}
+.navbar-brand img {
+  width: var(--size-150);
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
 }
 .nav-link {
-  margin: 0 15px;
+  margin: 0 var(--size-15);
   color: var(--white);
   font-size: 0.8125rem;
   font-family: "Hind", sans-serif;
@@ -96,10 +97,13 @@
   color: var(--white);
 }
 .hero-header {
-  font-size: 50px;
+  font-size: var(--size-50);
 }
 .who-are-we {
-  padding: 100px 0;
+  padding: var(--size-100) 0;
+}
+.who-are-we div {
+  flex: 1 1 auto;
 }
 .who-are-we-wrapper {
   display: flex;
@@ -108,8 +112,7 @@
   max-width: 1200px;
 }
 .who-are-we-wrapper .block-text {
-  margin-right: 20px;
-  word-wrap: break-word;
+  padding-right: var(--size-50);
 }  
 .block-text h2,
 .service h2,
@@ -117,19 +120,27 @@
 .our-team h2,
 .sec-title h2 {
   font-family: "Hind", sans-serif;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 .block-text h2,
 .sec-title h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: var(--size-10);
   margin-top: 0.5rem;
 }
+.btn-primary {
+  background-image: linear-gradient(90deg, var(--navy) 0%, var(--green) 100%);
+  border: 1px solid var(--green);
+  box-shadow: 0 var(--size-10) var(--size-20) rgba(161, 255, 200, 0.5);
+  transition: ease-in-out 0.3s;
+  color: var(--white);
+  padding: 7px var(--size-25);
+}
 .service {
-  margin-top: 100px;
+  margin-top: var(--size-100);
 }
 .service-header {
-  margin-bottom: 80px;
+  margin-bottom: var(--size-80);
 }
 .block-text.service-header,
 .block-text.why-us {
@@ -138,9 +149,9 @@
 .service-grid,
 .why-us-grid {
   display: grid;
-  gap: 30px;
+  gap: var(--size-30);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--size-20);
 }
 .service-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -148,16 +159,16 @@
 }
 .service-card,
 .why-us-card {
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(48, 63, 108, 0.15);
+  padding: var(--size-20);
+  box-shadow: 0 0 var(--size-10) rgba(48, 63, 108, 0.15);
   background: var(--white);
   border-radius: 8px;
 }
 .service-card img,
 .why-us-card img {
-  margin-right: 15px;
-  width: 70px;
-  height: 70px;
+  margin-right: var(--size-15);
+  width: var(--size-70);
+  height: var(--size-70);
   float: left;
   border-radius: 50%;
 }
@@ -170,7 +181,7 @@
 }
 .video-box {
   position: relative;
-  margin-bottom: -150px;
+  margin-bottom: -9.375rem;
   z-index: 100;
 }
 .video-btn {
@@ -178,19 +189,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 10px 20px rgba(57, 166, 251, 0.3);
+  box-shadow: 0 var(--size-10) var(--size-20) rgba(57, 166, 251, 0.3);
 }
 .video-btn img {
-  width: 100px;
-  height: 100px;
+  width: var(--size-100);
+  height: var(--size-100);
 }
 .video-box > img {
   max-width: 600px;
-  border-radius: 10px;
+  border-radius: var(--size-10);
 }
 .why-us {
-  margin-top: 100px;
-  margin-bottom: 80px;
+  margin-top: var(--size-100);
+  margin-bottom: var(--size-80);
 }
 .why-us-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -199,14 +210,15 @@
 .large-container {
   position: static;
   max-width: 1400px;
-  padding: 0px 30px;
+  padding: 0px var(--size-30);
   margin: 0 auto;
 }
 .testimonial-section {
   position: relative;
-  padding-top: 80px;
+  padding-top: var(--size-80);
   padding-bottom: 210px;
   overflow: hidden;
+  background-color: var(--contrast);
 }
 .testimonial-section:before {
   position: absolute;
@@ -223,46 +235,47 @@
 }
 .testimonial-section .sec-title {
   position: relative;
-  margin-bottom: 115px;
+  margin-bottom: 7.1875rem;
 }
 .testimonial-section .sec-title .title {
-  margin-bottom: 20px;
+  margin-bottom: var(--size-20);
 }
 .testimonial-section .testimonial-carousel {
   position: relative;
   max-width: 1100px;
-  margin: 0 -50px;
+  margin: 0 -var(--size-50);
 }
 .testimonial-block {
   position: relative;
-  padding: 50px;
+  padding: var(--size-50);
 }
 .testimonial-block .inner-box {
-  padding: 80px 105px;
+  padding: var(--size-80) 105px;
   background-color: var(--white);
-  box-shadow: 0 0 10px rgba(48, 63, 108, 0.50);
+  box-shadow: 0 0 var(--size-10) rgba(48, 63, 108, 0.15);
+  border-radius: 0.3125rem;
 }
 .testimonial-block .text {
   position: relative;
   display: block;
-  font-size: 18px;
-  line-height: 32px;
-  color: #282331;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: var(--black);
   font-weight: 400;
-  margin-bottom: 50px;
+  margin-bottom: var(--size-50);
   font-family: "Muli", sans-serif;
 }
 .testimonial-block .info-box {
   position: relative;
-  padding-left: 115px;
-  padding-top: 10px;
+  padding-left: 7.1875rem;
+  padding-top: var(--size-10);
 }
 .testimonial-block .info-box .thumb {
   position: absolute;
   left: 0;
   top: 0;
-  height: 82px;
-  width: 82px;
+  height: 5.125rem;
+  width: 5.125rem;
 }
 .testimonial-block .info-box .thumb img {
   border: 6px solid #e5e6fa;
@@ -270,7 +283,7 @@
   overflow: hidden;
   display: block;
   width: 100%;
-  box-shadow: 0 45px 45px rgba(147, 147, 147, 0.35);
+  box-shadow: 0 2.8125rem 2.8125rem rgba(147, 147, 147, 0.35);
 }
 .testimonial-block .info-box .name {
   position: relative;
@@ -279,13 +292,13 @@
   line-height: 1.2em;
   color: #382c4d;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: var(--size-10);
   font-family: "Niramit", sans-serif;
 }
 .testimonial-block .info-box .designation {
   position: relative;
   display: block;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 24px;
   color: #8053f7;
   font-weight: 400;
@@ -293,15 +306,15 @@
 }
 .testimonial-carousel .owl-nav {
   position: absolute;
-  right: 75px;
-  bottom: 70px;
+  right: 4.6875rem;
+  bottom: var(--size-70);
 }
 .testimonial-carousel .owl-next, .testimonial-carousel .owl-prev {
   position: relative;
   display: inline-block;
-  height: 75px;
-  width: 75px;
-  line-height: 75px;
+  height: 4.6875rem;
+  width: 4.6875rem;
+  line-height: 4.6875rem;
   text-align: center;
   border-radius: 50%;
   background-color: var(--white);
@@ -325,8 +338,8 @@
 }
 .testimonial-section .thumb-layer {
   position: absolute;
-  right: 30px;
-  top: 120px;
+  right: var(--size-30);
+  top: 7.5rem;
 }
 .testimonial-section .thumb-layer .image {
   position: relative;
@@ -337,29 +350,23 @@
   max-width: 100%;
   height: auto;
 }
-.testimonial-block {
-    padding: 0;
-  }
-.testimonial-block .inner-box {
-    box-shadow: none;
-    border: 2px solid var(--white);
-  }
+
 .testimonial-carousel .owl-nav {
     position: relative;
     left: 0;
     bottom: 0;
-    margin-top: 20px;
+    margin-top: var(--size-20);
     text-align: center;
   }
 .testimonial-carousel .owl-next, .testimonial-carousel .owl-prev {
     border: 2px solid var(--white);
   }
 .contact {
-  margin-top: 100px;
-  margin-bottom: 0px;
+  padding-top: var(--size-100);
+  padding-bottom: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: var(--size-20);
 }
 .contact-container {
   display: flex;
@@ -369,59 +376,59 @@
 }
 .left,
 .right {
-  padding: 10px;
+  padding: var(--size-10);
 }
 .left img {
   width: 460px;
 }
 .left i {
-  font-size: 25px;
+  font-size: var(--size-25);
   color: var(--white);
-  margin-right: 10px;
+  margin-right: var(--size-10);
 }
 .right {
   display: block;
 }
 .form {
-  padding: 20px;
+  padding: var(--size-20);
 }
 .form label {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .form input {
   width: 400px;
-  height: 30px;
+  height: var(--size-30);
   color: var(--white);
   border-bottom: 1px solid var(--white);
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
 }
 .form textarea {
-  width: 500px;
-  height: 200px;
+  width: 31.25rem;
+  height: 9.375rem;
   resize: both;
 }
 .form .btn {
   color: var(--white);
   border: 1px solid var(--white);
   background-color: var(--black);
-  font-size: 20px;
-  margin-right: 5px;
+  font-size: var(--size-20);
+  margin-right: 0.3125rem;
 }
 .container.footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 50px;
+  padding-bottom: var(--size-50);
   max-width: 1400px;
 }
 .footer-block {
   margin-right: auto;
 }
 .footer-block i {
-  color: var(--font-color-base);
-  font-size: 18px;
-  margin-right: 10px;
+  font-size: 1.125rem;
+  margin-right: var(--size-10);
 }
 .copyright {
-  padding: 20px;
+  padding: var(--size-20);
+  margin: 0;
 }

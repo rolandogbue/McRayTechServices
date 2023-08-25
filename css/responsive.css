@@ -3,20 +3,20 @@
   [aria-controls="navbarDropdown"] {
     display: block;
   }
-
   .navbar-menu {
       display: none;
       flex-direction: column;
       position: absolute;
       width: 100%;
-      top: 62px;
+      top: var(--size-70);
       background-color: var(--navy);
-      width: 100%;
       z-index: 1; /*Ensure the menu is above other content*/
   }
-
   .navbar-menu.active {
       display: flex;
+  }
+  .testimonial-section {
+    display: none;
   }
 }
 /* Who are we section  */
@@ -33,19 +33,19 @@
 }
 @media only screen and (max-width: 767px) {
   .testimonial-section .sec-title {
-    margin-bottom: 50px;
+    margin-bottom: var(--size-50);
   }
 }
 @media only screen and (max-width: 1366px) {
   .large-container {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--size-20);
+    padding-right: var(--size-20);
   }
 }
 /* Contact section  */
 @media (max-width: 600px) {
   .contact {
-    margin-top: 0px;
+    margin-top: 0;
   }
   .form {
     display: none;
