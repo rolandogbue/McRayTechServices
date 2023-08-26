@@ -1,5 +1,5 @@
 /* Media query for responsiveness */
-@media (max-width: 600px) {
+@media (max-width: 600px) and (min-width: 390px) {
   .navbar-brand img {
     width: var(--size-100);
   }
@@ -34,7 +34,7 @@
     width: 350px;
   }
   .form textarea {
-    width: 390px;
+    width: 380px;
   }
   .footer .container{
     padding-top: var(--size-50);
@@ -48,7 +48,15 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 389px) {
+   /* Testimonial section  */
+   .testimonial-section {
+    display: none;
+  }
+  /* Who are we section  */
+  .who-are-we-wrapper {
+    flex-wrap: wrap-reverse;
+  }
   .service-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
@@ -60,7 +68,7 @@
     width: 300px;
   }
   .form textarea {
-    width: 320px;
+    width: 300px;
   }
 }
 /* Testimonial section  */

@@ -395,7 +395,7 @@
   font-size: 1rem;
 }
 .form input {
-  padding-bottom: var(--size-10);
+  margin-bottom: var(--size-10);
   width: 500px;
   height: 30px;
   color: var(--white);
