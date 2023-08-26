@@ -2,7 +2,15 @@
 @import "responsive.css";
 @import "default.css";
 
-.row {
+.about {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  overflow-y: auto;
+  height: 100vh;
+  max-width: 100%;
+}
+.about .row {
   margin: 0;
   display: flex;
   align-items: center;
@@ -10,17 +18,10 @@
 .about-content {
   margin-top: var(--size-50);
 }
-.about-content, .about-panel {
+.about-content, 
+.about-panel {
   max-width: 50%;
   width: 50%;
-}
-.container.about {
-  margin: 0;
-  padding: 0;
-  background-color: var(--white);
-  overflow-y: auto;
-  height: 100vh;
-  max-width: 100%;
 }
 .about-panel {
   padding: 0;
