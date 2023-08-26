@@ -397,7 +397,7 @@
 .form input {
   padding-bottom: var(--size-10);
   width: 500px;
-  height: 25px;
+  height: 30px;
   color: var(--white);
   border-bottom: 1px solid var(--white);
 }
