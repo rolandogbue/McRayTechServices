@@ -30,6 +30,9 @@
   --bg-about: url("../images/img/Building.jpg");
   --bg-demo: url("../images/img/bg-why-choose-us.jpg");
 }
+html {
+  scroll-behavior: smooth;
+}
 
 *,
 ::after,
