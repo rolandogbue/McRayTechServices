@@ -50,7 +50,7 @@
 
 @media (max-width: 389px) {
    /* Testimonial section  */
-   .testimonial-section {
+  .testimonial-section {
     display: none;
   }
   /* Who are we section  */

@@ -226,7 +226,7 @@
   position: absolute;
   left: -200px;
   top: 22%;
-  background-image: url(http://t.commonsupport.com/adro/images/icons/ring-circle.png);
+  background-image: url('http://t.commonsupport.com/adro/images/icons/ring-circle.png');
   background-repeat: no-repeat;
   background-position: center;
   width: 701px;
@@ -331,12 +331,12 @@
   display: inline-block;
   height: 9px;
   width: 43px;
-  background-image: url(http://t.commonsupport.com/adro/images/icons/arrow-left-2.png);
+  background-image: url('http://t.commonsupport.com/adro/images/icons/arrow-left-2.png');
   background-repeat: no-repeat;
   background-position: center;
 }
 .arrow-right {
-  background-image: url(http://t.commonsupport.com/adro/images/icons/arrow-right-2.png);
+  background-image: url('http://t.commonsupport.com/adro/images/icons/arrow-right-2.png');
 }
 .testimonial-section .thumb-layer {
   position: absolute;
