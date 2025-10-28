@@ -3,7 +3,7 @@ import { ArrowDown, CheckCircle } from "lucide-react";
 
 const Hero = () => {
 	return (
-		<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white overflow-hidden">
+		<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white overflow-hidden pt-4">
 			<div className="absolute inset-0 bg-black/20"></div>
 			<div className="relative z-10 container mx-auto px-6 text-center">
 				<div className="max-w-4xl mx-auto">

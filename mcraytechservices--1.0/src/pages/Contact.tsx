@@ -153,7 +153,7 @@ const Contact = () => {
 											<option value="branding">Branding & Design</option>
 											<option value="website">Website Development</option>
 											<option value="seo">SEO & Digital Marketing</option>
-											<option value="automation">Marketing Automation</option>
+											<option value="automation">Business Automation</option>
 											<option value="social-media">
 												Social Media Management
 											</option>
@@ -203,8 +203,12 @@ const Contact = () => {
 										</div>
 										<div>
 											<h3 className="font-semibold text-lg">Email Us</h3>
-											<p className="text-gray-600">hello@growthpartner.com</p>
-											<p className="text-gray-600">support@growthpartner.com</p>
+											<p className="text-gray-600">
+												solutions@mcraytechservices.com
+											</p>
+											<p className="text-gray-600">
+												support@mcraytechservices.com
+											</p>
 										</div>
 									</div>
 								</Card>
@@ -216,8 +220,8 @@ const Contact = () => {
 										</div>
 										<div>
 											<h3 className="font-semibold text-lg">Call Us</h3>
-											<p className="text-gray-600">+1 (555) 123-4567</p>
-											<p className="text-gray-600">+1 (555) 765-4321</p>
+											<p className="text-gray-600">+234 (805) 192-7074</p>
+											<p className="text-gray-600">+1 (410) 929-1326</p>
 										</div>
 									</div>
 								</Card>
@@ -230,11 +234,12 @@ const Contact = () => {
 										<div>
 											<h3 className="font-semibold text-lg">Visit Us</h3>
 											<p className="text-gray-600">
-												123 Business Growth Street
+												BLK C40 Maj Gen FO Okonkwo Street
 											</p>
 											<p className="text-gray-600">
-												Innovation District, NY 10001
+												Post Army Estate Phase 5 Kurudu II
 											</p>
+											<p className="text-gray-600">Abuja FCT 900109 Nigeria</p>
 										</div>
 									</div>
 								</Card>

@@ -8,7 +8,7 @@ const Footer = () => {
 					{/* Company Info */}
 					<div className="col-span-1 md:col-span-2">
 						<div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4">
-							GrowthPartner
+							McRayTechServices
 						</div>
 						<p className="text-gray-300 mb-6 leading-relaxed max-w-md">
 							The all-in-one business growth solution that helps SMBs scale
@@ -126,10 +126,12 @@ const Footer = () => {
 
 				<div className="flex flex-col md:flex-row justify-between items-center">
 					<p className="text-gray-400 text-sm">
-						© 2024 GrowthPartner. All rights reserved.
+						© 2025 McRay Tech Services Ltd. All rights reserved
 					</p>
 					<p className="text-gray-400 text-sm mt-4 md:mt-0">
-						Made with ❤️ for growing businesses
+						<a href="http://jetmotorsauto.com" target="_blank" rel="jetmotors">
+							⚙️ Parent company of JetMotors
+						</a>
 					</p>
 				</div>
 			</div>
