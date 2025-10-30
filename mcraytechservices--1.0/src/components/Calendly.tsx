@@ -24,7 +24,7 @@ const Calendly = ({
 	className = "",
 	variant = "default",
 	autoOpen = false,
-	delay = 1000,
+	delay = 3000,
 	size = "default",
 }: CalendlyProps) => {
 	const openCalendly = () => {
