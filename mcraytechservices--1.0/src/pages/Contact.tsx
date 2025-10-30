@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,44 +10,36 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
 import { toast } from "sonner";
+import Calendly from "@/components/Calendly";
 
 const Contact = () => {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		company: "",
-		phone: "",
-		service: "",
-		message: "",
-	});
+	const [state, handleSubmit] = useForm("contact-form"); // replace "contact-form" with your actual Formspree form ID
 
-	const handleInputChange = (
-		e: React.ChangeEvent<
-			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-		>
-	) => {
-		const { name, value } = e.target;
-		setFormData((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-	};
+	useEffect(() => {
+		if (state.succeeded) {
+			toast.success(
+				"Thank you for your message! We'll get back to you within 24 hours."
+			);
+		}
+	}, [state.succeeded]);
 
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		console.log("Form submitted:", formData);
-		toast.success(
-			"Thank you for your message! We'll get back to you within 24 hours."
-		);
-		setFormData({
-			name: "",
-			email: "",
-			company: "",
-			phone: "",
-			service: "",
-			message: "",
-		});
-	};
+	// Load Calendly script once
+	useEffect(() => {
+		const script = document.createElement("script");
+		script.src = "https://assets.calendly.com/assets/external/widget.js";
+		script.async = true;
+		document.body.appendChild(script);
+		return () => {
+			document.body.removeChild(script);
+		};
+	}, []);
+
+	// const openCalendlyPopup = () => {
+	// 	(window as any).Calendly.initPopupWidget({
+	// 		url: "https://calendly.com/mcraytechservices/free-strategy-session",
+	// 	});
+	// 	return false;
+	// };
 
 	return (
 		<div className="min-h-screen">
@@ -93,10 +86,8 @@ const Contact = () => {
 											<Input
 												id="name"
 												name="name"
-												value={formData.name}
-												onChange={handleInputChange}
-												placeholder="Your full name"
 												required
+												placeholder="Your full name"
 											/>
 										</div>
 										<div>
@@ -105,10 +96,13 @@ const Contact = () => {
 												id="email"
 												name="email"
 												type="email"
-												value={formData.email}
-												onChange={handleInputChange}
-												placeholder="your.email@company.com"
 												required
+												placeholder="your.email@company.com"
+											/>
+											<ValidationError
+												prefix="Email"
+												field="email"
+												errors={state.errors}
 											/>
 										</div>
 									</div>
@@ -119,8 +113,6 @@ const Contact = () => {
 											<Input
 												id="company"
 												name="company"
-												value={formData.company}
-												onChange={handleInputChange}
 												placeholder="Your company name"
 											/>
 										</div>
@@ -130,8 +122,6 @@ const Contact = () => {
 												id="phone"
 												name="phone"
 												type="tel"
-												value={formData.phone}
-												onChange={handleInputChange}
 												placeholder="+1 (555) 123-4567"
 											/>
 										</div>
@@ -142,8 +132,6 @@ const Contact = () => {
 										<select
 											id="service"
 											name="service"
-											value={formData.service}
-											onChange={handleInputChange}
 											className="w-full h-10 px-3 py-2 text-sm bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
 										>
 											<option value="">Select a service</option>
@@ -166,20 +154,25 @@ const Contact = () => {
 										<Textarea
 											id="message"
 											name="message"
-											value={formData.message}
-											onChange={handleInputChange}
-											placeholder="Tell us about your business goals and how we can help..."
-											rows={5}
 											required
+											rows={5}
+											placeholder="Tell us about your business goals and how we can help..."
+										/>
+										<ValidationError
+											prefix="Message"
+											field="message"
+											errors={state.errors}
 										/>
 									</div>
 
 									<Button
 										type="submit"
+										disabled={state.submitting}
 										className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg py-3"
 									>
-										Send Message
+										{state.submitting ? "Sending..." : "Send Message"}
 									</Button>
+									<ValidationError errors={state.errors} />
 								</form>
 							</CardContent>
 						</Card>
@@ -264,7 +257,7 @@ const Contact = () => {
 							</div>
 
 							{/* CTA */}
-							<Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8">
+							<Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 z-50">
 								<h3 className="text-2xl font-bold mb-4">
 									Free Strategy Session
 								</h3>
@@ -272,12 +265,11 @@ const Contact = () => {
 									Book a complimentary 30-minute consultation to discuss your
 									business goals and discover how we can help you scale.
 								</p>
-								<Button
+								<Calendly
 									variant="secondary"
 									className="bg-white text-blue-600 hover:bg-gray-100"
-								>
-									Schedule Free Call
-								</Button>
+									text="Schedule Free Call"
+								/>
 							</Card>
 						</div>
 					</div>
@@ -292,7 +284,8 @@ const Contact = () => {
 							<h2 className="text-3xl font-bold mb-4">Visit Our Office</h2>
 							<p className="text-gray-600 text-lg">
 								Located at BLK C40 Maj Gen FO Okonkwo Street, Post Army Estate
-								Phase 5 Kurudu II Abuja, we're easily accessible and ready to welcome you.
+								Phase 5 Kurudu II Abuja, we're easily accessible and ready to
+								welcome you.
 							</p>
 						</div>
 						<GoogleMap />

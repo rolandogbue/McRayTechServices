@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-
+import Calendly from "@/components/Calendly";
 const Header = () => {
 	const navLinks = [
 		{ label: "Services", href: "#services" },
@@ -39,15 +39,16 @@ const Header = () => {
 					</nav>
 
 					<div className="hidden md:flex items-center space-x-4">
-						<Button
+						{/* <Button
 							variant="outline"
 							className="border-blue-600 text-blue-600 hover:bg-blue-50"
 						>
 							Login
-						</Button>
-						{/* <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-							Get Started
 						</Button> */}
+						<Calendly
+							className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+							text="Get Started"
+						/>
 					</div>
 
 					{/* Mobile Navigation */}
@@ -69,15 +70,16 @@ const Header = () => {
 									</a>
 								))}
 								<div className="flex flex-col space-y-3 pt-6">
-									<Button
+									{/* <Button
 										variant="outline"
-										className="bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+										className="border-blue-600 text-blue-600"
 									>
 										Login
-									</Button>
-									{/* <Button className="border-blue-600 text-blue-600">
-										Get Started
 									</Button> */}
+									<Calendly
+										className="bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+										text="Get Started"
+									/>
 								</div>
 							</div>
 						</SheetContent>

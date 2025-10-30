@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import Calendly from "./Calendly";
 
 const CTA = () => {
 	return (
 		<section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
 			<div className="container mx-auto px-6">
-				<Card className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm border-white/20 shadow-2xl">
+				<Card className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm border-white/20 shadow-2xl pt-4">
 					<CardContent className="p-12 text-center text-white">
 						<h2 className="text-4xl md:text-5xl font-bold mb-6">
 							Ready to Scale Your Business with
@@ -16,7 +17,7 @@ const CTA = () => {
 							</span>
 						</h2>
 						<p className="text-xl mb-8 text-blue-100 leading-relaxed max-w-3xl mx-auto">
-							Stop juggling multiple vendors and start growing faster. Get a
+							Let us handle everything for you, and start growing faster. Get a
 							free business growth audit and discover how much time and money
 							you could save with our all-in-one solution.
 						</p>
@@ -44,13 +45,12 @@ const CTA = () => {
 								Get Your Free Growth Audit
 								<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
 							</Button>
-							<Button
+							<Calendly
 								size="lg"
-								variant="outline"
+								// variant="ghost"
 								className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg rounded-full transition-all duration-300"
-							>
-								Schedule a Call
-							</Button>
+								text="Schedule a Call"
+							/>
 						</div>
 
 						<p className="text-sm text-blue-200 mt-6">

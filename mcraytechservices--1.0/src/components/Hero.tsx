@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, CheckCircle } from "lucide-react";
+import Calendly from "./Calendly";
 
 const Hero = () => {
 	return (
-		<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white overflow-hidden pt-4">
+		<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white overflow-hidden pt-6">
 			<div className="absolute inset-0 bg-black/20"></div>
 			<div className="relative z-10 container mx-auto px-6 text-center">
 				<div className="max-w-4xl mx-auto">
@@ -17,20 +18,20 @@ const Hero = () => {
 					</h1>
 					<p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed animate-fade-in">
 						Stop juggling multiple vendors. We handle Branding, Web Development,
-						SEO, Digital Marketing, Automation and Social Media - so you can
-						focus on what matters most: converting leads to paid clients.
+						SEO, Digital Marketing, Automation and Social Media Management - so
+						you can focus on what matters most: converting leads to paid
+						clients.
 					</p>
 
 					<div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-						<Button
+						<Calendly
 							size="lg"
 							className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
-						>
-							Get Your Free Growth Audit
-						</Button>
+							text="Get Your Free Growth Audit"
+						/>
 						<Button
 							size="lg"
-							variant="outline"
+							// variant="ghost"
 							className="border-white text-grey hover:bg-white hover:text-blue-900 px-8 py-4 text-lg rounded-full transition-all duration-300"
 						>
 							See How It Works

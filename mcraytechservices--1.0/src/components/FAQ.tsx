@@ -27,7 +27,7 @@ const FAQ = () => {
 		{
 			question: "What size businesses do you work with?",
 			answer:
-				"We specialize in small to medium-sized businesses (SMBs) with annual revenues between $500K to $10M who are ready to scale. Whether you're a local service business, e-commerce company, or B2B provider, our strategies adapt to your industry and growth stage.",
+				"We specialize in small to medium-sized businesses (SMBs) who are 'seriously' ready to scale. Whether you're a local service business, e-commerce company, or B2B provider, our strategies adapt to your industry and growth stage.",
 		},
 		{
 			question: "How much does this cost compared to hiring multiple vendors?",
