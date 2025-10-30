@@ -68,7 +68,7 @@ const Footer = () => {
 									href="#"
 									className="text-gray-300 hover:text-white transition-colors"
 								>
-									Social Media
+									Social Media Managment
 								</a>
 							</li>
 						</ul>

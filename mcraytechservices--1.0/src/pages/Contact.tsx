@@ -291,8 +291,8 @@ const Contact = () => {
 						<div className="text-center mb-12">
 							<h2 className="text-3xl font-bold mb-4">Visit Our Office</h2>
 							<p className="text-gray-600 text-lg">
-								Located in the heart of the Innovation District, we're easily
-								accessible and ready to welcome you.
+								Located at BLK C40 Maj Gen FO Okonkwo Street, Post Army Estate
+								Phase 5 Kurudu II Abuja, we're easily accessible and ready to welcome you.
 							</p>
 						</div>
 						<GoogleMap />

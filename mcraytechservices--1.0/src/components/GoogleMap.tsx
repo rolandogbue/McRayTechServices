@@ -9,7 +9,7 @@ const GoogleMap = () => {
 	const [showMap, setShowMap] = useState(false);
 
 	const businessAddress =
-		"123 Business Growth Street, Innovation District, NY 10001";
+		"BLK C40 Maj Gen FO Okonkwo Street, Post Army Estate Phase 5 Kurudu II, Abuja FCT 900109 Nigeria";
 
 	const handleLoadMap = () => {
 		if (apiKey.trim()) {
@@ -27,10 +27,10 @@ const GoogleMap = () => {
 					</CardTitle>
 				</CardHeader>
 				<CardContent className="space-y-4">
-					<p className="text-gray-600">
+					{/* <p className="text-gray-600">
 						To display the interactive map, please enter your Google Maps API
 						key:
-					</p>
+					</p> */}
 					<div className="flex gap-2">
 						<Input
 							placeholder="Enter Google Maps API key"
@@ -43,7 +43,7 @@ const GoogleMap = () => {
 						</Button>
 					</div>
 					<div className="text-sm text-gray-500">
-						<p>
+						{/* <p>
 							Get your API key from:{" "}
 							<a
 								href="https://console.cloud.google.com/google/maps-apis"
@@ -53,7 +53,7 @@ const GoogleMap = () => {
 							>
 								Google Cloud Console
 							</a>
-						</p>
+						</p> */}
 					</div>
 					<div className="bg-gray-100 p-4 rounded-lg text-center">
 						<MapPin className="w-12 h-12 mx-auto text-gray-400 mb-2" />

@@ -45,9 +45,9 @@ const Header = () => {
 						>
 							Login
 						</Button>
-						<Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+						{/* <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
 							Get Started
-						</Button>
+						</Button> */}
 					</div>
 
 					{/* Mobile Navigation */}
@@ -75,9 +75,9 @@ const Header = () => {
 									>
 										Login
 									</Button>
-									<Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+									{/* <Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
 										Get Started
-									</Button>
+									</Button> */}
 								</div>
 							</div>
 						</SheetContent>

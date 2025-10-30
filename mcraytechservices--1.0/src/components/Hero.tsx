@@ -17,8 +17,8 @@ const Hero = () => {
 					</h1>
 					<p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed animate-fade-in">
 						Stop juggling multiple vendors. We handle Branding, Web Development,
-						SEO, Digital Marketing, Automation & Social Media - so you can focus
-						on what matters most: converting leads to paid clients.
+						SEO, Digital Marketing, Automation and Social Media - so you can
+						focus on what matters most: converting leads to paid clients.
 					</p>
 
 					<div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
@@ -31,7 +31,7 @@ const Hero = () => {
 						<Button
 							size="lg"
 							variant="outline"
-							className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg rounded-full transition-all duration-300"
+							className="border-white text-grey hover:bg-white hover:text-blue-900 px-8 py-4 text-lg rounded-full transition-all duration-300"
 						>
 							See How It Works
 						</Button>
