@@ -71,11 +71,11 @@ const Header = () => {
 								<div className="flex flex-col space-y-3 pt-6">
 									<Button
 										variant="outline"
-										className="border-blue-600 text-blue-600"
+										className="bg-gradient-to-r from-blue-600 to-purple-600 text-white"
 									>
 										Login
 									</Button>
-									{/* <Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+									{/* <Button className="border-blue-600 text-blue-600">
 										Get Started
 									</Button> */}
 								</div>
