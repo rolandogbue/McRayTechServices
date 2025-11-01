@@ -47,7 +47,7 @@ const CTA = () => {
 							</Button>
 							<Calendly
 								size="lg"
-								// variant="ghost"
+								variant="outline"
 								className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg rounded-full transition-all duration-300"
 								text="Schedule a Call"
 							/>

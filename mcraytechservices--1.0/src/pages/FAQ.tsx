@@ -1,12 +1,18 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+// import { Badge } from "@/components/ui/badge";
+import SEO from "@/components/SEO";
+import SEO_CONFIG from "@/config/seo";
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 
 const FAQ = () => {
+	const { title, description, keywords } = SEO_CONFIG.faq;
+
 	const faqs = [
 		{
 			question:
@@ -63,45 +69,74 @@ const FAQ = () => {
 	];
 
 	return (
-		<section className="py-20 bg-gradient-to-b from-white to-gray-50">
-			<div className="container mx-auto px-6">
-				<div className="text-center mb-16">
-					<Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
-						FAQ
-					</Badge>
-					<h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-						Frequently Asked
-						<span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-							{" "}
-							Questions
-						</span>
-					</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
-						Get answers to common questions about our all-in-one business growth
-						solutions.
-					</p>
-				</div>
+		<div className="min-h-screen">
+			<SEO title={title} description={description} keywords={keywords} />
+			<Header />
 
-				<div className="max-w-4xl mx-auto">
-					<Accordion type="single" collapsible className="space-y-4">
-						{faqs.map((faq, index) => (
-							<AccordionItem
-								key={index}
-								value={`item-${index}`}
-								className="bg-white rounded-lg shadow-md border-0 overflow-hidden"
-							>
-								<AccordionTrigger className="px-8 py-6 text-left font-semibold text-gray-900 hover:text-orange-600 transition-colors hover:no-underline">
-									{faq.question}
-								</AccordionTrigger>
-								<AccordionContent className="px-8 pb-6 text-gray-600 leading-relaxed">
-									{faq.answer}
-								</AccordionContent>
-							</AccordionItem>
-						))}
-					</Accordion>
+			{/* FAQ */}
+			<section className="pt-24 pb-16 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white">
+				<div className="container mx-auto px-6">
+					<div className="max-w-4xl mx-auto text-center">
+						<h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+							Frequently Asked
+							<span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+								{" "}
+								Questions
+							</span>
+						</h1>
+						<p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+							Get answers to common questions about our all-in-one business
+							growth solutions.
+						</p>
+						<p className="mt-4 text-blue-100 leading-relaxed">
+							Learn what working with us looks like.
+						</p>
+						<p className="mt-2 text-blue-100 leading-relaxed">
+							Understand our processes before you get started.
+						</p>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+
+			<section className="py-20 bg-gradient-to-b from-white to-gray-50">
+				<div className="container mx-auto px-6">
+					{/* <div className="text-center mb-16">
+						<Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
+							FAQ
+						</Badge>
+						<h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+							Frequently Asked
+							<span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+								{" "}
+								Questions
+							</span>
+						</h2>
+						
+					</div> */}
+
+					<div className="max-w-4xl mx-auto">
+						<Accordion type="single" collapsible className="space-y-4">
+							{faqs.map((faq, index) => (
+								<AccordionItem
+									key={index}
+									value={`item-${index}`}
+									className="bg-white rounded-lg shadow-md border-0 overflow-hidden"
+								>
+									<AccordionTrigger className="px-8 py-6 text-left font-semibold text-gray-900 hover:text-orange-600 transition-colors hover:no-underline">
+										{faq.question}
+									</AccordionTrigger>
+									<AccordionContent className="px-8 pb-6 text-gray-600 leading-relaxed">
+										{faq.answer}
+									</AccordionContent>
+								</AccordionItem>
+							))}
+						</Accordion>
+					</div>
+				</div>
+			</section>
+
+			<Footer />
+		</div>
 	);
 };
 

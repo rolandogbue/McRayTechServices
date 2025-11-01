@@ -100,6 +100,35 @@ const Benefits = () => {
 						</Card>
 					))}
 				</div>
+
+				<div className="mt-28 bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+					<div className="grid lg:grid-cols-2 gap-10 items-center justify-center">
+						<div>
+							<h3 className="text-3xl font-bold text-gray-900 mb-4">
+								The Multi-Vendor Problem
+							</h3>
+							<div className="space-y-4 text-gray-600">
+								<p>• Managing 5+ different vendors and contracts</p>
+								<p>• Miscommunication between teams</p>
+								<p>• Conflicting strategies and goals</p>
+								<p>• Higher total costs and overhead</p>
+								<p>• Slower project delivery</p>
+							</div>
+						</div>
+						<div>
+							<h3 className="text-3xl font-bold text-gray-900 mb-4">
+								Our Solution
+							</h3>
+							<div className="space-y-4 text-gray-600">
+								<p>• Single contract, single point of contact</p>
+								<p>• Seamless team collaboration</p>
+								<p>• Unified strategy across all channels</p>
+								<p>• Cost-effective bundled pricing</p>
+								<p>• Faster results with coordinated efforts</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	);

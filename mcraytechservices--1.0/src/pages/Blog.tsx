@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import SEO_CONFIG from "@/config/seo";
 
 const blogPosts = [
 	{
@@ -86,8 +88,11 @@ const categories = [
 ];
 
 const Blog = () => {
+	const { title, description, keywords } = SEO_CONFIG.blog;
+
 	return (
 		<div className="min-h-screen">
+			<SEO title={title} description={description} keywords={keywords} />
 			<Header />
 
 			{/* Hero Section */}

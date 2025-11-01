@@ -4,10 +4,10 @@ import Calendly from "./Calendly";
 
 const Hero = () => {
 	return (
-		<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white overflow-hidden pt-6">
+		<section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white overflow-hidden pt-6 md:pt-12">
 			<div className="absolute inset-0 bg-black/20"></div>
 			<div className="relative z-10 container mx-auto px-6 text-center">
-				<div className="max-w-4xl mx-auto">
+				<div className="max-w-4xl mx-auto md:pt-10">
 					<h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in">
 						Scale Your Business with Our
 						<span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
@@ -31,7 +31,7 @@ const Hero = () => {
 						/>
 						<Button
 							size="lg"
-							// variant="ghost"
+							variant="outline"
 							className="border-white text-grey hover:bg-white hover:text-blue-900 px-8 py-4 text-lg rounded-full transition-all duration-300"
 						>
 							See How It Works

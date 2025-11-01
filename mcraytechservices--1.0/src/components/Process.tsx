@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Lightbulb, Rocket, BarChart } from "lucide-react";
+import Calendly from "@/components/Calendly";
 
 const Process = () => {
 	const steps = [
@@ -112,6 +113,21 @@ const Process = () => {
 							</CardContent>
 						</Card>
 					))}
+				</div>
+			</div>
+			{/* <CTA /> */}
+			<div className="mt-16 text-center">
+				<div className="bg-white rounded-2xl p-8 shadow-lg inline-block">
+					<h3 className="text-2xl font-bold text-gray-900 mb-4">
+						Ready to Get Started?
+					</h3>
+					<p className="text-gray-600 mb-6">
+						Let's discuss your project and see how we can help you grow
+					</p>
+					<Calendly
+						className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+						text="Schedule Free Consultation"
+					/>
 				</div>
 			</div>
 		</section>

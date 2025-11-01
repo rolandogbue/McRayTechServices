@@ -57,7 +57,7 @@ const Footer = () => {
 								/>
 								<SocialButton
 									platform="twitter"
-									href="https://twitter.com/mcraytechservices"
+									href="https://twitter.com/services78078"
 								/>
 								<SocialButton
 									platform="facebook"

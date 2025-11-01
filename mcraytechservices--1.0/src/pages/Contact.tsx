@@ -11,8 +11,11 @@ import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
 import { toast } from "sonner";
 import Calendly from "@/components/Calendly";
+import SEO from "@/components/SEO";
+import SEO_CONFIG from "@/config/seo";
 
 const Contact = () => {
+	const { title, description, keywords } = SEO_CONFIG.contact;
 	const [state, handleSubmit] = useForm("contact-form"); // replace "contact-form" with your actual Formspree form ID
 
 	useEffect(() => {
@@ -23,26 +26,9 @@ const Contact = () => {
 		}
 	}, [state.succeeded]);
 
-	// Load Calendly script once
-	useEffect(() => {
-		const script = document.createElement("script");
-		script.src = "https://assets.calendly.com/assets/external/widget.js";
-		script.async = true;
-		document.body.appendChild(script);
-		return () => {
-			document.body.removeChild(script);
-		};
-	}, []);
-
-	// const openCalendlyPopup = () => {
-	// 	(window as any).Calendly.initPopupWidget({
-	// 		url: "https://calendly.com/mcraytechservices/free-strategy-session",
-	// 	});
-	// 	return false;
-	// };
-
 	return (
 		<div className="min-h-screen">
+			<SEO title={title} description={description} keywords={keywords} />
 			<Header />
 
 			{/* Hero Section */}

@@ -2,13 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Calendly from "@/components/Calendly";
+
 const Header = () => {
 	const navLinks = [
 		{ label: "Services", href: "#services" },
 		{ label: "Process", href: "#process" },
 		{ label: "Benefits", href: "#benefits" },
+		{ label: "About", href: "#about" },
 		{ label: "Blog", href: "/blog" },
-		{ label: "FAQ", href: "#faq" },
+		{ label: "FAQ", href: "/faq" },
 		{ label: "Contact", href: "/contact" },
 	];
 
