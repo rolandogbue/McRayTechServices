@@ -84,7 +84,7 @@ const categories = [
 	"Digital Marketing",
 	"Automation",
 	"Web Development",
-	"Social Media",
+	"Social Media Management",
 ];
 
 const Blog = () => {
