@@ -2,16 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Calendly from "@/components/Calendly";
+import Logo from "@/components/Logo";
 
 const Header = () => {
 	const navLinks = [
-		{ label: "Services", href: "#services" },
-		{ label: "Process", href: "#process" },
-		{ label: "Benefits", href: "#benefits" },
-		{ label: "About", href: "#about" },
-		{ label: "Blog", href: "/blog" },
+		{ label: "HOME", href: "/" },
+		// { label: "PROCESS", href: "#process" },
+		// { label: "BENEFITS", href: "#benefits" },
+		{ label: "ABOUT", href: "/about" },
+		{ label: "BLOG", href: "/blog" },
 		{ label: "FAQ", href: "/faq" },
-		{ label: "Contact", href: "/contact" },
+		{ label: "CONTACT", href: "/contact" },
 	];
 
 	return (
@@ -19,12 +20,7 @@ const Header = () => {
 			<div className="container mx-auto px-6">
 				<div className="flex items-center justify-between h-16">
 					<div className="flex items-center">
-						<a
-							href="/"
-							className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-						>
-							McRayTechServices
-						</a>
+						<Logo variant="header" />
 					</div>
 
 					{/* Desktop Navigation */}

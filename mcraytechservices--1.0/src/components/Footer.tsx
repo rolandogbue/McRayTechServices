@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import SocialButton from "@/components/SocialButton";
+import Logo from "@/components/Logo";
 
 const Footer = () => {
 	return (
@@ -9,47 +10,19 @@ const Footer = () => {
 					{/* Company Info */}
 					<div className="col-span-1 md:col-span-2">
 						<div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4">
-							McRayTechServices
+							<div className="flex items-center">
+								<Logo variant="footer" />
+							</div>
 						</div>
 						<p className="text-gray-300 mb-6 leading-relaxed max-w-md">
 							The all-in-one business growth solution that helps SMBs scale
 							faster with less hassle. One partner, all solutions.
 						</p>
 						<div className="flex space-x-4">
-							{/* <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-								<a
-									className="text-sm font-bold"
-									href="https://facebook.com/mcraytechservices"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									f
-								</a>
-							</div>
-							<div className="w-10 h-10 bg-gradient-to-tr from-yellow-400 via-pink-600 to-purple-700 rounded-full flex items-center justify-center hover:opacity-90 transition cursor-pointer">
-								<a
-									className="text-sm font-bold"
-									href="https://instagram.com/mcray_services"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									IG
-								</a>
-							</div>
-							<div className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors cursor-pointer">
-								<a
-									className="text-sm font-bold"
-									href="https://linkedin.com/company/mcraytechservices"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									in
-								</a>
-							</div> */}
 							<div className="flex gap-3">
 								<SocialButton
 									platform="instagram"
-									href="https://instagram.com/mcray_services"
+									href="https://instagram.com/mcraytechservices"
 								/>
 								<SocialButton
 									platform="linkedin"
