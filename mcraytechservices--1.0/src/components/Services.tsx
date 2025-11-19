@@ -6,7 +6,15 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Palette, Globe, Search, Zap, Share2, BarChart } from "lucide-react";
+import {
+	Palette,
+	Globe,
+	Search,
+	Zap,
+	Share2,
+	BarChart,
+	Code,
+} from "lucide-react";
 
 const Services = () => {
 	const services = [
@@ -71,15 +79,15 @@ const Services = () => {
 			],
 		},
 		{
-			icon: <BarChart className="w-8 h-8" />,
-			title: "Analytics & Reporting",
+			icon: <Code className="w-8 h-8" />,
+			title: "Custom Software Development",
 			description:
-				"Data-driven insights with comprehensive weekly and monthly reports to track your growth.",
+				"Tailored software solutions built to streamline operations, improve efficiency, and support your business workflows.",
 			features: [
-				"Performance Tracking",
-				"ROI Analysis",
-				"Growth Metrics",
-				"Strategic Insights",
+				"Fully Custom Applications",
+				"API & System Integrations",
+				"Cloud-Based Solutions",
+				"Scalable Architecture",
 			],
 		},
 	];

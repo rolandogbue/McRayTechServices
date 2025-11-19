@@ -1,47 +1,47 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search, Lightbulb, Rocket, BarChart } from "lucide-react";
+import { Target, Lightbulb, Rocket, BarChart } from "lucide-react";
 import Calendly from "@/components/Calendly";
 
 const Process = () => {
 	const steps = [
 		{
 			step: "01",
-			icon: <Search className="w-8 h-8" />,
-			title: "Analyze & Audit",
+			icon: <Target className="w-8 h-8" />,
+			title: "Discovery & Strategic Analysis",
 			description:
-				"We conduct a comprehensive analysis of your current brand, website, and marketing efforts to identify opportunities.",
+				"We begin with a focused strategy session to understand your goals, assess your current brand and digital presence, and uncover clear opportunities for growth.",
 			details: [
-				"Business analysis",
-				"Competitor research",
+				"Business & market analysis",
+				"Competitor insights",
 				"Performance audit",
-				"Growth opportunities",
+				"Growth opportunity mapping",
 			],
 		},
 		{
 			step: "02",
 			icon: <Lightbulb className="w-8 h-8" />,
-			title: "Strategize & Plan",
+			title: "Strategy & Planning",
 			description:
-				"Create a customized growth strategy that aligns with your business goals and target audience.",
+				"Our team creates a customized growth strategy that aligns with your business goals and target audience, defines clear priorities, and sets the foundation for a high-impact execution.",
 			details: [
 				"Custom strategy",
 				"Timeline planning",
 				"Resource allocation",
-				"Success metrics",
+				"Defined success metrics",
 			],
 		},
 		{
 			step: "03",
 			icon: <Rocket className="w-8 h-8" />,
-			title: "Execute & Launch",
+			title: "Execution & Launch",
 			description:
-				"Implement all solutions with careful coordination across branding, web development, marketing, and automation.",
+				"We bring your strategy to life through coordinated implementation across branding, web development, marketing, and automation, delivering a seamless, high-impact launch.",
 			details: [
-				"Brand implementation",
+				"Brand rollout",
 				"Website development",
-				"Marketing campaigns",
-				"Automation setup",
+				"Marketing activation",
+				"Automation deployment",
 			],
 		},
 		{
@@ -49,12 +49,12 @@ const Process = () => {
 			icon: <BarChart className="w-8 h-8" />,
 			title: "Monitor & Optimize",
 			description:
-				"Continuously track performance and optimize all elements for maximum ROI and business growth.",
+				"We track performance in real time and continuously refine every element to maximize ROI and accelerate your ongoing growth.",
 			details: [
-				"Performance tracking",
+				"Performance analytics",
 				"A/B testing",
 				"Continuous optimization",
-				"Regular reporting",
+				"Insight-driven reporting",
 			],
 		},
 	];

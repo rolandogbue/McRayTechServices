@@ -20,7 +20,8 @@ interface CalendlyProps {
 
 const Calendly = ({
 	text = "",
-	url = "https://calendly.com/mcraytechservices/free-strategy-session",
+	// url = "https://calendly.com/mcraytechservices/free-strategy-session",
+	url = "https://meetings-eu1.hubspot.com/mcray-tech-services",
 	className = "",
 	variant = "default",
 	autoOpen = false,

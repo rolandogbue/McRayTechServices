@@ -17,10 +17,11 @@ const Hero = () => {
 						Growth Solution
 					</h1>
 					<p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed animate-fade-in">
-						Stop juggling multiple vendors. We handle Branding, Web Development,
-						SEO, Digital Marketing, Automation and Social Media Management - so
-						you can focus on what matters most: converting leads to paid
-						clients.
+						Stop juggling multiple vendors. <br /> We are your All-in-One
+						Solution for Branding, Web Development, SEO, Digital Marketing,
+						Automation and Social Media Management services under one roof. We
+						handle everything while you focus on what matters most: <br />{" "}
+						converting leads to paid clients.
 					</p>
 
 					<div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
@@ -45,7 +46,10 @@ const Hero = () => {
 						</div>
 						<div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4">
 							<CheckCircle className="text-green-400 w-6 h-6" />
-							<span className="text-lg">One Partner, All Solutions</span>
+							{/* <span className="text-lg">One Partner, All Solutions</span> */}
+							<span className="text-lg">
+								Save Time with Single Point of Contact
+							</span>
 						</div>
 						<div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4">
 							<CheckCircle className="text-green-400 w-6 h-6" />
@@ -55,7 +59,7 @@ const Hero = () => {
 				</div>
 			</div>
 
-			<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+			<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
 				<ArrowDown className="w-8 h-8 text-white/70" />
 			</div>
 		</section>

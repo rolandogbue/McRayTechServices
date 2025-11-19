@@ -62,9 +62,12 @@ const Partners = () => {
 						animation: scroll 32s linear 0s infinite normal none;;
 					}
 
-					.animate-scroll:hover {
-						animation-play-state: paused;
+					@media (hover: hover) and (pointer: fine) {
+						.animate-scroll:hover {
+							animation-play-state: paused;
+						}
 					}
+
 				`}
 			</style>
 		</section>
