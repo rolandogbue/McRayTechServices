@@ -14,7 +14,7 @@ const businessCoordinates = {
 };
 
 const businessAddress =
-	"BLK C40 Maj Gen FO Okonkwo Street, Post Army Estate Phase 5 Kurudu II, Abuja FCT 900109 Nigeria";
+	"BLK C40 NAHS KURUDU II, Und St, Gidan Mangoro, Abuja 900109, Federal Capital Territory";
 
 const GoogleMapComponent = () => {
 	const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;

@@ -225,12 +225,11 @@ const Contact = () => {
 										<div>
 											<h3 className="font-semibold text-lg">Visit Us</h3>
 											<p className="text-gray-600">
-												BLK C40 Maj Gen FO Okonkwo Street
+												BLK C40 NAHS KURUDU II, Und St, Gidan Mangoro,
 											</p>
 											<p className="text-gray-600">
-												Post Army Estate Phase 5 Kurudu II
+												Abuja 900109, Federal Capital Territory
 											</p>
-											<p className="text-gray-600">Abuja FCT 900109 Nigeria</p>
 										</div>
 									</div>
 								</Card>
