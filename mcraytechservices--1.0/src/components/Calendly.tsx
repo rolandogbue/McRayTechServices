@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-interface CalendlyProps {
+interface CalendlyModalProps {
 	text?: string;
 	url?: string;
 	className?: string;
@@ -14,56 +15,97 @@ interface CalendlyProps {
 		| "ghost"
 		| "link";
 	autoOpen?: boolean;
-	delay?: number; // in milliseconds
+	delay?: number;
 	size?: "default" | "sm" | "lg" | "icon";
 }
 
-const Calendly = ({
-	text = "",
-	// url = "https://calendly.com/mcraytechservices/free-strategy-session",
-	url = "https://meetings-eu1.hubspot.com/mcray-tech-services",
+const CalendlyModal = ({
+	text = "Book a Session",
+	url = "https://calendly.com/mcraytechservices/free-strategy-session",
 	className = "",
 	variant = "default",
 	autoOpen = false,
-	delay = 3000,
+	delay = 1000,
 	size = "default",
-}: CalendlyProps) => {
-	const openCalendly = () => {
-		// @ts-ignore
-		window.Calendly.initPopupWidget({ url });
-	};
+}: CalendlyModalProps) => {
+	const [open, setOpen] = useState(false);
+	const [iframeLoaded, setIframeLoaded] = useState(false);
 
-	// auto open popup after delay
+	// preload Calendly assets
+	useEffect(() => {
+		const preloadJs = document.createElement("link");
+		preloadJs.rel = "preload";
+		preloadJs.href = "https://assets.calendly.com/assets/external/widget.js";
+		preloadJs.as = "script";
+
+		const preloadCss = document.createElement("link");
+		preloadCss.rel = "preload";
+		preloadCss.href = "https://assets.calendly.com/assets/external/widget.css";
+		preloadCss.as = "style";
+
+		document.head.appendChild(preloadJs);
+		document.head.appendChild(preloadCss);
+	}, []);
+
+	// Reset loader whenever modal opens
+	useEffect(() => {
+		if (open) {
+			setIframeLoaded(false);
+		}
+	}, [open]);
+
+	// Auto open after delay
 	useEffect(() => {
 		if (autoOpen) {
-			const timer = setTimeout(openCalendly, delay);
+			const timer = setTimeout(() => setOpen(true), delay);
 			return () => clearTimeout(timer);
 		}
 	}, [autoOpen, delay]);
 
-	// style presets
-	const baseStyles = "px-4 py-2 font-medium transition";
-	const variantStyles = {
-		default: "bg-primary text-primary-foreground hover:bg-primary/90",
-		primary: "bg-blue-600 text-white hover:bg-blue-700",
-		secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-		outline:
-			"border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-		destructive:
-			"bg-destructive text-destructive-foreground hover:bg-destructive/90",
-		ghost: "hover:bg-accent hover:text-accent-foreground",
-		link: "text-primary underline-offset-4 hover:underline",
-	};
-
 	return (
-		<Button
-			onClick={openCalendly}
-			className={`${baseStyles} ${variantStyles[variant]} ${className}`}
-			size={size}
-		>
-			{text}
-		</Button>
+		<>
+			<Button
+				onClick={() => setOpen(true)}
+				className={className}
+				variant={variant}
+				size={size}
+			>
+				{text}
+			</Button>
+
+			<Dialog open={open} onOpenChange={setOpen}>
+				<DialogContent
+					className="
+            p-0 
+            overflow-hidden 
+            rounded-2xl 
+            border 
+            border-border 
+            bg-background 
+            shadow-2xl
+            w-full 
+            max-w-5xl 
+            h-[85vh]
+          "
+				>
+					{!iframeLoaded && (
+						<div className="flex items-center justify-center h-full animate-pulse text-sm font-medium text-indigo-950">
+							Loading scheduling tool...
+						</div>
+					)}
+
+					<iframe
+						key={open ? "open" : "closed"} // Forces reload
+						src={url}
+						className={`w-full h-full border-0 transition-opacity ${
+							iframeLoaded ? "opacity-100" : "opacity-0"
+						}`}
+						onLoad={() => setIframeLoaded(true)}
+					></iframe>
+				</DialogContent>
+			</Dialog>
+		</>
 	);
 };
 
-export default Calendly;
+export default CalendlyModal;

@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
-	<FormspreeProvider project={import.meta.env.VITE_FORMSPREE_PROJECT}>
+	<FormspreeProvider project="2859294668909182031">
 		<App />
 	</FormspreeProvider>
 );

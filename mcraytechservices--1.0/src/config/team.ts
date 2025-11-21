@@ -1,20 +1,20 @@
 const team = [
 	{
 		name: "Roland Ogbue",
-		role: "Lead Developer",
+		role: "Founder/Lead Developer",
 		image: "/team/roland.JPG",
 		bio: "Expert in full-stack development and modern application architecture.",
 	},
 	{
-		name: "Team Member 2",
+		name: "Prince Koffi",
 		role: "Marketing Strategist",
-		image: "/images/team2.jpg",
+		image: "/team/koffi.jpg",
 		bio: "Specialist in data-driven marketing and automation systems.",
 	},
 	{
-		name: "Team Member 3",
+		name: "Ikechukwu Chidera",
 		role: "UI/UX Designer",
-		image: "/images/team3.jpg",
+		image: "/team/chidera.jpg",
 		bio: "Creates intuitive design experiences that elevate brand identity.",
 	},
 ];

@@ -33,7 +33,7 @@ const Partners = () => {
 					<div className="flex gap-8 animate-scroll hover:pause-animation p-6">
 						{duplicatedPartners.map((partner, index) => (
 							<div key={`${partner.name}-${index}`} className="flex-shrink-0">
-								<div className="w-44 h-28 flex items-center justify-center p-6 rounded-2xl bg-background shadow-md transition-all hover:scale-105 hover:shadow-xl z-30">
+								<div className="w-44 h-28 flex items-center justify-center p-4 rounded-2xl bg-background shadow-md transition-all hover:scale-105 hover:shadow-xl z-30">
 									<img
 										src={partner.logoSrc}
 										alt={`${partner.name} logo`}
@@ -59,15 +59,22 @@ const Partners = () => {
 					}
 
 					.animate-scroll {
-						animation: scroll 32s linear 0s infinite normal none;;
+						animation: scroll 21s linear infinite;
 					}
 
+					/* Desktop devices with real hover */
 					@media (hover: hover) and (pointer: fine) {
 						.animate-scroll:hover {
 							animation-play-state: paused;
 						}
 					}
 
+					/* Explicitly disable hover behavior on touch devices */
+					@media (hover: none) and (pointer: coarse) {
+						.animate-scroll:hover {
+							animation-play-state: running !important;
+						}
+					}
 				`}
 			</style>
 		</section>

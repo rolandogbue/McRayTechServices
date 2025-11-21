@@ -161,6 +161,18 @@ const Contact = () => {
 									<ValidationError errors={state.errors} />
 								</form>
 							</CardContent>
+							{/* What Happens Next */}
+							<div className="bg-white rounded-lg p-6 pt-10">
+								<h4 className="font-semibold text-gray-900 mb-3">
+									What happens next?
+								</h4>
+								<div className="space-y-2 text-sm text-gray-600">
+									<p>1. We'll review your project requirements</p>
+									<p>2. Schedule a free strategy session</p>
+									<p>3. Present a customized strategy proposal</p>
+									<p>4. Start building your success story</p>
+								</div>
+							</div>
 						</Card>
 
 						{/* Contact Information */}
@@ -248,7 +260,7 @@ const Contact = () => {
 									Free Strategy Session
 								</h3>
 								<p className="mb-6">
-									Book a complimentary 30-minute consultation to discuss your
+									Book a complimentary 15-minute consultation to discuss your
 									business goals and discover how we can help you scale.
 								</p>
 								<Calendly
