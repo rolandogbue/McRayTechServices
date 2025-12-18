@@ -3,89 +3,94 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Calendly from "@/components/Calendly";
 import Logo from "@/components/Logo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Header = () => {
-	const navLinks = [
-		{ label: "HOME", href: "/" },
-		// { label: "PROCESS", href: "#process" },
-		// { label: "BENEFITS", href: "#benefits" },
-		{ label: "ABOUT", href: "/about" },
-		{ label: "BLOG", href: "/blog" },
-		{ label: "FAQ", href: "/faq" },
-		{ label: "CONTACT", href: "/contact" },
-	];
+  const navLinks = [
+    { label: "HOME", href: "/" },
+    // { label: "PROCESS", href: "#process" },
+    // { label: "BENEFITS", href: "#benefits" },
+    { label: "ABOUT", href: "/about" },
+    { label: "BLOG", href: "/blog" },
+    { label: "FAQ", href: "/faq" },
+    { label: "CONTACT", href: "/contact" },
+  ];
 
-	return (
-		<header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-			<div className="container mx-auto px-6">
-				<div className="flex items-center justify-between h-16">
-					<div className="flex items-center">
-						<Logo variant="header" />
-					</div>
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Logo variant="header" />
+          </div>
 
-					{/* Desktop Navigation */}
-					<nav className="hidden md:flex items-center space-x-8">
-						{navLinks.map((link) => (
-							<a
-								key={link.label}
-								href={link.href}
-								className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-							>
-								{link.label}
-							</a>
-						))}
-					</nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-					<div className="hidden md:flex items-center space-x-4">
-						{/* <Button
+          <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
+            {/* <Button
 							variant="outline"
 							className="border-blue-600 text-blue-600 hover:bg-blue-50"
 						>
 							Login
 						</Button> */}
-						<Calendly
-							className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-							text="Get Started"
-						/>
-					</div>
+            <Calendly
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+              text="Get Started"
+            />
+          </div>
 
-					{/* Mobile Navigation */}
-					<Sheet>
-						<SheetTrigger asChild className="md:hidden">
-							<Button variant="outline" size="icon">
-								<Menu className="h-6 w-6" />
-							</Button>
-						</SheetTrigger>
-						<SheetContent>
-							<div className="flex flex-col space-y-6 mt-8">
-								{navLinks.map((link) => (
-									<a
-										key={link.label}
-										href={link.href}
-										className="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors"
-									>
-										{link.label}
-									</a>
-								))}
-								<div className="flex flex-col space-y-3 pt-6">
-									{/* <Button
-										variant="outline"
-										className="border-blue-600 text-blue-600"
-									>
-										Login
-									</Button> */}
-									<Calendly
-										className="bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-										text="Get Started"
-									/>
+          {/* Mobile Navigation */}
+					<div className="flex items-center gap-2 lg:hidden">
+					<ThemeToggle />
+						<Sheet>
+							<SheetTrigger asChild className="md:hidden">
+								<Button variant="outline" size="icon">
+									<Menu className="h-6 w-6" />
+								</Button>
+							</SheetTrigger>
+							<SheetContent>
+								<div className="flex flex-col space-y-6 mt-8">
+									{navLinks.map((link) => (
+										<a
+											key={link.label}
+											href={link.href}
+											className="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors"
+										>
+											{link.label}
+										</a>
+									))}
+									<div className="flex flex-col space-y-3 pt-6">
+										{/* <Button
+											variant="outline"
+											className="border-blue-600 text-blue-600"
+										>
+											Login
+										</Button> */}
+										<Calendly
+											className="bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+											text="Get Started"
+										/>
+									</div>
 								</div>
-							</div>
-						</SheetContent>
-					</Sheet>
-				</div>
-			</div>
-		</header>
-	);
+							</SheetContent>
+						</Sheet>
+					</div>
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Header;

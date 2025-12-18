@@ -11,7 +11,7 @@ export default defineConfig({
       usePolling: true,
       // interval: 300,
     },
-    hmr: false,
+    // hmr: false,
   },
   plugins: [react()],
   resolve: {
