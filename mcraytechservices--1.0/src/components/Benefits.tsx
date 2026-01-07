@@ -1,137 +1,167 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-	TrendingUp,
-	Clock,
-	DollarSign,
-	Users,
-	Target,
-	Shield,
+  Clock,
+  DollarSign,
+  User,
+  Rocket,
+  Headphones,
+  BarChart3,
 } from "lucide-react";
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ScrollAnimations";
 
 const Benefits = () => {
-	const benefits = [
-		{
-			icon: <DollarSign className="w-10 h-10" />,
-			title: "Save 60% on Marketing Costs",
-			description:
-				"Eliminate the need for multiple agencies and reduce your marketing spend while getting better results.",
-			metric: "Average savings: $5,000/month",
-		},
-		{
-			icon: <Clock className="w-10 h-10" />,
-			title: "Save 20+ Hours Per Week",
-			description:
-				"Focus on your core business while we handle all your marketing, branding, and growth activities.",
-			metric: "Time saved: 80+ hours/month",
-		},
-		{
-			icon: <TrendingUp className="w-10 h-10" />,
-			title: "3x Faster Growth",
-			description:
-				"Our integrated approach delivers faster results than managing multiple disconnected services.",
-			metric: "Average lead increase: 250%",
-		},
-		{
-			icon: <Users className="w-10 h-10" />,
-			title: "Dedicated Growth Team",
-			description:
-				"Get access to specialists in branding, development, marketing, and automation - all coordinated.",
-			metric: "Your personal growth squad",
-		},
-		{
-			icon: <Target className="w-10 h-10" />,
-			title: "Conversion-Focused Strategy",
-			description:
-				"Every element is designed to turn prospects into paying customers, not just increase vanity metrics.",
-			metric: "Average conversion lift: 180%",
-		},
-		{
-			icon: <Shield className="w-10 h-10" />,
-			title: "Risk-Free Partnership",
-			description:
-				"Transparent reporting, clear ROI tracking, and the peace of mind that comes with proven results.",
-			metric: "100% transparency guarantee",
-		},
-	];
+  const benefits = [
+    {
+      icon: <Clock className="w-6 h-6" />,
+      title: "Save Time",
+      description:
+        "Stop juggling multiple vendors and tools. We handle everything in one place so you can focus on your clients.",
+      stat: "20+ hrs",
+      statLabel: "Saved Weekly",
+    },
+    {
+      icon: <DollarSign className="w-6 h-6" />,
+      title: "Reduce Costs",
+      description:
+        "Get agency-quality work without the agency price tag. One partner means fewer overhead costs.",
+      stat: "Up to 40%",
+      statLabel: "Cost Savings",
+    },
+    {
+      icon: <User className="w-6 h-6" />,
+      title: "Single Partner",
+      description:
+        "No more coordination headaches. One team, one vision, one solution for all your digital needs.",
+      stat: "1",
+      statLabel: "Point of Contact",
+    },
+    {
+      icon: <Rocket className="w-6 h-6" />,
+      title: "Faster Results",
+      description:
+        "See measurable growth in leads and sales within your first quarter working with us.",
+      stat: "90 Days",
+      statLabel: "To See Results",
+    },
+    {
+      icon: <Headphones className="w-6 h-6" />,
+      title: "Expert Support",
+      description:
+        "Get IT consulting and strategic guidance at no extra cost. We're invested in your success.",
+      stat: "Free",
+      statLabel: "Consulting",
+    },
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Full Transparency",
+      description:
+        "Know exactly how your marketing and systems are performing with regular reports and updates.",
+      stat: "Weekly",
+      statLabel: "Reports",
+    },
+  ];
 
-	return (
-		<section className="py-20 bg-white">
-			<div className="container mx-auto px-6">
-				<div className="text-center mb-16">
-					<Badge className="mb-4 bg-purple-100 text-purple-800 hover:bg-purple-200">
-						Why Choose Us
-					</Badge>
-					<h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-						The Benefits of Our
-						<span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-							{" "}
-							All-In-One Approach
-						</span>
-					</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
-						When everything works together seamlessly, your business grows
-						faster with less effort and lower costs.
-					</p>
-				</div>
+  return (
+    <section
+      id="benefits"
+      className="py-24 section-primary relative overflow-hidden"
+    >
+      {/* Background elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-full">
+        <img
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80"
+          alt="Professional business consultation"
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background to-background" />
+      </div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{benefits.map((benefit, index) => (
-						<Card
-							key={index}
-							className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-lg bg-gradient-to-br from-white to-gray-50 overflow-hidden"
-						>
-							<CardContent className="p-8">
-								<div className="w-16 h-16 mb-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-									{benefit.icon}
-								</div>
-								<h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors">
-									{benefit.title}
-								</h3>
-								<p className="text-gray-600 mb-4 leading-relaxed">
-									{benefit.description}
-								</p>
-								<div className="inline-block bg-gradient-to-r from-purple-100 to-blue-100 px-4 py-2 rounded-full">
-									<span className="text-sm font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-										{benefit.metric}
-									</span>
-								</div>
-							</CardContent>
-						</Card>
-					))}
-				</div>
+      <div className="container mx-auto px-6 relative z-10 justify-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <FadeIn direction="left">
+            <Badge
+              variant="outline"
+              className="mb-4 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
+            >
+              Why Choose Us
+            </Badge>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+              Your Business Deserves
+              <span className="gradient-text"> Better Support</span>
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Instead of working with multiple vendors, get a single trusted
+              partner who ensures your business runs smoothly while you focus on
+              serving your clients.
+            </p>
 
-				<div className="mt-28 bg-white rounded-2xl p-8 md:p-12 shadow-lg">
-					<div className="grid lg:grid-cols-2 gap-10 items-center justify-center">
-						<div>
-							<h3 className="text-3xl font-bold text-gray-900 mb-4">
-								The Multi-Vendor Problem
-							</h3>
-							<div className="space-y-4 text-gray-600">
-								<p>• Managing 5+ different vendors and contracts</p>
-								<p>• Miscommunication between teams</p>
-								<p>• Conflicting strategies and goals</p>
-								<p>• Higher total costs and overhead</p>
-								<p>• Slower project delivery</p>
-							</div>
-						</div>
-						<div>
-							<h3 className="text-3xl font-bold text-gray-900 mb-4">
-								Our Solution
-							</h3>
-							<div className="space-y-4 text-gray-600">
-								<p>• Single contract, single point of contact</p>
-								<p>• Seamless team collaboration</p>
-								<p>• Unified strategy across all channels</p>
-								<p>• Cost-effective bundled pricing</p>
-								<p>• Faster results with coordinated efforts</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+            {/* Feature image */}
+            <div className="relative rounded-2xl overflow-hidden shadow-soft-xl group">
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                alt="Team working together on business growth"
+                className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className="w-10 h-10 rounded-full border-2 border-background bg-primary/20 flex items-center justify-center transition-transform duration-300 hover:scale-110 hover:z-10"
+                      >
+                        <User className="w-5 h-5 text-primary" />
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-foreground">
+                      Join 100+ Growing Businesses
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Who trust us with their growth
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          <StaggerContainer
+            className="grid sm:grid-cols-2 gap-6"
+            staggerDelay={0.1}
+          >
+            {benefits.map((benefit, index) => (
+              <StaggerItem key={index}>
+                <div className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-1 gradient-border h-full">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:rotate-3">
+                    {benefit.icon}
+                  </div>
+                  <div className="font-display text-2xl font-bold gradient-text mb-1 transition-transform duration-300 group-hover:scale-105 inline-block">
+                    {benefit.stat}
+                  </div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                    {benefit.statLabel}
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Benefits;

@@ -4,34 +4,36 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
 import Team from "@/config/team";
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ScrollAnimations";
 
 const About = () => {
   const { title, description, keywords } = SEO_CONFIG.about;
 
   const stats = [
     { number: "100%", label: "Happy Clients" },
-    { number: "200+", label: "Projects Completed" },
+    { number: "100+", label: "Projects Completed" },
     { number: "10+", label: "Team Members" },
     { number: "3+", label: "Years Experience" },
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       <SEO title={title} description={description} keywords={keywords} />
       <Header />
 
-      {/* About Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white">
-        <div className="container mx-auto px-6">
+      {/* About Hero */}
+      <section className="pt-24 pb-16 gradient-animated text-primary-foreground">
+        <div className="container justify-center">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="font-display font-bold text-5xl md:text-6xl mb-6 leading-tight">
               About
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                {" "}
-                McRay Tech Services
-              </span>
+              <span className="gradient-text"> McRay Tech Services</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+            <p className="text-xl md:text-2xl leading-relaxed opacity-90">
               Learn about our mission, values, and how our team delivers
               technology solutions to help small businesses grow efficiently and
               achieve measurable results.
@@ -40,14 +42,16 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+      {/* About Content */}
+      <section className="py-20 section-muted">
+        <FadeIn className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold mb-6 font-display">
                 About Our Agency
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 We started with a simple mission: to empower small and medium
                 businesses with integrated, efficient, and scalable digital
                 solutions—eliminating the frustration of managing multiple
@@ -56,14 +60,16 @@ const About = () => {
                 handled by separate providers with disconnected systems and no
                 single point of accountability.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 At McRay Tech Services, we bring everything together. We design
                 and manage unified websites, automation, and business growth
                 systems that work seamlessly as one. Our integrated approach
                 removes operational friction, improves efficiency, and delivers
                 better results faster.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Our work acts as business immunity—strengthening operations,
                 protecting momentum, and enabling SMBs to compete effectively
                 and grow sustainably.
@@ -71,11 +77,11 @@ const About = () => {
 
               <div className="grid grid-cols-2 gap-6">
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-blue-600">
+                  <div key={index} className="group cursor-default text-center">
+                    <div className="font-display text-3xl md:text-3xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300 inline-block">
                       {stat.number}
                     </div>
-                    <div className="text-gray-600">{stat.label}</div>
+                    <div className="text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -83,14 +89,12 @@ const About = () => {
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-blue-100 rounded-lg">
-                  <Award className="h-6 w-6 text-blue-600" />
+                <div className="p-3 rounded-lg bg-secondary icon-glow">
+                  <Award className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Expert Team
-                  </h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
+                  <p className="text-muted-foreground">
                     Certified professionals in development, marketing, and
                     automation working as one cohesive unit.
                   </p>
@@ -98,14 +102,12 @@ const About = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-green-100 rounded-lg">
-                  <Rocket className="h-6 w-6 text-green-600" />
+                <div className="p-3 rounded-lg bg-secondary icon-glow">
+                  <Rocket className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Results-Driven
-                  </h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-xl font-semibold mb-2">Results-Driven</h3>
+                  <p className="text-muted-foreground">
                     We focus on metrics that matter - lead generation,
                     conversions, and business growth.
                   </p>
@@ -113,14 +115,12 @@ const About = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-purple-100 rounded-lg">
-                  <Heart className="h-6 w-6 text-purple-600" />
+                <div className="p-3 rounded-lg bg-secondary icon-glow">
+                  <Heart className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Client-Focused
-                  </h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-xl font-semibold mb-2">Client-Focused</h3>
+                  <p className="text-muted-foreground">
                     Your success is our success. We become an extension of your
                     team, not just another vendor.
                   </p>
@@ -128,21 +128,17 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
-      {/* Vision  */}
-      <section className="py-24 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden">
-        {/* Decorative Rings */}
-        <div className="absolute -top-20 -left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto px-6 relative z-10">
+      {/* Vision */}
+      <section className="py-24 gradient-animated text-primary-foreground relative overflow-hidden">
+        <FadeIn className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
               Our Vision for the Future
             </h2>
-            <p className="text-lg md:text-xl text-blue-200 leading-relaxed">
+            <p className="text-lg md:text-xl opacity-90 leading-relaxed">
               At McRay Tech Services, our vision is to redefine how small
               businesses leverage technology — transforming complex digital
               challenges into streamlined, automated, growth-driven solutions
@@ -150,132 +146,105 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 mt-16">
-            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 text-center">
-              <Rocket className="w-12 h-12 mx-auto text-cyan-300 mb-4" />
-              <h3 className="text-2xl font-semibold mb-3">
-                Innovation at the Core
-              </h3>
-              <p className="text-blue-200">
-                We envision a world where every local business thrives with
-                access to enterprise-level tools, automation, and creativity.
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 text-center">
-              <Award className="w-12 h-12 mx-auto text-yellow-300 mb-4" />
-              <h3 className="text-2xl font-semibold mb-3">Empowering Growth</h3>
-              <p className="text-blue-200">
-                We aim to become the go-to partner for business transformation —
-                helping companies grow smarter, faster, and more efficiently.
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 text-center">
-              <Heart className="w-12 h-12 mx-auto text-pink-300 mb-4" />
-              <h3 className="text-2xl font-semibold mb-3">
-                Human-Centered Impact
-              </h3>
-              <p className="text-blue-200">
-                Our vision is built on connection — creating meaningful,
-                supportive, long-term relationships with every business we
-                serve.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-12 mt-16 ">
+            {[Rocket, Award, Heart].map((Icon, i) => (
+              <StaggerItem
+                key={i}
+                className="group glass-premium rounded-2xl p-8 text-center hover-lift transition-all duration-500 hover:shadow-soft-xl hover:-translate-y-2"
+              >
+                <Icon className="w-12 h-12 mx-auto text-accent mb-4 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110" />
+                <h3 className="text-2xl font-semibold mb-3 text-primary/100 group-hover:text-primary-foreground transition-colors duration-300">
+                  {i === 0
+                    ? "Innovation at the Core"
+                    : i === 1
+                    ? "Empowering Growth"
+                    : "Human-Centered Impact"}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed group-hover:text-primary-foreground transition-colors duration-300">
+                  {i === 0
+                    ? "We envision a world where every local business thrives with access to enterprise-level tools, automation, and creativity."
+                    : i === 1
+                    ? "We aim to become the go-to partner for business transformation — helping companies grow smarter, faster, and more efficiently."
+                    : "Our vision is built on connection — creating meaningful, supportive, long-term relationships with every business we serve."}
+                </p>
+              </StaggerItem>
+            ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
-      {/* Core values */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
+      {/* Core Values */}
+      <section className="py-20 section-muted">
+        <FadeIn className="container">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
               Our Core Values
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               These are the principles that guide every project we take on and
               every client relationship we build.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">
-                Excellence
-              </h3>
-              <p className="text-gray-600">
-                We deliver top-quality services tailored to each client's unique
-                needs.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-green-600 mb-3">
-                Integrity
-              </h3>
-              <p className="text-gray-600">
-                We operate with transparency and honesty, building trust with
-                every client.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-purple-600 mb-3">
-                Innovation
-              </h3>
-              <p className="text-gray-600">
-                We stay ahead of industry trends to offer cutting-edge
-                solutions.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-pink-600 mb-3">
-                Customer-Centric
-              </h3>
-              <p className="text-gray-600">
-                We prioritize our clients' success, focusing on long-term
-                partnerships and measurable results.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-yellow-600 mb-3">
-                Efficiency
-              </h3>
-              <p className="text-gray-600">
-                We simplify business operations, helping clients save time and
-                resources.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-teal-600 mb-3">
-                Collaboration
-              </h3>
-              <p className="text-gray-600">
-                We work closely with clients and partners to create solutions
-                that drive mutual success.
-              </p>
-            </div>
+            {[
+              "Excellence",
+              "Integrity",
+              "Innovation",
+              "Customer-Centric",
+              "Efficiency",
+              "Collaboration",
+            ].map((value, i) => (
+              <div
+                key={i}
+                className="floating-card rounded-2xl p-6 text-center hover-lift"
+              >
+                <h3 className="text-xl font-semibold text-primary mb-3">
+                  {value}
+                </h3>
+                <p className="text-muted-foreground">
+                  {
+                    [
+                      "We deliver top-quality services tailored to each client's unique needs.",
+                      "We operate with transparency and honesty, building trust with every client.",
+                      "We stay ahead of industry trends to offer cutting-edge solutions.",
+                      "We prioritize our clients' success, focusing on long-term partnerships and measurable results.",
+                      "We simplify business operations, helping clients save time and resources.",
+                      "We work closely with clients and partners to create solutions that drive mutual success.",
+                    ][i]
+                  }
+                </p>
+              </div>
+            ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
-
       {/* Timeline  */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
+      <section
+        id="benefits"
+        className="py-24 section-primary relative overflow-hidden"
+      >
+        {/* Background elements */}
+        <div className="absolute top-0 right-0 w-full h-full z-0">
+          <img
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80"
+            alt="Professional business consultation"
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background to-background" />
+        </div>
+        <FadeIn className="container mx-auto px-6 z-10 relative">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
               Our Journey
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               From a small idea to a full digital transformation agency — here’s
               how we got here.
             </p>
           </div>
 
-          <div className="relative border-l-4 border-blue-600 ml-6 space-y-10">
+          <div className="relative border-l-4 border-primary ml-6 space-y-10">
             {[
               {
                 year: "2022",
@@ -292,35 +261,35 @@ const About = () => {
                 title: "Team Growth",
                 text: "Our team expanded to include experts across design, development, marketing, and operations.",
               },
-              // {
-              //   year: "2025",
-              //   title: "Scaling Impact",
-              //   text: "We achieved 200+ completed projects and supported businesses across multiple industries.",
-              // },
+              {
+                year: "2025",
+                title: "Scaling Impact",
+                text: "We achieved 100+ completed projects and supported businesses across multiple industries.",
+              },
             ].map((item, i) => (
               <div key={i} className="ml-6">
-                <div className="absolute -left-4 w-8 h-8 bg-blue-600 rounded-full border-4 border-white"></div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                <div className="absolute -left-4 w-8 h-8 bg-primary rounded-full border-4 border-primary"></div>
+                <h3 className="font-display text-2xl md:text-2xl font-bold gradient-text inline-block">
                   {item.year}
                 </h3>
-                <h4 className="text-xl font-medium text-blue-600 mb-1">
+                <h4 className="text-xl font-medium text-primary mb-2">
                   {item.title}
                 </h4>
-                <p className="text-gray-600">{item.text}</p>
+                <p className="text-muted-foreground">{item.text}</p>
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
-      {/* Team Showcase  */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6">
+      {/* Team */}
+      <section className="py-24 bg-background">
+        <FadeIn className="container">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
               Meet the Team
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               A group of creative strategists, developers, and innovators
               committed to your success.
             </p>
@@ -330,9 +299,9 @@ const About = () => {
             {Team.map((member, i) => (
               <div
                 key={i}
-                className="bg-white p-8 shadow-md rounded-2xl text-center hover:shadow-xl transition-shadow duration-300 relative"
+                className="floating-card p-8 rounded-2xl text-center hover-lift"
               >
-                <div className="w-28 h-28 mx-auto rounded-full overflow-hidden mb-6 bg-gray-200">
+                <div className="w-28 h-28 mx-auto rounded-full overflow-hidden mb-6 bg-muted">
                   {member.image ? (
                     <img
                       src={member.image}
@@ -340,21 +309,19 @@ const About = () => {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="flex items-center justify-center h-full text-gray-400 text-sm">
+                    <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                       No Photo
                     </div>
                   )}
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 mb-2">{member.role}</p>
-                <p className="text-gray-600">{member.bio}</p>
+                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+                <p className="text-primary mb-2">{member.role}</p>
+                <p className="text-muted-foreground">{member.bio}</p>
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <Footer />

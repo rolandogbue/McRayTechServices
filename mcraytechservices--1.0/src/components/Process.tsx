@@ -1,137 +1,145 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Target, Lightbulb, Rocket, BarChart } from "lucide-react";
-import Calendly from "@/components/Calendly";
+import { Phone, FileText, Rocket, TrendingUp } from "lucide-react";
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ScrollAnimations";
 
 const Process = () => {
-	const steps = [
-		{
-			step: "01",
-			icon: <Target className="w-8 h-8" />,
-			title: "Discovery & Strategic Analysis",
-			description:
-				"We begin with a focused strategy session to understand your goals, assess your current brand and digital presence, and uncover clear opportunities for growth.",
-			details: [
-				"Business & market analysis",
-				"Competitor insights",
-				"Performance audit",
-				"Growth opportunity mapping",
-			],
-		},
-		{
-			step: "02",
-			icon: <Lightbulb className="w-8 h-8" />,
-			title: "Strategy & Planning",
-			description:
-				"Our team creates a customized growth strategy that aligns with your business goals and target audience, defines clear priorities, and sets the foundation for a high-impact execution.",
-			details: [
-				"Custom strategy",
-				"Timeline planning",
-				"Resource allocation",
-				"Defined success metrics",
-			],
-		},
-		{
-			step: "03",
-			icon: <Rocket className="w-8 h-8" />,
-			title: "Execution & Launch",
-			description:
-				"We bring your strategy to life through coordinated implementation across branding, web development, marketing, and automation, delivering a seamless, high-impact launch.",
-			details: [
-				"Brand rollout",
-				"Website development",
-				"Marketing activation",
-				"Automation deployment",
-			],
-		},
-		{
-			step: "04",
-			icon: <BarChart className="w-8 h-8" />,
-			title: "Monitor & Optimize",
-			description:
-				"We track performance in real time and continuously refine every element to maximize ROI and accelerate your ongoing growth.",
-			details: [
-				"Performance analytics",
-				"A/B testing",
-				"Continuous optimization",
-				"Insight-driven reporting",
-			],
-		},
-	];
+  const steps = [
+    {
+      step: "01",
+      icon: <Phone className="w-7 h-7" />,
+      title: "Discovery Call",
+      description:
+        "Free consultation to understand your goals, challenges, and opportunities.",
+      details: [
+        "30-minute call",
+        "No obligation",
+        "Needs assessment",
+        "Q&A session",
+      ],
+    },
+    {
+      step: "02",
+      icon: <FileText className="w-7 h-7" />,
+      title: "Strategy & Proposal",
+      description: "Custom roadmap tailored to your business needs and budget.",
+      details: [
+        "Detailed plan",
+        "Clear pricing",
+        "Timeline",
+        "Expected outcomes",
+      ],
+    },
+    {
+      step: "03",
+      icon: <Rocket className="w-7 h-7" />,
+      title: "Build & Launch",
+      description:
+        "We create your brand, website, and marketing systems with regular updates.",
+      details: [
+        "Weekly updates",
+        "Your feedback",
+        "Quality checks",
+        "Smooth launch",
+      ],
+    },
+    {
+      step: "04",
+      icon: <TrendingUp className="w-7 h-7" />,
+      title: "Grow & Optimize",
+      description:
+        "Ongoing management, automation, and performance optimization.",
+      details: [
+        "Monthly reports",
+        "Continuous improvement",
+        "Support",
+        "Strategy calls",
+      ],
+    },
+  ];
 
-	return (
-		<section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-			<div className="container mx-auto px-6">
-				<div className="text-center mb-16">
-					<Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-200">
-						Our Process
-					</Badge>
-					<h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-						How We Scale Your
-						<span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-							{" "}
-							Business Growth
-						</span>
-					</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
-						Our proven 4-step process ensures every aspect of your growth
-						strategy works together seamlessly.
-					</p>
-				</div>
+  return (
+    <section
+      id="process"
+      className="py-24 section-accent relative overflow-hidden"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 tech-grid opacity-30" />
 
-				<div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-					{steps.map((step, index) => (
-						<Card
-							key={index}
-							className="group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white overflow-hidden"
-						>
-							<div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 to-blue-500"></div>
-							<CardContent className="p-8 text-center">
-								<div className="text-6xl font-bold text-gray-100 mb-4 group-hover:text-gray-200 transition-colors">
-									{step.step}
-								</div>
-								<div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-									{step.icon}
-								</div>
-								<h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
-									{step.title}
-								</h3>
-								<p className="text-gray-600 mb-6 leading-relaxed">
-									{step.description}
-								</p>
-								<div className="space-y-2">
-									{step.details.map((detail, detailIndex) => (
-										<div
-											key={detailIndex}
-											className="flex items-center gap-2 justify-center"
-										>
-											<div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
-											<span className="text-sm text-gray-700">{detail}</span>
-										</div>
-									))}
-								</div>
-							</CardContent>
-						</Card>
-					))}
-				</div>
-			</div>
-			{/* <CTA /> */}
-			<div className="mt-16 text-center">
-				<div className="bg-white rounded-2xl p-8 shadow-lg inline-block">
-					<h3 className="text-2xl font-bold text-gray-900 mb-4">
-						Ready to Get Started?
-					</h3>
-					<p className="text-gray-600 mb-6">
-						Let's discuss your project and see how we can help you grow
-					</p>
-					<Calendly
-						className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
-						text="Schedule Free Consultation"
-					/>
-				</div>
-			</div>
-		</section>
-	);
+      <div className="container mx-auto px-6 relative z-10 justify-center">
+        <FadeIn className="text-center mb-16">
+          <Badge
+            variant="outline"
+            className="mb-4 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
+          >
+            How It Works
+          </Badge>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            Simple Process,
+            <span className="gradient-text"> Real Results</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            We make working together easy. Here's how we'll help your business
+            grow.
+          </p>
+        </FadeIn>
+
+        {/* Process timeline */}
+        <div className="relative">
+          {/* Connection line - desktop with gradient animation */}
+          <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-gradient-shift" />
+
+          <StaggerContainer
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            staggerDelay={0.15}
+          >
+            {steps.map((step, index) => (
+              <StaggerItem key={index}>
+                <Card className="group relative bg-card border-border hover:border-primary/50 transition-all duration-500 hover:shadow-soft-xl hover:-translate-y-2 gradient-border">
+                  {/* Step number indicator with pulse */}
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full gradient-bg flex items-center justify-center text-primary-foreground font-bold text-sm z-10 shadow-glow group-hover:animate-pulse-scale">
+                    {index + 1}
+                  </div>
+
+                  <CardContent className="p-8 pt-10 text-center">
+                    <div className="text-5xl font-display font-bold text-muted/50 mb-4 transition-all duration-300 group-hover:text-primary/20">
+                      {step.step}
+                    </div>
+                    <div className="w-14 h-14 mx-auto mb-6 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:shadow-glow">
+                      {step.icon}
+                    </div>
+                    <h3 className="font-display text-lg font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                      {step.description}
+                    </p>
+                    <div className="space-y-2">
+                      {step.details.map((detail, detailIndex) => (
+                        <div
+                          key={detailIndex}
+                          className="flex items-center gap-2 justify-center group/item"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full gradient-bg transition-transform duration-300 group-hover/item:scale-150" />
+                          <span className="text-xs text-muted-foreground transition-colors duration-300 group-hover/item:text-foreground">
+                            {detail}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Process;

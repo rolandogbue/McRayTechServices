@@ -16,7 +16,7 @@ import SEO_CONFIG from "@/config/seo";
 
 const Contact = () => {
   const { title, description, keywords } = SEO_CONFIG.contact;
-  const [state, handleSubmit] = useForm("contact-form"); // replace "contact-form" with your actual Formspree form ID
+  const [state, handleSubmit] = useForm("contact-form");
 
   useEffect(() => {
     if (state.succeeded) {
@@ -27,24 +27,24 @@ const Contact = () => {
   }, [state.succeeded]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background ">
       <SEO title={title} description={description} keywords={keywords} />
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white">
-        <div className="container mx-auto px-6">
+      <section className="pt-24 pb-16 gradient-animated text-primary-foreground">
+        <div className="container justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Let's Grow Your
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="gradient-text">
                 {" "}
                 Business With The Right Technology
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+            <p className="text-xl md:text-2xl text-primary-foreground/80 leading-relaxed">
               We help small and medium businesses scale through high-performing
-              websites, business automation, SEO, and digital marketing. <br />{" "}
+              websites, business automation, SEO, and digital marketing. <br />
               Start with a free strategy session or send us a message below.
             </p>
           </div>
@@ -52,29 +52,29 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12">
+      <section className="py-16 section-muted">
+        <div className="container justify-items-center justify-content-center">
+          <div className="grid lg:grid-cols-2 gap-12 ">
             {/* Contact Form */}
-            <Card className="shadow-xl">
+            <Card className="floating-card ">
               <CardHeader>
                 <CardTitle className="text-2xl text-center">
                   Start with a Free Strategy Session
                 </CardTitle>
-                <p className="text-gray-600 text-center">
+                <p className="text-muted-foreground text-center">
                   We’ll review your business needs and respond within 24 hours.
                 </p>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 ">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
                         id="name"
                         name="name"
-                        required
                         placeholder="Your full name"
+                        required
                       />
                     </div>
                     <div>
@@ -83,8 +83,8 @@ const Contact = () => {
                         id="email"
                         name="email"
                         type="email"
-                        required
                         placeholder="your.email@company.com"
+                        required
                       />
                       <ValidationError
                         prefix="Email"
@@ -93,7 +93,6 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="company">Company Name</Label>
@@ -113,13 +112,12 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-
                   <div>
                     <Label htmlFor="service">Service Interest</Label>
                     <select
                       id="service"
                       name="service"
-                      className="w-full h-10 px-3 py-2 text-sm bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                      className="w-full h-10 px-3 py-2 text-sm bg-background border border-input rounded-md focus-ring"
                     >
                       <option value="">Select a service</option>
                       <option value="complete-package">
@@ -143,7 +141,6 @@ const Contact = () => {
                       name="message"
                       required
                       rows={10}
-                      // cols={5}
                       placeholder="Briefly tell us about your business and what you’d like help with (website, SEO, automation, marketing, or systems)."
                     />
                     <ValidationError
@@ -156,12 +153,13 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={state.submitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg py-3"
+                    className="w-full gradient-bg btn-shine text-primary-foreground text-lg py-3 hover:scale-105"
                   >
                     {state.submitting
                       ? "Sending..."
                       : "Request Free Strategy Session"}
                   </Button>
+
                   <ValidationError errors={state.errors} />
                 </form>
               </CardContent>
@@ -171,92 +169,94 @@ const Contact = () => {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                   Prefer to reach us directly? You can contact us using the
                   details below or book a free strategy session.
                 </p>
               </div>
 
               <div className="grid gap-6">
-                <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Card className="card-premium p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-100 p-3 rounded-full">
-                      <Mail className="w-6 h-6 text-blue-600" />
+                    <div className="bg-secondary p-3 rounded-full icon-glow">
+                      <Mail className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Email Us</h3>
-                      <p className="text-gray-600">
+                      <p className="text-muted-foreground">
                         solutions@mcraytechservices.com
                       </p>
-                      <p className="text-gray-600">
+                      <p className="text-muted-foreground">
                         support@mcraytechservices.com
                       </p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Card className="card-premium p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-green-100 p-3 rounded-full">
-                      <Phone className="w-6 h-6 text-green-600" />
+                    <div className="bg-secondary p-3 rounded-full icon-glow">
+                      <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Call Us</h3>
-                      <p className="text-gray-600">+234 (805) 192-7074</p>
-                      <p className="text-gray-600">+1 (410) 929-1326</p>
+                      <p className="text-muted-foreground">
+                        +234 (805) 192-7074
+                      </p>
+                      <p className="text-muted-foreground">+1 (410) 929-1326</p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Card className="card-premium p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-purple-100 p-3 rounded-full">
-                      <MapPin className="w-6 h-6 text-purple-600" />
+                    <div className="bg-secondary p-3 rounded-full icon-glow">
+                      <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Visit Us</h3>
-                      <p className="text-gray-600">
+                      <p className="text-muted-foreground">
                         BLK C40 NAHS KURUDU II, Und St, Gidan Mangoro,
                       </p>
-                      <p className="text-gray-600">
+                      <p className="text-muted-foreground">
                         Abuja 900109, Federal Capital Territory
                       </p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Card className="card-premium p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-orange-100 p-3 rounded-full">
-                      <Clock className="w-6 h-6 text-orange-600" />
+                    <div className="bg-secondary p-3 rounded-full icon-glow">
+                      <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Business Hours</h3>
-                      <p className="text-gray-600">
+                      <p className="text-muted-foreground">
                         Monday - Friday: 9:00 AM - 5:00 PM
                       </p>
-                      <p className="text-gray-600">
+                      <p className="text-muted-foreground">
                         Saturday: 10:00 AM - 4:00 PM
                       </p>
-                      <p className="text-gray-600">Sunday: Closed</p>
+                      <p className="text-muted-foreground">Sunday: Closed</p>
                     </div>
                   </div>
                 </Card>
               </div>
 
               {/* CTA */}
-              <Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 z-50">
+              <Card className="gradient-bg text-primary-foreground p-8">
                 <h3 className="text-2xl font-bold mb-4">
                   Free Strategy Session
                 </h3>
                 <p className="mb-6">
-                  Book a complimentary 15-minute consultation to discuss your
+                  Book a complimentary 30-minute consultation to discuss your
                   business goals and discover how we can help you scale with the
                   right technology and systems.
                 </p>
                 <Calendly
                   variant="secondary"
-                  className="bg-white text-blue-600 hover:bg-gray-100"
+                  className="bg-background text-primary hover:bg-muted hover:scale-105"
                   text="Book Free Strategy Session"
                 />
               </Card>
@@ -266,12 +266,12 @@ const Contact = () => {
       </section>
 
       {/* Google Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6">
+      <section className="py-16 section-primary">
+        <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Visit Our Office</h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-muted-foreground text-lg">
                 Visit our office during business hours — we’re happy to welcome
                 you.
               </p>
