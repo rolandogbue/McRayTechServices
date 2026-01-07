@@ -2,19 +2,19 @@ import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin } from "lucide-react";
 
-const containerStyle = {
-  width: "100%",
-  height: "384px", // h-96
-};
+// const containerStyle = {
+//   width: "100%",
+//   height: "384px", // h-96
+// };
 
 // Replace with exact coordinates
-const businessCoordinates = {
-  lat: 9.099382,
-  lng: 7.612715,
-};
+// const businessCoordinates = {
+//   lat: 9.099382,
+//   lng: 7.612715,
+// };
 
-const businessAddress =
-  "BLK C40 NAHS KURUDU II, Und St, Gidan Mangoro, Abuja 900109, Federal Capital Territory";
+// const businessAddress =
+//   "BLK C40 NAHS KURUDU II, Und St, Gidan Mangoro, Abuja 900109, Federal Capital Territory";
 
 const GoogleMapComponent = () => {
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;
@@ -79,9 +79,9 @@ const GoogleMapComponent = () => {
         width="600"
         height="450"
         // style="border:0;"
-        allowFullScreen={true}
+        // allowFullScreen={true}
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
+        // referrerPolicy="no-referrer-when-downgrade"
         className="w-full h-full"
       ></iframe>
     </Card>

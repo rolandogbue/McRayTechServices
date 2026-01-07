@@ -41,6 +41,12 @@ const bookingSchema = z.object({
       /^[a-zA-Z\s'-]+$/,
       "Name can only contain letters, spaces, hyphens, and apostrophes"
     ),
+  phone: z
+    .string()
+    .trim()
+    .min(1, "Phone number is required")
+    .max(50, "Phone number must be less than 50 characters")
+    .regex(/^\+?[0-9\s()-]+$/, "Please enter a valid phone number"),
   email: z
     .string()
     .trim()
@@ -50,8 +56,8 @@ const bookingSchema = z.object({
   businessName: z
     .string()
     .trim()
-    .max(255, "Business Name must be less than 255 characters")
-    .email("Please enter a valid email address"),
+    .min(1, "Business name is required")
+    .max(255, "Business name must be less than 255 characters"),
   message: z
     .string()
     .trim()
@@ -94,6 +100,7 @@ const timeSlots = [
 
 interface FieldErrors {
   name?: string;
+  phone?: string;
   email?: string;
   businessName?: string;
   message?: string;
@@ -104,6 +111,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [message, setMessage] = useState("");
@@ -115,6 +123,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     setStep("date");
     setSelectedDate(undefined);
     setSelectedTime("");
+    setPhone("");
     setName("");
     setEmail("");
     setBusinessName("");
@@ -132,6 +141,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const validateForm = (): boolean => {
     const result = bookingSchema.safeParse({
       name,
+      phone,
       email,
       businessName,
       message,
@@ -172,6 +182,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
       // Sanitize inputs before saving
       const sanitizedName = sanitizeInput(name);
+      const sanitizedPhone = sanitizeInput(phone);
       const sanitizedEmail = email.trim().toLowerCase();
       const sanitizedBusinessName = sanitizeInput(businessName);
       const sanitizedMessage = sanitizeInput(message);
@@ -179,8 +190,9 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       // Save booking to database
       const { error: dbError } = await supabase.from("bookings").insert({
         name: sanitizedName,
+        phone: sanitizedPhone,
         email: sanitizedEmail,
-        businessName: sanitizedBusinessName,
+        business_name: sanitizedBusinessName,
         message: sanitizedMessage || null,
         booking_date: bookingDate,
         booking_time: selectedTime,
@@ -195,7 +207,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       const formData = {
         name: sanitizedName,
         email: sanitizedEmail,
-        businessName: sanitizedBusinessName,
+        business_name: sanitizedBusinessName,
         message: sanitizedMessage,
         booking_date: format(selectedDate, "EEEE, MMMM d, yyyy"),
         booking_time: selectedTime,
@@ -375,6 +387,25 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
           )}
         </div>
         <div>
+          <Label htmlFor="name">Phone Number</Label>
+          <Input
+            id="phone"
+            placeholder="+1 (555) 555 5555"
+            value={phone}
+            onChange={(e) => {
+              setPhone(e.target.value);
+              if (fieldErrors.phone)
+                setFieldErrors((prev) => ({ ...prev, phone: undefined }));
+            }}
+            maxLength={100}
+            className={cn("mt-1.5", fieldErrors.phone && "border-destructive")}
+            aria-invalid={!!fieldErrors.phone}
+          />
+          {fieldErrors.phone && (
+            <p className="text-sm text-destructive mt-1">{fieldErrors.phone}</p>
+          )}
+        </div>
+        <div>
           <Label htmlFor="email">Email Address</Label>
           <Input
             id="email"
@@ -392,6 +423,33 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
           />
           {fieldErrors.email && (
             <p className="text-sm text-destructive mt-1">{fieldErrors.email}</p>
+          )}
+        </div>
+        <div>
+          <Label htmlFor="businessName">Business Name</Label>
+          <Input
+            id="businessName"
+            placeholder="Acme Consulting Ltd"
+            value={businessName}
+            onChange={(e) => {
+              setBusinessName(e.target.value);
+              if (fieldErrors.businessName)
+                setFieldErrors((prev) => ({
+                  ...prev,
+                  businessName: undefined,
+                }));
+            }}
+            maxLength={255}
+            className={cn(
+              "mt-1.5",
+              fieldErrors.businessName && "border-destructive"
+            )}
+            aria-invalid={!!fieldErrors.businessName}
+          />
+          {fieldErrors.businessName && (
+            <p className="text-sm text-destructive mt-1">
+              {fieldErrors.businessName}
+            </p>
           )}
         </div>
         <div>
@@ -436,7 +494,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
         </Button>
         <Button
           className="flex-1 gradient-bg"
-          disabled={!name || !email || isSubmitting}
+          disabled={!name || !phone || !email || !businessName || isSubmitting}
           onClick={handleSubmit}
         >
           {isSubmitting ? (

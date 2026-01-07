@@ -102,9 +102,9 @@ const Benefits = () => {
             {/* Feature image */}
             <div className="relative rounded-2xl overflow-hidden shadow-soft-xl group">
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                src="./business-meeting-cafe-web-optimized.jpg"
                 alt="Team working together on business growth"
-                className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
