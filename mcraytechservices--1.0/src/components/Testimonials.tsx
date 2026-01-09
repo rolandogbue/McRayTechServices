@@ -130,7 +130,7 @@ const sourceLogos = {
 const Testimonials = () => {
   return (
     <section className="py-20 bg-muted/50">
-      <div className="container mx-auto px-6 justify-center">
+      <div className="container mx-auto px-6 justify-center overflow-hidden">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
             <Badge

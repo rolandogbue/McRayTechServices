@@ -2,9 +2,9 @@
 CREATE TABLE public.bookings (
   id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
   name TEXT NOT NULL,
+  phone TEXT,
   email TEXT NOT NULL,
   business_name TEXT,
-  phone TEXT,
   message TEXT,
   booking_date DATE NOT NULL,
   booking_time TEXT NOT NULL,
