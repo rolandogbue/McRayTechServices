@@ -14,11 +14,16 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { AnimatedSection } from "@/components/ScrollAnimations";
 
 const Index = () => {
-  const { title, description, keywords } = SEO_CONFIG.home;
+  const { title, description, keywords, robots } = SEO_CONFIG.home;
 
   return (
     <div className="min-h-screen">
-      <SEO title={title} description={description} keywords={keywords} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        robots={robots}
+      />
       <Header />
       <Hero />
       <AnimatedSection>

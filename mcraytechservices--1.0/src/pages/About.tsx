@@ -4,14 +4,10 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
 import Team from "@/config/team";
-import {
-  FadeIn,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/ScrollAnimations";
+import { FadeIn, StaggerItem } from "@/components/ScrollAnimations";
 
 const About = () => {
-  const { title, description, keywords } = SEO_CONFIG.about;
+  const { title, description, keywords, robots } = SEO_CONFIG.about;
 
   const stats = [
     { number: "100%", label: "Happy Clients" },
@@ -22,14 +18,19 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEO title={title} description={description} keywords={keywords} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        robots={robots}
+      />
       <Header />
 
       {/* About Hero */}
       <section className="pt-24 pb-16 gradient-animated text-primary-foreground">
         <div className="container justify-center">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-5xl md:text-6xl mb-6 leading-tight">
+            <h1 className="font-display font-bold text-5xl md:text-6xl mb-6 leading-tight tracking-tight">
               About
               <span className="gradient-text"> McRay Tech Services</span>
             </h1>
@@ -56,9 +57,9 @@ const About = () => {
                 businesses with integrated, efficient, and scalable digital
                 solutions—eliminating the frustration of managing multiple
                 vendors. Too many capable businesses struggle to grow because
-                their websites, digital marketing, SEO, and automation are
-                handled by separate providers with disconnected systems and no
-                single point of accountability.
+                their websites, digital marketing, and automation are handled by
+                separate providers with disconnected systems and no single point
+                of accountability.
               </p>
 
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -157,15 +158,15 @@ const About = () => {
                   {i === 0
                     ? "Innovation at the Core"
                     : i === 1
-                    ? "Empowering Growth"
-                    : "Human-Centered Impact"}
+                      ? "Empowering Growth"
+                      : "Human-Centered Impact"}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed group-hover:text-primary-foreground transition-colors duration-300">
                   {i === 0
                     ? "We envision a world where every local business thrives with access to enterprise-level tools, automation, and creativity."
                     : i === 1
-                    ? "We aim to become the go-to partner for business transformation — helping companies grow smarter, faster, and more efficiently."
-                    : "Our vision is built on connection — creating meaningful, supportive, long-term relationships with every business we serve."}
+                      ? "We aim to become the go-to partner for business transformation — helping companies grow smarter, faster, and more efficiently."
+                      : "Our vision is built on connection — creating meaningful, supportive, long-term relationships with every business we serve."}
                 </p>
               </StaggerItem>
             ))}
@@ -254,7 +255,7 @@ const About = () => {
               {
                 year: "2023",
                 title: "Expanding Services",
-                text: "We added automation, SEO, and integrated marketing services to provide unified solutions.",
+                text: "We added branding, automation, and integrated marketing services to provide unified solutions.",
               },
               {
                 year: "2024",
@@ -267,15 +268,17 @@ const About = () => {
                 text: "We achieved 100+ completed projects and supported businesses across multiple industries.",
               },
             ].map((item, i) => (
-              <div key={i} className="ml-6">
+              <div key={i} className="ml-6 group">
                 <div className="absolute -left-4 w-8 h-8 bg-primary rounded-full border-4 border-primary"></div>
-                <h3 className="font-display text-2xl md:text-2xl font-bold gradient-text inline-block">
+                <h3 className="font-display text-2xl md:text-2xl font-bold gradient-text inline-block group-hover:scale-105 transition-transform duration-300 mb-2">
                   {item.year}
                 </h3>
-                <h4 className="text-xl font-medium text-primary mb-2">
+                <h4 className="text-xl font-medium text-primary group-hover:scale-95 transition-transform duration-300 mb-2">
                   {item.title}
                 </h4>
-                <p className="text-muted-foreground">{item.text}</p>
+                <p className="text-muted-foreground group-hover:scale-95 transition-transform duration-300">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>

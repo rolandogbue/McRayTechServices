@@ -24,11 +24,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
-
-// FormSpree endpoint - replace with your form ID
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/contact-form";
 
 // Validation schema
 const bookingSchema = z.object({
@@ -39,7 +35,7 @@ const bookingSchema = z.object({
     .max(100, "Name must be less than 100 characters")
     .regex(
       /^[a-zA-Z\s'-]+$/,
-      "Name can only contain letters, spaces, hyphens, and apostrophes"
+      "Name can only contain letters, spaces, hyphens, and apostrophes",
     ),
   phone: z
     .string()
@@ -178,69 +174,51 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     setIsSubmitting(true);
 
     try {
-      const bookingDate = format(selectedDate, "yyyy-MM-dd");
-
-      // Sanitize inputs before saving
-      const sanitizedName = sanitizeInput(name);
-      const sanitizedPhone = sanitizeInput(phone);
-      const sanitizedEmail = email.trim().toLowerCase();
-      const sanitizedBusinessName = sanitizeInput(businessName);
-      const sanitizedMessage = sanitizeInput(message);
-
-      // Save booking to database
-      const { error: dbError } = await supabase.from("bookings").insert({
-        name: sanitizedName,
-        phone: sanitizedPhone,
-        email: sanitizedEmail,
-        business_name: sanitizedBusinessName,
-        message: sanitizedMessage || null,
-        booking_date: bookingDate,
-        booking_time: selectedTime,
-        status: "pending",
-      });
-
-      if (dbError) {
-        throw new Error("Failed to save booking");
-      }
-
-      // Send to FormSpree with sanitized data
-      const formData = {
-        name: sanitizedName,
-        email: sanitizedEmail,
-        business_name: sanitizedBusinessName,
-        message: sanitizedMessage,
-        booking_date: format(selectedDate, "EEEE, MMMM d, yyyy"),
-        booking_time: selectedTime,
-        _subject: `New Booking Request from ${sanitizedName}`,
+      const payload = {
+        name: sanitizeInput(name),
+        phone: sanitizeInput(phone),
+        email: email.trim().toLowerCase(),
+        businessName: sanitizeInput(businessName),
+        message: sanitizeInput(message),
+        bookingDate: format(selectedDate, "yyyy-MM-dd"),
+        bookingTime: selectedTime,
       };
 
-      const formspreeResponse = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-booking`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
-      if (!formspreeResponse.ok) {
-        toast({
-          title: "Booking Saved",
-          description:
-            "Your booking was saved but email notification may have failed.",
-          variant: "destructive",
-        });
+      // SAFELY parse JSON
+      let result: any = null;
+      const text = await response.text();
+      if (text) {
+        result = JSON.parse(text);
+      }
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Booking failed");
       }
 
       setStep("confirmation");
+
       toast({
-        title: "Booking Confirmed!",
-        description: "You'll receive a confirmation email shortly.",
+        title: "Booking Confirmed",
+        description:
+          "Your session has been scheduled and a confirmation email has been sent.",
       });
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: "Booking Failed",
         description:
+          error?.message ||
           "There was an error processing your booking. Please try again.",
         variant: "destructive",
       });
@@ -270,8 +248,8 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
               step === s || (step === "confirmation" && i < 3)
                 ? "bg-primary text-primary-foreground"
                 : i < ["date", "time", "details", "confirmation"].indexOf(step)
-                ? "bg-primary/20 text-primary"
-                : "bg-muted text-muted-foreground"
+                  ? "bg-primary/20 text-primary"
+                  : "bg-muted text-muted-foreground",
             )}
           >
             {i + 1}
@@ -282,7 +260,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
                 "w-12 h-0.5 mx-1",
                 i < ["date", "time", "details", "confirmation"].indexOf(step)
                   ? "bg-primary"
-                  : "bg-muted"
+                  : "bg-muted",
               )}
             />
           )}
@@ -381,6 +359,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             maxLength={100}
             className={cn("mt-1.5", fieldErrors.name && "border-destructive")}
             aria-invalid={!!fieldErrors.name}
+            required
           />
           {fieldErrors.name && (
             <p className="text-sm text-destructive mt-1">{fieldErrors.name}</p>
@@ -400,6 +379,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             maxLength={100}
             className={cn("mt-1.5", fieldErrors.phone && "border-destructive")}
             aria-invalid={!!fieldErrors.phone}
+            required
           />
           {fieldErrors.phone && (
             <p className="text-sm text-destructive mt-1">{fieldErrors.phone}</p>
@@ -420,6 +400,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             maxLength={255}
             className={cn("mt-1.5", fieldErrors.email && "border-destructive")}
             aria-invalid={!!fieldErrors.email}
+            required
           />
           {fieldErrors.email && (
             <p className="text-sm text-destructive mt-1">{fieldErrors.email}</p>
@@ -442,9 +423,10 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             maxLength={255}
             className={cn(
               "mt-1.5",
-              fieldErrors.businessName && "border-destructive"
+              fieldErrors.businessName && "border-destructive",
             )}
             aria-invalid={!!fieldErrors.businessName}
+            required
           />
           {fieldErrors.businessName && (
             <p className="text-sm text-destructive mt-1">
@@ -468,7 +450,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             maxLength={1000}
             className={cn(
               "mt-1.5 resize-none",
-              fieldErrors.message && "border-destructive"
+              fieldErrors.message && "border-destructive",
             )}
             rows={3}
             aria-invalid={!!fieldErrors.message}

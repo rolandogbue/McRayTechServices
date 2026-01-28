@@ -15,20 +15,25 @@ import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
 
 const Contact = () => {
-  const { title, description, keywords } = SEO_CONFIG.contact;
+  const { title, description, keywords, robots } = SEO_CONFIG.contact;
   const [state, handleSubmit] = useForm("contact-form");
 
   useEffect(() => {
     if (state.succeeded) {
       toast.success(
-        "Thank you for your message! We'll get back to you within 24 hours."
+        "Thank you for your message! We'll get back to you within 24 hours.",
       );
     }
   }, [state.succeeded]);
 
   return (
     <div className="min-h-screen bg-background ">
-      <SEO title={title} description={description} keywords={keywords} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        robots={robots}
+      />
       <Header />
 
       {/* Hero Section */}
@@ -44,7 +49,7 @@ const Contact = () => {
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/80 leading-relaxed">
               We help small and medium businesses scale through high-performing
-              websites, business automation, SEO, and digital marketing. <br />
+              websites, business automation, and digital marketing. <br />
               Start with a free strategy session or send us a message below.
             </p>
           </div>

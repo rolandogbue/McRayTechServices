@@ -20,7 +20,7 @@ const slides = [
     headline: "Stop Managing",
     headlineHighlight: "Multiple Vendors",
     description:
-      "Website, Branding, SEO, Marketing, Automation, and Social Media — we handle everything while you focus on serving your clients.",
+      "Website, Branding, Marketing, and Automation — we handle everything while you focus on serving your clients.",
     cta: "See Our Services",
     image: "./Multi-vendor-hassle.png",
     imageAlt: "Business owner overwhelmed with multiple vendors",
@@ -60,7 +60,7 @@ const Hero = () => {
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
-    [emblaApi]
+    [emblaApi],
   );
 
   const onSelect = useCallback(() => {

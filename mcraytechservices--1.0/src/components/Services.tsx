@@ -30,6 +30,7 @@ const Services = () => {
         "Fast Loading",
         "Lead Capture",
         "Easy CMS",
+        "SEO Optimized",
       ],
     },
     {
@@ -46,15 +47,15 @@ const Services = () => {
         "Messaging",
       ],
     },
-    {
-      icon: <Search className="w-7 h-7" />,
-      title: "SEO & Web Performance",
-      description:
-        "Get found by customers actively searching for your services with optimized content and technical SEO.",
-      image:
-        "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=400&q=80",
-      features: ["On-Page SEO", "Local SEO", "Technical Audit", "Rankings"],
-    },
+    // {
+    //   icon: <Search className="w-7 h-7" />,
+    //   title: "SEO & Web Performance",
+    //   description:
+    //     "Get found by customers actively searching for your services with optimized content and technical SEO.",
+    //   image:
+    //     "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=400&q=80",
+    //   features: ["On-Page SEO", "Local SEO", "Technical Audit", "Rankings"],
+    // },
     {
       icon: <TrendingUp className="w-7 h-7" />,
       title: "Digital Marketing",
@@ -62,7 +63,14 @@ const Services = () => {
         "Targeted campaigns that turn prospects into paying clients across all digital channels.",
       image:
         "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=400&q=80",
-      features: ["Google Ads", "Social Ads", "Email Marketing", "Retargeting"],
+      features: [
+        "Google Ads",
+        "Social Ads",
+        "Email Marketing",
+        "Retargeting",
+        "SEO",
+        "Social Media Management",
+      ],
     },
     {
       icon: <Zap className="w-7 h-7" />,
@@ -78,20 +86,20 @@ const Services = () => {
         "Integrations",
       ],
     },
-    {
-      icon: <Share2 className="w-7 h-7" />,
-      title: "Social Media Management",
-      description:
-        "Consistent, engaging presence that builds your audience and drives traffic to your business.",
-      image:
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80",
-      features: [
-        "Content Creation",
-        "Posting Schedule",
-        "Community Mgmt",
-        "Analytics",
-      ],
-    },
+    // {
+    //   icon: <Share2 className="w-7 h-7" />,
+    //   title: "Social Media Management",
+    //   description:
+    //     "Consistent, engaging presence that builds your audience and drives traffic to your business.",
+    //   image:
+    //     "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80",
+    //   features: [
+    //     "Content Creation",
+    //     "Posting Schedule",
+    //     "Community Mgmt",
+    //     "Analytics",
+    //   ],
+    // },
     {
       icon: <Code className="w-7 h-7" />,
       title: "Custom Software Solutions",
@@ -99,7 +107,13 @@ const Services = () => {
         "Tailored applications and tools built specifically for your unique business needs.",
       image:
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
-      features: ["Web Apps", "Integrations", "Dashboards", "APIs"],
+      features: [
+        "Web Apps",
+        "Mobile Apps",
+        "Integrations",
+        "Dashboards",
+        "APIs",
+      ],
     },
     {
       icon: <Headphones className="w-7 h-7" />,
@@ -137,7 +151,8 @@ const Services = () => {
           </p>
         </FadeIn>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <StaggerItem key={index}>
               <Card className="group overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-soft-xl hover:-translate-y-2 bg-card gradient-border h-full">

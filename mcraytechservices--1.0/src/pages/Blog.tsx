@@ -90,7 +90,7 @@ const categories = [
 ];
 
 const Blog = () => {
-  const { title, description, keywords } = SEO_CONFIG.blog;
+  const { title, description, keywords, robots } = SEO_CONFIG.blog;
 
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -101,7 +101,12 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEO title={title} description={description} keywords={keywords} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        robots={robots}
+      />
       <Header />
 
       {/* Hero */}

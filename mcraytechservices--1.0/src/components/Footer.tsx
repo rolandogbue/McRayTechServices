@@ -6,10 +6,10 @@ const Footer = () => {
   const services = [
     "Website Development",
     "Branding & Identity",
-    "SEO & Web Performance",
+    // "SEO & Web Performance",
     "Digital Marketing",
     "Automation",
-    "Social Media Management",
+    // "Social Media Management",
     "Custom Software",
     "IT Consulting",
   ];
@@ -64,7 +64,7 @@ const Footer = () => {
                 />
                 <SocialButton
                   platform="twitter"
-                  href="https://twitter.com/services78078"
+                  href="https://twitter.com/mcraytechservcs"
                 />
                 <SocialButton
                   platform="facebook"

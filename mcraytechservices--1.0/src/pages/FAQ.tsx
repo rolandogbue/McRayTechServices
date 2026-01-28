@@ -11,7 +11,7 @@ import {
 import { FadeIn } from "@/components/ScrollAnimations";
 
 const FAQ = () => {
-  const { title, description, keywords } = SEO_CONFIG.faq;
+  const { title, description, keywords, robots } = SEO_CONFIG.faq;
 
   const faqs = [
     {
@@ -70,7 +70,12 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={title} description={description} keywords={keywords} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        robots={robots}
+      />
       <Header />
 
       {/* FAQ */}

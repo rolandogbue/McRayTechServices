@@ -46,3 +46,8 @@ CREATE TRIGGER update_bookings_updated_at
 BEFORE UPDATE ON public.bookings
 FOR EACH ROW
 EXECUTE FUNCTION public.update_updated_at_column();
+
+-- Prevent race-condition double bookings
+ALTER TABLE bookings
+ADD CONSTRAINT unique_booking_slot
+UNIQUE (booking_date, booking_time);

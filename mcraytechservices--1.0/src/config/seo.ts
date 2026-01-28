@@ -19,9 +19,9 @@ const SEO_CONFIG: Record<string, PageSEO> = {
   about: {
     title: "About Us | McRay Tech Services",
     description:
-      "Discover how McRay Tech Services empowers small businesses with digital solutions that drive growth.",
+      "Discover how McRay Tech Services empowers small businesses with digital solutions that drive growth. Learn about our mission, values, and the team dedicated to your success.",
     keywords:
-      "about us, McRay Tech Services, digital solutions, small business growth, tech company in abuja, software development company in abuja, web design agency, digital marketing company, marketing agency in abuja, integrated digital solutions, small and medium businesses",
+      "about us, learn about mcRay Tech Services, digital solutions, small business growth, tech company in abuja, software development company in abuja, web design agency, digital marketing company, marketing agency in abuja, integrated digital solutions, small and medium businesses",
     robots: "index,follow",
   },
 
