@@ -11,7 +11,7 @@ export const LOGO_CONFIG = {
     },
     dark: {
       src: "/logo1.png",
-      alt: "McRay Tech Services Logo (Dark)",
+      alt: "McRay Tech Services Logo",
       height: 40,
     },
   },
@@ -19,12 +19,12 @@ export const LOGO_CONFIG = {
   footer: {
     light: {
       src: "/logo.png",
-      alt: "McRay Tech Services Logo White",
+      alt: "McRay Tech Services Logo",
       height: 40,
     },
     dark: {
       src: "/logo1.png",
-      alt: "McRay Tech Services Logo White",
+      alt: "McRay Tech Services Logo",
       height: 40,
     },
   },

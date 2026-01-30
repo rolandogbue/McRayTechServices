@@ -31,15 +31,12 @@ const Footer = () => {
   ];
 
   return (
-    // <footer className="bg-gray-900 text-white py-16">
-    //   <div className="container mx-auto px-6">
-    //     <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-12">
     <footer className="bg-card border-t border-border py-16">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4">
+            <div className="text-3xl font-bold bg-gradient bg-clip-text text-transparent mb-4">
               <div className="flex items-center">
                 <Logo
                   variant="footer"
@@ -139,13 +136,28 @@ const Footer = () => {
             © 2025 McRay Tech Services Ltd. All rights reserved
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">
+            <a
+              href="/privacy"
+              target="_blank"
+              rel="privacy"
+              className="hover:text-primary transition-colors"
+            >
               Privacy
             </a>
-            <a href="#" className="hover:text-primary transition-colors">
+            <a
+              href="/terms"
+              target="_blank"
+              rel="terms"
+              className="hover:text-primary transition-colors"
+            >
               Terms
             </a>
-            <a href="#" className="hover:text-primary transition-colors">
+            <a
+              href="/cookies"
+              target="_blank"
+              rel="cookies"
+              className="hover:text-primary transition-colors"
+            >
               Cookies
             </a>
           </div>

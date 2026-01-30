@@ -12,6 +12,7 @@ import Testimonials from "@/components/Testimonials";
 import DiscountPopup from "@/components/DiscountPopup";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AnimatedSection } from "@/components/ScrollAnimations";
+import ConsentBanner from "../pages/ConsentBanner";
 
 const Index = () => {
   const { title, description, keywords, robots } = SEO_CONFIG.home;
@@ -47,6 +48,7 @@ const Index = () => {
       <Footer />
       <DiscountPopup />
       <ScrollToTop />
+      <ConsentBanner />
     </div>
   );
 };
