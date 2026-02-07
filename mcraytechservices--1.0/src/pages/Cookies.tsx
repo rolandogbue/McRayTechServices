@@ -12,7 +12,10 @@ export default function Cookies() {
           This Cookie Policy explains how McRay Tech Services Ltd (
           <b>"Company," "we," "us," and "our"</b>) uses cookies and similar
           technologies to recognize you when you visit our website at 
-          <a href="https://mcraytechservices.com">
+          <a
+            className="text-primary underline"
+            href="https://mcraytechservices.com"
+          >
             www.mcraytechservices.com
           </a>{" "}
           (<b>"Website"</b>). It explains what these technologies are and why we
@@ -84,7 +87,7 @@ export default function Cookies() {
         </p>
 
         <span className="mb-4 text-md text-muted-foreground leading-relaxed">
-          <strong>Essential website cookies:</strong>
+          <strong className="underline">Essential website cookies:</strong>
         </span>
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
           These cookies are strictly necessary to provide you with services
@@ -93,17 +96,28 @@ export default function Cookies() {
         </p>
 
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
-          Name:__cf_bm <br />
-          Purpose:Cloudflare places the cookie on end-user devices that access
+          Name: __cf_bm <br />
+          Purpose: Cloudflare places the cookie on end-user devices that access
           customer sites protected by Bot Management or Bot Fight Mode. <br />
-          Provider:.calendly.com <br />
-          Service:CloudFlare View Service Privacy Policy <br />
-          Type:http_cookie <br />
-          Expires in:29 minutes
+          Provider: .calendly.com <br />
+          Service: CloudFlare{" "}
+          <a
+            className="text-primary underline"
+            href="https://www.cloudflare.com/privacypolicy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Service Privacy Policy
+          </a>{" "}
+          <br />
+          Type: http_cookie <br />
+          Expires in: 29 minutes
         </p>
 
         <span className="mb-4 text-md text-muted-foreground leading-relaxed">
-          <strong>Performance and functionality cookies:</strong>
+          <strong className="underline">
+            Performance and functionality cookies:
+          </strong>
         </span>
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
           These cookies are used to enhance the performance and functionality of
@@ -112,18 +126,29 @@ export default function Cookies() {
         </p>
 
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
-          Name:_cfuvid <br />
-          Purpose:This cookie is set by Cloudflare to enhance security and
+          Name: _cfuvid <br />
+          Purpose: This cookie is set by Cloudflare to enhance security and
           performance. It helps identify trusted web traffic and ensures a
           secure browsing experience for users. <br />
-          Provider:.calendly.com <br />
-          Service:Cloudflare View Service Privacy Policy <br />
-          Type:server_cookie <br />
-          Expires in:session
+          Provider: .calendly.com <br />
+          Service: Cloudflare{" "}
+          <a
+            className="text-primary underline"
+            href="https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Service Privacy Policy
+          </a>{" "}
+          <br />
+          Type: server_cookie <br />
+          Expires in: session
         </p>
 
         <span className="mb-4 text-md text-muted-foreground leading-relaxed">
-          <strong>Analytics and customization cookies:</strong>
+          <strong className="underline">
+            Analytics and customization cookies:
+          </strong>
         </span>
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
           These cookies collect information that is used either in aggregate
@@ -133,32 +158,50 @@ export default function Cookies() {
         </p>
 
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
-          Name:_ga <br />
-          Purpose:Records a particular ID used to come up with data about
+          Name: _ga <br />
+          Purpose: Records a particular ID used to come up with data about
           website usage by the user <br />
-          Provider:.mcraytechservices.com <br />
-          Service:Google Analytics View Service Privacy Policy <br />
-          Type:http_cookie <br />
-          Expires in:session
+          Provider: .mcraytechservices.com <br />
+          Service: Google Analytics{" "}
+          <a
+            className="text-primary underline"
+            href="https://business.safety.google/privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Service Privacy Policy
+          </a>{" "}
+          <br />
+          Type: http_cookie <br />
+          Expires in: session
         </p>
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
-          Name:s7 <br />
-          Purpose:Gather data regarding site usage and user behavior on the
+          Name: s7 <br />
+          Purpose: Gather data regarding site usage and user behavior on the
           website. <br />
-          Provider:mcraytechservices.com <br />
-          Service:Adobe Analytics <br />
-          Type:html_local_storage <br />
-          Expires in:persistent
+          Provider: mcraytechservices.com <br />
+          Service: Adobe Analytics <br />
+          Type: html_local_storage <br />
+          Expires in: persistent
         </p>
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
-          Name:_ga_# <br />
-          Purpose:Used to distinguish individual users by means of designation
+          Name: _ga_# <br />
+          Purpose: Used to distinguish individual users by means of designation
           of a randomly generated number as client identifier, which allows
           calculation of visits and sessions <br />
-          Provider:.mcraytechservices.com <br />
-          Service:Google Analytics View Service Privacy Policy <br />
-          Type:http_cookie <br />
-          Expires in:session
+          Provider: .mcraytechservices.com <br />
+          Service: Google Analytics{" "}
+          <a
+            className="text-primary underline"
+            href="https://business.safety.google/privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Service Privacy Policy
+          </a>{" "}
+          <br />
+          Type: http_cookie <br />
+          Expires in: session
         </p>
 
         <h3 className="mb-4 text-xl font-semibold">
@@ -170,10 +213,10 @@ export default function Cookies() {
           help menu for more information. The following is information about how
           to manage cookies on the most popular browsers:
         </p>
-        <ul className="list-disc list-inside mb-6 text-md text-muted-foreground leading-relaxed">
+        <ul className="list-disc ml-12 mb-6 text-md text-muted-foreground leading-relaxed">
           <a
             className="text-primary underline"
-            href="http://"
+            href="https://support.google.com/chrome/answer/95647#zippy=%2Callow-or-block-cookies"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -182,7 +225,7 @@ export default function Cookies() {
           </a>
           <a
             className="text-primary underline"
-            href="http://"
+            href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d "
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -190,7 +233,7 @@ export default function Cookies() {
           </a>
           <a
             className="text-primary underline"
-            href="http://"
+            href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -198,7 +241,7 @@ export default function Cookies() {
           </a>
           <a
             className="text-primary underline"
-            href="http://"
+            href="https://support.apple.com/en-ie/guide/safari/sfri11471/mac"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -206,7 +249,7 @@ export default function Cookies() {
           </a>
           <a
             className="text-primary underline"
-            href="http://"
+            href="https://support.microsoft.com/en-us/microsoft-edge/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -214,7 +257,7 @@ export default function Cookies() {
           </a>
           <a
             className="text-primary underline"
-            href="http://"
+            href="https://help.opera.com/en/latest/web-preferences/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -227,10 +270,32 @@ export default function Cookies() {
           targeted advertising. If you would like to find out more information,
           please visit:
         </p>
-        <ul className="list-disc list-inside mb-6 text-md text-muted-foreground leading-relaxed">
-          <li>Digital Advertising Alliance</li>
-          <li>Digital Advertising Alliance of Canada</li>
-          <li>European Interactive Digital Advertising Alliance</li>
+        <ul className="list-disc ml-12 mb-6 text-md text-muted-foreground leading-relaxed">
+          <a
+            className="text-primary underline"
+            href="https://optout.aboutads.info/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <li>Digital Advertising Alliance</li>
+          </a>
+          <a
+            className="text-primary underline"
+            href="https://youradchoices.ca/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            <li>Digital Advertising Alliance of Canada</li>
+          </a>
+          <a
+            className="text-primary underline"
+            href="https://www.youronlinechoices.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <li>European Interactive Digital Advertising Alliance</li>
+          </a>
         </ul>
 
         <h3 className="mb-4 text-xl font-semibold">
@@ -266,15 +331,30 @@ export default function Cookies() {
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">
           If you do not want Flash Cookies stored on your computer, you can
           adjust the settings of your Flash player to block Flash Cookies
-          storage using the tools contained in the Website Storage Settings
-          Panel. You can also control Flash Cookies by going to the Global
-          Storage Settings Panel and following the instructions (which may
-          include instructions that explain, for example, how to delete existing
-          Flash Cookies (referred to "information" on the Macromedia site), how
-          to prevent Flash LSOs from being placed on your computer without your
-          being asked, and (for Flash Player 8 and later) how to block Flash
-          Cookies that are not being delivered by the operator of the page you
-          are on at the time).
+          storage using the tools contained in the{" "}
+          <a
+            className="text-primary underline"
+            href="https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Website Storage Settings Panel
+          </a>
+          . You can also control Flash Cookies by going to the{" "}
+          <a
+            className="text-primary underline"
+            href="https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager03.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Global Storage Settings Panel 
+          </a>
+           and following the instructions (which may include instructions that
+          explain, for example, how to delete existing Flash Cookies (referred
+          to "information" on the Macromedia site), how to prevent Flash LSOs
+          from being placed on your computer without your being asked, and (for
+          Flash Player 8 and later) how to block Flash Cookies that are not
+          being delivered by the operator of the page you are on at the time).
         </p>
 
         <p className="mb-4 text-md text-muted-foreground leading-relaxed">

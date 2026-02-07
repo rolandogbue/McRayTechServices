@@ -7,9 +7,10 @@ CREATE TABLE public.bookings (
   business_name TEXT,
   message TEXT,
   booking_date DATE NOT NULL,
-  booking_time TEXT NOT NULL,
+  booking_time TIME NOT NULL,
   status TEXT NOT NULL DEFAULT 'pending',
   google_event_id TEXT,
+  google_meet_link TEXT,
   created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
   updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
@@ -47,7 +48,7 @@ BEFORE UPDATE ON public.bookings
 FOR EACH ROW
 EXECUTE FUNCTION public.update_updated_at_column();
 
--- Prevent race-condition double bookings
-ALTER TABLE bookings
+-- Prevent race-condition double bookings (unique on booking_timestamp)
+ALTER TABLE public.bookings
 ADD CONSTRAINT unique_booking_slot
 UNIQUE (booking_date, booking_time);
