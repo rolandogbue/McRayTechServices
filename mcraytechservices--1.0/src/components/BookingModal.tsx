@@ -521,8 +521,12 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   );
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-[480px] max-h-[90vh] overflow-y-auto">
+    <Dialog open={open} onOpenChange={handleClose} modal={false}>
+      <DialogContent
+        className="sm:max-w-[480px] max-h-[90vh] overflow-y-auto"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        onCloseAutoFocus={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle className="text-center font-display text-2xl">
             {step === "confirmation"
