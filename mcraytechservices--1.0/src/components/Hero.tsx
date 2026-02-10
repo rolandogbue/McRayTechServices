@@ -3,15 +3,28 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import BookingModal from "./BookingModal";
+import { CTAActionConfig } from "./ctaActions";
+import { useCTAAction } from "@/config/useCTAAction";
 
-const slides = [
+const slides: Array<{
+  badge: string;
+  headline: string;
+  headlineHighlight: string;
+  description: string;
+  cta: CTAActionConfig;
+  image: string;
+  imageAlt: string;
+}> = [
   {
     badge: "Your Growth Partner",
     headline: "Grow Your Business with",
     headlineHighlight: "One Trusted Partner",
     description:
       "We help small and medium businesses attract more customers, increase sales, and save time — all from a single trusted partner.",
-    cta: "Schedule Free Strategy Session",
+    cta: {
+      label: "Schedule Free Strategy Session",
+      type: "BOOK_STRATEGY",
+    },
     image: "./middle-aged-hispanic-business-people-web-optimized.jpg",
     imageAlt: "Professional team collaboration meeting",
   },
@@ -21,7 +34,10 @@ const slides = [
     headlineHighlight: "Multiple Vendors",
     description:
       "Website, Branding, Marketing, and Automation — we handle everything while you focus on serving your clients.",
-    cta: "See Our Services",
+    cta: {
+      label: "See Our Services",
+      type: "SCROLL_SERVICES",
+    },
     image: "./Multi-vendor-hassle.png",
     imageAlt: "Business owner overwhelmed with multiple vendors",
   },
@@ -31,7 +47,10 @@ const slides = [
     headlineHighlight: "Less Hassle.",
     description:
       "Our clients see measurable growth in leads, conversions, and revenue within 90 days. Let us do the same for you.",
-    cta: "View Success Stories",
+    cta: {
+      label: "View Success Stories",
+      type: "SCROLL_TESTIMONIALS",
+    },
     image: "./authentic-small-youthful-marketing-agency-web-optimized.jpg",
     imageAlt: "Happy team celebrating business success and growth",
   },
@@ -47,6 +66,10 @@ const Hero = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const handleCTAAction = useCTAAction({
+    openBookingModal: () => setBookingOpen(true),
+  });
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -129,9 +152,9 @@ const Hero = () => {
                         <Button
                           size="lg"
                           className="gradient-bg text-primary-foreground px-8 py-6 text-lg rounded-xl hover:scale-105 hover:shadow-glow-lg animate-pulse-glow group btn-shine"
-                          onClick={() => setBookingOpen(true)}
+                          onClick={() => handleCTAAction(slide.cta.type)}
                         >
-                          {slide.cta}
+                          {slide.cta.label}
                           <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </div>

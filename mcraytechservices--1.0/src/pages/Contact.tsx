@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,11 +10,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
 import { toast } from "sonner";
-import Calendly from "@/components/Calendly";
+import BookingModal from "@/components/BookingModal";
 import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
 
 const Contact = () => {
+  const [bookingOpen, setBookingOpen] = useState(false);
   const { title, description, keywords, robots } = SEO_CONFIG.contact;
   const [state, handleSubmit] = useForm("contact-form");
 
@@ -259,11 +260,13 @@ const Contact = () => {
                   business goals and discover how we can help you scale with the
                   right technology and systems.
                 </p>
-                <Calendly
+                <Button
+                  onClick={() => setBookingOpen(true)}
                   variant="secondary"
-                  className="bg-background text-primary hover:bg-muted hover:scale-105"
-                  text="Book Free Strategy Session"
-                />
+                  className="bg-background btn-shine text-primary hover:bg-muted hover:scale-105"
+                >
+                  Book Free Strategy Session
+                </Button>
               </Card>
             </div>
           </div>
@@ -287,6 +290,7 @@ const Contact = () => {
       </section>
 
       <Footer />
+      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </div>
   );
 };
