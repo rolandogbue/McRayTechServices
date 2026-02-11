@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import BookingModal from "./BookingModal";
-import { CTAActionConfig } from "./ctaActions";
+import BookingModal from "@/components/BookingModal";
+import { CTAActionConfig } from "@/config/ctaActions";
 import { useCTAAction } from "@/config/useCTAAction";
 
 const slides: Array<{
