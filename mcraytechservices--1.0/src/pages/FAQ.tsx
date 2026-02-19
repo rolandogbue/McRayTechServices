@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { FadeIn } from "@/components/ScrollAnimations";
 
-const FAQ = () => {
+const Faq = () => {
   const { title, description, keywords, robots } = SEO_CONFIG.faq;
 
   const faqs = [
