@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://mcraytechservices.com/sitemap.xml
+Sitemap: https://www.mcraytechservices.com/sitemap.xml
