@@ -6,10 +6,8 @@ const Footer = () => {
   const services = [
     "Website Development",
     "Branding & Identity",
-    // "SEO & Web Performance",
     "Digital Marketing",
     "Automation",
-    // "Social Media Management",
     "Custom Software",
     "IT Consulting",
   ];
@@ -20,6 +18,7 @@ const Footer = () => {
     { label: "Case Studies", href: "#" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
+    { label: "Faq", href: "/faq" },
   ];
 
   const resources = [
