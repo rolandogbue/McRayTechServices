@@ -25,7 +25,6 @@ export default function SEO({
 
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="Googlebot" content={robots}></meta>
-    </Helmet>
+      <meta name="robots" content={robots} />
   );
 }
