@@ -16,9 +16,9 @@ const Footer = () => {
     { label: "About Us", href: "/about" },
     { label: "Our Process", href: "#process" },
     { label: "Case Studies", href: "#" },
-    { label: "Blog", href: "/blog" },
+    { label: "Insights", href: "/blog" },
+    { label: "Frequently Asked Questions", href: "/faq" },
     { label: "Contact", href: "/contact" },
-    { label: "Faq", href: "/faq" },
   ];
 
   const resources = [

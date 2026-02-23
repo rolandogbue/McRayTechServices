@@ -8,11 +8,11 @@ interface PageSEO {
 const SEO_CONFIG: Record<string, PageSEO> = {
   home: {
     title:
-      "Website Developer in Abuja | Grow Your Business with Website, Branding, SEO & Digital Marketing, and Automation",
+      "Best Web design and Marketing agency in abuja | Grow your business with Website, Branding, Marketing, and Automation",
     description:
-      "McRay Tech Services is an all-in-one software and digital growth partner helping small and medium businesses with website development, branding, SEO, digital marketing, and automation to drive faster growth. Save time, cut costs, and grow your business faster today.",
+      "McRay Tech Services is an all-in-one business growth partner helping small and medium businesses with website development, branding, marketing, and automation to drive faster growth, Save time, and cut costs. Grow your business with us today!",
     keywords:
-      "web developer in abuja, web development, website builder in abuja, SEO services, small business website abuja, digital marketing, marketing agency in abuja, design agency in abuja, lead generation, increase online visibility, how to grow my business, business automation, graphic designer, product designer, ui/ux, social media managemnet, e-commerce builder, online-store builder, web designer, tech company in abuja, software development company in abuja, mcray tech services, website development company in nigeria, website design company, website designers near me, website design services, web design agency, web design agency near me, web development agency, website development company, website development services, website builder Abuja, web design and development, digital marketing company, digital marking companies, digital marketing service, digital marketing agency near me, marketing firms, marketing agencies, digital marketer abuja, marketing agency abuja, design agency abuja, increase online visibility, business automation, product design, ui/ux designer, integrated digital solutions, small and medium businesses",
+      "web developer in abuja, web development company near me, website builder in abuja, design agency in abuja, design expert in abuja, branding expert in abuja, e-commerce builder, online-store builder, web design agency in abuja, web designer near me, marketing company in abuja, marketing agency near me, marketing firm near me, digital marketer in abuja, design agency in abuja, how to grow my business, how to grow my business online, how to increase lead, how to generate lead, lead generation expert, google ads manager, how to increase online visibility, marketing agency in abuja, best maketing agency in abuja, Gohighlevel expert, how to automate task, how to automate follow-up, social media manager, CRM expert, business automation specialist, Automation expert, how to increase online booking, how to increase sales, tech company in abuja, software development company in abuja, best software development company in nigeria, best software development companies in abuja, technical partner in abuja",
     robots: "index,follow",
   },
 
@@ -26,7 +26,7 @@ const SEO_CONFIG: Record<string, PageSEO> = {
   },
 
   faq: {
-    title: "FAQ | McRay Tech Services",
+    title: "Frequently Asked Questions | McRay Tech Services",
     description:
       "Find clear answers to questions about our services, delivery timelines, and how we help small businesses grow with tech.",
     keywords: "faq, business faq, digital services faq, web development faq",
@@ -45,9 +45,9 @@ const SEO_CONFIG: Record<string, PageSEO> = {
   contact: {
     title: "Contact Us | McRay Tech Services",
     description:
-      "Get in touch with McRay Tech Services for website development, digital marketing, SEO, and automation solutions. Start with a free strategy session or send us a message",
+      "Get in touch with McRay Tech Services for website development, marketing, and automation solutions. Start with a free strategy session or send us a message",
     keywords:
-      "contact us, book free strategy session, free consultation, McRay Tech Services, get in touch, visit us, web developer, SEO services, marketing agency abuja, marketing companies, website development company, website development agency abuja, digital marketing specialist, how to grow my business, tech company in abuja, software development company in abuja, web design agency, digital marketing company, marketing agency in abuja, integrated digital solutions, small and medium businesses",
+      "contact us, book free strategy session, book free consultation, get in touch, visit us, web developer, SEO services, marketing agency abuja, marketing companies, website development company, website development agency abuja, digital marketing specialist, how to grow my business, tech company in abuja, software development company in abuja, web design agency, digital marketing company, marketing agency in abuja, integrated digital solutions, small and medium businesses",
     robots: "index,follow",
   },
 

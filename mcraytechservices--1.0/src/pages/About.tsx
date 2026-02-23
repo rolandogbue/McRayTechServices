@@ -54,10 +54,10 @@ const About = () => {
 
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 We started with a simple mission: to empower small and medium
-                businesses with integrated, efficient, and scalable digital
-                solutions—eliminating the frustration of managing multiple
+                businesses in Nigeria with integrated, efficient, and scalable digital
+                solutions — eliminating the frustration of managing multiple
                 vendors. Too many capable businesses struggle to grow because
-                their websites, digital marketing, and automation are handled by
+                their websites, marketing, and automation are handled by
                 separate providers with disconnected systems and no single point
                 of accountability.
               </p>
@@ -141,7 +141,7 @@ const About = () => {
             </h2>
             <p className="text-lg md:text-xl opacity-90 leading-relaxed">
               At McRay Tech Services, our vision is to redefine how small
-              businesses leverage technology — transforming complex digital
+              businesses in Nigeria leverage technology — transforming complex digital
               challenges into streamlined, automated, growth-driven solutions
               that feel effortless.
             </p>
@@ -163,7 +163,7 @@ const About = () => {
                 </h3>
                 <p className="text-muted-foreground leading-relaxed group-hover:text-primary-foreground transition-colors duration-300">
                   {i === 0
-                    ? "We envision a world where every local business thrives with access to enterprise-level tools, automation, and creativity."
+                    ? "We envision a world where every local business in Nigeria thrives with access to enterprise-level tools, automation, and creativity."
                     : i === 1
                       ? "We aim to become the go-to partner for business transformation — helping companies grow smarter, faster, and more efficiently."
                       : "Our vision is built on connection — creating meaningful, supportive, long-term relationships with every business we serve."}
