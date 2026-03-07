@@ -54,7 +54,7 @@ const About = () => {
 
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 We started with a simple mission: to empower small and medium
-                businesses in Nigeria with integrated, efficient, and scalable digital
+                businesses in Abuja with integrated, efficient, and scalable digital
                 solutions — eliminating the frustration of managing multiple
                 vendors. Too many capable businesses struggle to grow because
                 their websites, marketing, and automation are handled by
