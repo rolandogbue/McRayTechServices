@@ -27,7 +27,7 @@ const reviews: Review[] = [
     id: 1,
     name: "Sarah Johnson",
     role: "CEO",
-    company: "TechStart Inc",
+    // company: "TechStart Inc",
     image: "/placeholder.svg",
     rating: 5,
     text: "Outstanding service! They transformed our business operations and helped us achieve 300% growth in just 6 months. Highly professional team.",
@@ -36,9 +36,9 @@ const reviews: Review[] = [
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Samuel Adebayo",
     role: "Marketing Director",
-    company: "Digital Wave",
+    // company: "Digital Wave",
     image: "/placeholder.svg",
     rating: 5,
     text: "The best investment we've made for our company. Their strategic approach and attention to detail is unmatched. Results speak for themselves!",
@@ -47,36 +47,58 @@ const reviews: Review[] = [
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
+    name: "Joel Ariole",
     role: "Founder",
-    company: "GrowthLab",
+    // company: "GrowthLab",
     image: "/placeholder.svg",
     rating: 5,
     text: "Exceptional expertise and incredible results. They understood our vision and executed perfectly. Our revenue doubled within the first quarter!",
     source: "google",
-    date: "3 weeks ago",
+    date: "1 weeks ago",
   },
   {
     id: 4,
-    name: "David Thompson",
-    role: "Operations Manager",
-    company: "Innovate Co",
+    name: "Uzoma Cynthia",
+    role: "Business Owner",
+    // company: "Auric Crown",
     image: "/placeholder.svg",
     rating: 5,
-    text: "Professional, responsive, and results-driven. They exceeded all our expectations and delivered beyond what we thought possible.",
-    source: "yelp",
-    date: "1 week ago",
+    text: "Wish I could give more stars!.",
+    source: "google",
+    date: "1 month ago",
   },
   {
     id: 5,
     name: "Lisa Anderson",
-    role: "Business Owner",
-    company: "Elite Solutions",
+    role: "Operations Manager",
+    // company: "Elite Solutions",
     image: "/placeholder.svg",
     rating: 5,
     text: "A game-changer for our business! Their innovative strategies and hands-on approach made all the difference. Couldn't be happier!",
     source: "facebook",
     date: "2 months ago",
+  },
+  {
+    id: 6,
+    name: "Emmanuel Nwogu",
+    role: "Business Owner",
+    // company: "EmaxTax",
+    image: "/placeholder.svg",
+    rating: 5,
+    text: "Nice working with your company, You’re time conscious, and professional with delivering.",
+    source: "google",
+    date: "5 months ago",
+  },
+  {
+    id: 7,
+    name: "Liams Rex",
+    role: "Business Owner",
+    // company: "EmaxTax",
+    image: "/placeholder.svg",
+    rating: 5,
+    text: "Honestly, I'll recommend anyone to work with you guys ❤️ I appreciate your services, and thanks for making my brand have a voice.",
+    source: "trustpilot",
+    date: "4 months ago",
   },
 ];
 
@@ -109,14 +131,14 @@ const sourceLogos = {
       />
     </svg>
   ),
-  yelp: (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-      <path
-        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-        fill="#FF1A1A"
-      />
-    </svg>
-  ),
+  // yelp: (
+  //   <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+  //     <path
+  //       d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+  //       fill="#FF1A1A"
+  //     />
+  //   </svg>
+  // ),
   facebook: (
     <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
       <path
@@ -161,7 +183,7 @@ const Testimonials = () => {
                 className="md:basis-1/2 lg:basis-1/3"
               >
                 <div className="p-1">
-                  <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+                  <Card className="h-72 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-6 flex flex-col h-full">
                       {/* Source Badge */}
                       <div className="flex items-center justify-between mb-4">
@@ -208,7 +230,7 @@ const Testimonials = () => {
                         <div>
                           <p className="font-semibold text-sm">{review.name}</p>
                           <p className="text-xs text-muted-foreground">
-                            {review.role}, {review.company}
+                            {review.role} {review.company}
                           </p>
                         </div>
                       </div>
