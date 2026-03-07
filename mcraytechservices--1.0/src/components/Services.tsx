@@ -69,7 +69,6 @@ const Services = () => {
         "Email Marketing",
         "Retargeting",
         "SEO",
-        "Social Media Management",
       ],
     },
     {
@@ -109,7 +108,6 @@ const Services = () => {
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
       features: [
         "Web Apps",
-        "Mobile Apps",
         "Integrations",
         "Dashboards",
         "APIs",

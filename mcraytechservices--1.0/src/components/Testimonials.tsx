@@ -18,22 +18,23 @@ interface Review {
   image: string;
   rating: number;
   text: string;
-  source: "google" | "trustpilot" | "yelp" | "facebook";
+  source: "google" | "trustpilot" | "facebook";
   date: string;
 }
 
 const reviews: Review[] = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "CEO",
-    // company: "TechStart Inc",
+    name: "Emmanuel Nwogu",
+    role: "Business Owner",
+    // company: "EmaxTax",
     image: "/placeholder.svg",
     rating: 5,
-    text: "Outstanding service! They transformed our business operations and helped us achieve 300% growth in just 6 months. Highly professional team.",
+    text: "Nice working with your company, You’re time conscious, and professional with delivering.",
     source: "google",
-    date: "2 weeks ago",
+    date: "5 months ago",
   },
+
   {
     id: 2,
     name: "Samuel Adebayo",
@@ -67,36 +68,47 @@ const reviews: Review[] = [
     source: "google",
     date: "1 month ago",
   },
-  {
-    id: 5,
-    name: "Lisa Anderson",
-    role: "Operations Manager",
-    // company: "Elite Solutions",
-    image: "/placeholder.svg",
-    rating: 5,
-    text: "A game-changer for our business! Their innovative strategies and hands-on approach made all the difference. Couldn't be happier!",
-    source: "facebook",
-    date: "2 months ago",
-  },
+  // {
+  //   id: 5,
+  //   name: "Lisa Anderson",
+  //   role: "Business Owner",
+  //   // company: "Elite Solutions",
+  //   image: "/placeholder.svg",
+  //   rating: 5,
+  //   text: "A game-changer for our business! Their innovative strategies and hands-on approach made all the difference. Couldn't be happier!",
+  //   source: "facebook",
+  //   date: "2 months ago",
+  // },
   {
     id: 6,
-    name: "Emmanuel Nwogu",
-    role: "Business Owner",
-    // company: "EmaxTax",
-    image: "/placeholder.svg",
-    rating: 5,
-    text: "Nice working with your company, You’re time conscious, and professional with delivering.",
-    source: "google",
-    date: "5 months ago",
-  },
-  {
-    id: 7,
     name: "Liams Rex",
     role: "Business Owner",
     // company: "EmaxTax",
     image: "/placeholder.svg",
     rating: 5,
     text: "Honestly, I'll recommend anyone to work with you guys ❤️ I appreciate your services, and thanks for making my brand have a voice.",
+    source: "trustpilot",
+    date: "4 months ago",
+  },
+  {
+    id: 7,
+    name: "Sarah Johnson",
+    role: "CEO",
+    // company: "TechStart Inc",
+    image: "/placeholder.svg",
+    rating: 5,
+    text: "Outstanding service! They transformed our business operations and helped us achieve 300% growth in just 6 months. Highly professional team.",
+    source: "google",
+    date: "2 weeks ago",
+  },
+  {
+    id: 8,
+    name: "Ruth Onwuegbule",
+    role: "Manager",
+    // company: "EmaxTax",
+    image: "/placeholder.svg",
+    rating: 5,
+    text: "Highly recommend to any business looking to elevate their operations and achieve real growth.",
     source: "trustpilot",
     date: "4 months ago",
   },

@@ -132,7 +132,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2025 McRay Tech Services Ltd. All rights reserved
+            © 2026 McRay Tech Services. All rights reserved
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a

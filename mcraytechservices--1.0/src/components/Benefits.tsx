@@ -94,9 +94,9 @@ const Benefits = () => {
               <span className="gradient-text"> Better Support</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Instead of working with multiple vendors, get a single trusted
+              Instead of working with multiple vendors, you get a single trusted
               partner who ensures your business runs smoothly while you focus on
-              serving your clients.
+              serving your clients. Our focus on long-term optimization, affordability, and local business realities enables businesses to achieve measurable results rather than one-time digital projects.
             </p>
 
             {/* Feature image */}

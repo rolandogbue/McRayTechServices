@@ -11,8 +11,8 @@ const About = () => {
 
   const stats = [
     { number: "100%", label: "Happy Clients" },
-    { number: "100+", label: "Projects Completed" },
-    { number: "10+", label: "Team Members" },
+    { number: "50+", label: "Projects Completed" },
+    { number: "5+", label: "Team Members" },
     { number: "3+", label: "Years Experience" },
   ];
 
@@ -54,12 +54,12 @@ const About = () => {
 
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 We started with a simple mission: to empower small and medium
-                businesses in Abuja with integrated, efficient, and scalable digital
-                solutions — eliminating the frustration of managing multiple
-                vendors. Too many capable businesses struggle to grow because
-                their websites, marketing, and automation are handled by
-                separate providers with disconnected systems and no single point
-                of accountability.
+                businesses in Nigeria and across Africa with integrated,
+                efficient, and scalable digital solutions — eliminating the
+                frustration of managing multiple vendors. Too many capable
+                businesses struggle to grow because their websites, marketing,
+                and automation are handled by separate providers with
+                disconnected systems and no single point of accountability.
               </p>
 
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -72,8 +72,8 @@ const About = () => {
 
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Our work acts as business immunity—strengthening operations,
-                protecting momentum, and enabling SMBs to compete effectively
-                and grow sustainably.
+                protecting momentum, and enabling small and medium businesses to
+                compete effectively and grow sustainably.
               </p>
 
               <div className="grid grid-cols-2 gap-6">
@@ -141,9 +141,9 @@ const About = () => {
             </h2>
             <p className="text-lg md:text-xl opacity-90 leading-relaxed">
               At McRay Tech Services, our vision is to redefine how small
-              businesses in Nigeria leverage technology — transforming complex digital
-              challenges into streamlined, automated, growth-driven solutions
-              that feel effortless.
+              businesses in Nigeria leverage technology — transforming complex
+              digital challenges into streamlined, automated, growth-driven
+              solutions that feel effortless.
             </p>
           </div>
 
@@ -253,20 +253,25 @@ const About = () => {
                 text: "McRay Tech Services was founded with a simple mission: simplify technology for small and medium businesses.",
               },
               {
-                year: "2023",
+                year: "2024",
                 title: "Expanding Services",
-                text: "We added branding, automation, and integrated marketing services to provide unified solutions.",
+                text: "We restructured our business model and added branding, automation, and integrated marketing services to provide unified solutions.",
               },
               {
-                year: "2024",
+                year: "2025",
                 title: "Team Growth",
                 text: "Our team expanded to include experts across design, development, marketing, and operations.",
               },
               {
-                year: "2025",
+                year: "2026",
                 title: "Scaling Impact",
-                text: "We achieved 100+ completed projects and supported businesses across multiple industries.",
+                text: "We are on track to complete 100 projects and support businesses across multiple industries.",
               },
+              // {
+              //   year: "2026",
+              //   title: "Scaling Impact",
+              //   text: "We achieved 100+ completed projects and supported businesses across multiple industries.",
+              // },
             ].map((item, i) => (
               <div key={i} className="ml-6 group">
                 <div className="absolute -left-4 w-8 h-8 bg-primary rounded-full border-4 border-primary"></div>

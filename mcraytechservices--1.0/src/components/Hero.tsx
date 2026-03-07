@@ -57,7 +57,7 @@ const slides: Array<{
 ];
 
 const stats = [
-  { value: "100+", label: "SMBs Served" },
+  { value: "50+", label: "SMBs Served" },
   { value: "4.9/5", label: "Client Rating" },
   { value: "3x", label: "Avg. Lead Growth" },
 ];
