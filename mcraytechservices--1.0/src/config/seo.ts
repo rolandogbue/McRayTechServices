@@ -8,46 +8,48 @@ interface PageSEO {
 const SEO_CONFIG: Record<string, PageSEO> = {
   home: {
     title:
-      "Best Web design and Marketing agency in abuja | Grow your business with Website, Branding, Marketing, and Automation",
+      "Best Web Design, Marketing, CRM Automation & Custom Software Company in Abuja | Business Growth Partner Nigeria | McRay Tech Services",
     description:
-      "McRay Tech Services is an all-in-one business growth partner helping small and medium businesses with website development, branding, marketing, and automation to drive faster growth, Save time, and cut costs. Grow your business with us today!",
+      "Grow your business with one trusted partner. McRay Tech Services helps companies increase revenue and streamline operations. We implement CRM systems, automate marketing and workflows, build high-converting websites, develop custom software, and manage digital growth for businesses in Abuja and across Nigeria. Book a free consultation today!",
     keywords:
-      "web developer in abuja, web development company near me, website builder in abuja, design agency in abuja, design expert in abuja, branding expert in abuja, e-commerce builder, online-store builder, web design agency in abuja, web designer near me, marketing company in abuja, marketing agency near me, marketing firm near me, digital marketer in abuja, design agency in abuja, how to grow my business, how to grow my business online, how to increase lead, how to generate lead, lead generation expert, google ads manager, how to increase online visibility, marketing agency in abuja, best maketing agency in abuja, Gohighlevel expert, how to automate task, how to automate follow-up, social media manager, CRM expert, business automation specialist, Automation expert, how to increase online booking, how to increase sales, tech company in abuja, software development company in abuja, best software development company in nigeria, best software development companies in abuja, technical partner in abuja",
+      "CRM implementation expert, crm specialist abuja, crm automation abuja, business automation services Nigeria, website builder abuja, automation company abuja, HubSpot CRM setup abuja, HighLevel CRM expert abuja, digital transformation service company, business process automation abuja, software development company Abuja, business automation consultant nigeria, crm consultant nigeria, crm implementation agency abuja, zoho crm implementation nigeria, gohighlevel setup abuja, software company Abuja, marketing agency abuja, CRM consulting firm Nigeria, CRM implementation consultant Abuja, business automation consultant Nigeria, Zoho partner Nigeria, business automation specialist abuja",
     robots: "index,follow",
   },
 
   about: {
-    title: "About Us | McRay Tech Services",
+    title:
+      "About McRay Tech Services | Your All-in-One Business Growth Partner & Consultants",
     description:
-      "Discover how McRay Tech Services empowers small businesses with digital solutions that drive growth. Learn about our mission, values, and the team dedicated to your success.",
+      "We help Nigerian small and medium businesses scale faster by providing CRM systems, automation, websites, branding, marketing systems, and custom software from one trusted partner. Based in Abuja, our all-in-one approach removes the need to manage multiple vendors while improving revenue, operations, and customer management. Learn more about our mission, values and how we can help your business thrive.",
     keywords:
-      "about us, learn about mcRay Tech Services, digital solutions, small business growth, tech company in abuja, software development company in abuja, web design agency, digital marketing company, marketing agency in abuja, integrated digital solutions, small and medium businesses",
+      "software company Abuja Nigeria, mcray tech services, crm consulting firm nigeria, crm consultants nigeria, business automation consultants nigeria, technology consulting firm abuja, software development company abuja nigeria, digital transformation company nigeria, custom software developers abuja, crm automation specialists nigeria, website development company abuja, marketing automation consultants nigeria",
     robots: "index,follow",
   },
 
   faq: {
-    title: "Frequently Asked Questions | McRay Tech Services",
+    title: "FAQ | Business Growth & Automation Services Nigeria",
     description:
-      "Find clear answers to questions about our services, delivery timelines, and how we help small businesses grow with tech.",
-    keywords: "faq, business faq, digital services faq, web development faq",
+      "Find clear answers to questions about our services, delivery timelines, and how we help small businesses grow with tech. Find out how we help you grow without vendor hassle.",
+    keywords:
+      "FAQ business growth Nigeria, CRM questions Nigeria, automation services FAQ, custom software cost Nigeria, Zoho implementation FAQ, SMB digital solutions questions",
     robots: "index,follow",
   },
 
   blog: {
-    title: "Blog | McRay Tech Services",
+    title: "Business Growth Blog | Tips for SMBs in Nigeria",
     description:
-      "Read helpful insights on business growth, tech tools, digital marketing, automation, and website development for small and medium businesses",
+      "Read practical insights on business growth, tech tools, marketing, CRM, automation, branding, custom software, website development and growth strategies for Nigeria small and medium businesses. Stay ahead with actionable insights from our experts.",
     keywords:
-      "business growth, digital marketing, automation, website development, small business marketing, SEO, SEO tutorials",
+      "crm for small business nigeria, marketing automation guide, business automation tools, digital marketing strategies for small business nigeria, website development tips nigeria, crm setup guide, lead generation strategies nigeria",
     robots: "index,follow",
   },
 
   contact: {
-    title: "Contact Us | McRay Tech Services",
+    title: "Contact Us | Get SMB Growth Help in Nigeria Today",
     description:
-      "Get in touch with McRay Tech Services for website development, marketing, and automation solutions. Start with a free strategy session or send us a message",
+      "Ready to scale? Contact McRay Tech Services- your all-in-one partner for CRM, automation, websites, branding, marketing and custom software solutuons. Free consultation for Nigerian businesses. Start with a free strategy session or send us a message",
     keywords:
-      "contact us, book free strategy session, book free consultation, get in touch, visit us, web developer, SEO services, marketing agency abuja, marketing companies, website development company, website development agency abuja, digital marketing specialist, how to grow my business, tech company in abuja, software development company in abuja, web design agency, digital marketing company, marketing agency in abuja, integrated digital solutions, small and medium businesses",
+      "mcray tech services contact, crm consultants abuja, software development company abuja nigeria, website developer abuja nigeria, business automation consultants nigeria, crm implementation consultants nigeria, marketing automation consultants nigeria, custom software Nigeria contact, Zoho expert consultation, business consultant in abuja, marketing consultant near me",
     robots: "index,follow",
   },
 

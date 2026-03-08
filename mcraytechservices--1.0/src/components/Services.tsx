@@ -31,6 +31,7 @@ const Services = () => {
         "Lead Capture",
         "Easy CMS",
         "SEO Optimized",
+        "eCommerce Solutions",
       ],
     },
     {
@@ -106,12 +107,7 @@ const Services = () => {
         "Tailored applications and tools built specifically for your unique business needs.",
       image:
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
-      features: [
-        "Web Apps",
-        "Integrations",
-        "Dashboards",
-        "APIs",
-      ],
+      features: ["Web Apps", "Integrations", "Dashboards", "APIs"],
     },
     {
       icon: <Headphones className="w-7 h-7" />,
