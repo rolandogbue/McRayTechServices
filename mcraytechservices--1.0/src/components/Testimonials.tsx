@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
   CarouselContent,
@@ -8,7 +9,11 @@ import {
 } from "@/components/ui/carousel";
 import { Star, Quote } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ScrollAnimations";
 
 interface Review {
   id: number;
@@ -163,98 +168,103 @@ const sourceLogos = {
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-6 justify-center overflow-hidden">
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <Badge
-              variant="outline"
-              className="text-sm px-4 py-1 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
-            >
-              Client Success Stories
-            </Badge>
-          </div>
-          <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients
-            have to say about working with us.
+    <section id="testimonials" className="py-24 bg-secondary/30">
+      <div className="container mx-auto px-6">
+        <FadeIn className="text-center mb-16">
+          <Badge
+            variant="outline"
+            className="mb-4 border-primary/30 text-primary"
+          >
+            Client Success Stories
+          </Badge>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            What Our Clients Say
+            <span className="gradient-text"> Leaders</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            See how we've helped enterprises across industries achieve
+            transformational results.
           </p>
-        </div>
+        </FadeIn>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-6xl mx-auto"
-        >
-          <CarouselContent>
-            {reviews.map((review) => (
-              <CarouselItem
-                key={review.id}
-                className="md:basis-1/2 lg:basis-1/3"
-              >
-                <div className="p-1">
-                  <Card className="h-72 hover:shadow-lg transition-shadow duration-300">
-                    <CardContent className="p-6 flex flex-col h-full">
-                      {/* Source Badge */}
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                          {sourceLogos[review.source]}
-                          <span className="text-xs text-muted-foreground capitalize">
-                            {review.source}
+        <FadeIn delay={0.2}>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent>
+              {reviews.map((review) => (
+                <CarouselItem
+                  key={review.id}
+                  className="md:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="p-1">
+                    <Card className="h-72  bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl">
+                      <CardContent className="p-6 flex flex-col h-full">
+                        {/* Source Badge */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2">
+                            {sourceLogos[review.source]}
+                            <span className="text-xs text-muted-foreground capitalize">
+                              {review.source}
+                            </span>
+                          </div>
+                          <span className="text-xs text-muted-foreground">
+                            {review.date}
                           </span>
                         </div>
-                        <span className="text-xs text-muted-foreground">
-                          {review.date}
-                        </span>
-                      </div>
 
-                      {/* Rating */}
-                      <div className="flex gap-1 mb-4">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                          />
-                        ))}
-                      </div>
+                        {/* Rating */}
+                        <div className="flex gap-1 mb-4">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                            />
+                          ))}
+                        </div>
 
-                      {/* Review Text */}
-                      <div className="flex-grow mb-6 relative">
-                        <Quote className="w-8 h-8 text-muted-foreground/20 absolute -top-2 -left-2" />
-                        <p className="text-muted-foreground relative z-10 pl-6">
-                          {review.text}
-                        </p>
-                      </div>
-
-                      {/* Reviewer Info */}
-                      <div className="flex items-center gap-3 pt-4 border-t">
-                        <Avatar>
-                          <AvatarImage src={review.image} alt={review.name} />
-                          <AvatarFallback>
-                            {review.name
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")}
-                          </AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <p className="font-semibold text-sm">{review.name}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {review.role} {review.company}
+                        {/* Review Text */}
+                        <div className="flex-grow mb-6 relative">
+                          <Quote className="w-8 h-8 text-primary/10 absolute -top-2 -left-2" />
+                          <p className="text-muted-foreground relative z-10 pl-6 text-sm leading-relaxed">
+                            {review.text}
                           </p>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+
+                        {/* Reviewer Info */}
+                        <div className="flex items-center gap-3 pt-4 border-t">
+                          <Avatar>
+                            <AvatarImage src={review.image} alt={review.name} />
+                            <AvatarFallback>
+                              {review.name
+                                .split(" ")
+                                .map((n) => n[0])
+                                .join("")}
+                            </AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <p className="font-semibold text-sm">
+                              {review.name}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              {review.role} {review.company}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </FadeIn>
 
         {/* Trust Badges */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-muted-foreground">
