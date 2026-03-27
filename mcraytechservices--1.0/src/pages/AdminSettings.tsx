@@ -86,7 +86,17 @@ const AdminSettings = () => {
     const { data, error } = await supabase.functions.invoke("manage-users", {
       body,
     });
-    if (error) throw new Error(error.message);
+    if (error) {
+      // Try to extract the actual error message from the response
+      let message = error.message;
+      try {
+        if (error.context && typeof error.context.json === "function") {
+          const errBody = await error.context.json();
+          if (errBody?.error) message = errBody.error;
+        }
+      } catch {}
+      throw new Error(message);
+    }
     if (data?.error) throw new Error(data.error);
     return data;
   };
@@ -110,11 +120,10 @@ const AdminSettings = () => {
     if (!newEmail.trim()) return;
     setSaving(true);
     try {
-      await callManageUsers({
-        action: "update_email",
-        user_id: user?.id,
-        new_email: newEmail.trim(),
+      const { error } = await supabase.auth.updateUser({
+        email: newEmail.trim(),
       });
+      if (error) throw error;
       toast({ title: "Email updated successfully" });
     } catch (err: any) {
       toast({
@@ -140,11 +149,10 @@ const AdminSettings = () => {
     }
     setSaving(true);
     try {
-      await callManageUsers({
-        action: "update_password",
-        user_id: user?.id,
-        new_password: newPassword,
+      const { error } = await supabase.auth.updateUser({
+        password: newPassword,
       });
+      if (error) throw error;
       toast({ title: "Password updated successfully" });
       setNewPassword("");
       setConfirmPassword("");

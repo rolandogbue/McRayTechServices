@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { User, Session } from "@supabase/supabase-js";
 
@@ -10,7 +16,11 @@ interface AuthContextType {
   hasContentAccess: boolean;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
-  signUp: (email: string, password: string, fullName: string) => Promise<{ error: Error | null }>;
+  signUp: (
+    email: string,
+    password: string,
+    fullName: string,
+  ) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
 }
 
@@ -28,25 +38,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       .from("user_roles")
       .select("role")
       .eq("user_id", userId);
-    const roles = (data || []).map(r => r.role);
+    const roles = (data || []).map((r) => r.role);
     setIsAdmin(roles.includes("admin"));
     setIsModerator(roles.includes("moderator"));
   };
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        if (session?.user) {
-          await checkRoles(session.user.id);
-        } else {
-          setIsAdmin(false);
-          setIsModerator(false);
-        }
-        setLoading(false);
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      if (session?.user) {
+        await checkRoles(session.user.id);
+      } else {
+        setIsAdmin(false);
+        setIsModerator(false);
       }
-    );
+      setLoading(false);
+    });
 
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -61,7 +71,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
     return { error: error as Error | null };
   };
 
@@ -82,7 +95,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, isAdmin, isModerator, hasContentAccess: isAdmin || isModerator, loading, signIn, signUp, signOut }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        session,
+        isAdmin,
+        isModerator,
+        hasContentAccess: isAdmin || isModerator,
+        loading,
+        signIn,
+        signUp,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
