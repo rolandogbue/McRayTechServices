@@ -91,13 +91,20 @@ const AdminBlog = () => {
 
   useEffect(() => {
     if (!authLoading && (!user || !hasContentAccess)) {
-      navigate("/login");
+      navigate("/login", { replace: true });
     }
   }, [user, hasContentAccess, authLoading, navigate]);
 
   useEffect(() => {
-    if (hasContentAccess) fetchPosts();
-  }, [isAdmin]);
+    if (authLoading) return;
+
+    if (!user || !hasContentAccess) {
+      setLoading(false);
+      return;
+    }
+
+    void fetchPosts();
+  }, [authLoading, hasContentAccess, user?.id]);
 
   const fetchPosts = async () => {
     setLoading(true);
@@ -105,6 +112,7 @@ const AdminBlog = () => {
       .from("blog_posts")
       .select("*")
       .order("created_at", { ascending: false });
+
     if (error) {
       toast({
         title: "Error loading posts",
@@ -114,6 +122,7 @@ const AdminBlog = () => {
     } else {
       setPosts(data || []);
     }
+
     setLoading(false);
   };
 
@@ -177,7 +186,7 @@ const AdminBlog = () => {
     setEditing(null);
     setCreating(false);
     setForm(emptyPost);
-    fetchPosts();
+    await fetchPosts();
   };
 
   const handleDelete = async (id: string) => {
@@ -188,9 +197,25 @@ const AdminBlog = () => {
         description: error.message,
         variant: "destructive",
       });
-    } else {
-      toast({ title: "Post deleted" });
-      fetchPosts();
+      return;
+    }
+
+    toast({ title: "Post deleted" });
+    await fetchPosts();
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      toast({ title: "Signed out successfully" });
+      navigate("/login", { replace: true });
+    } catch (error) {
+      toast({
+        title: "Sign out failed",
+        description:
+          error instanceof Error ? error.message : "Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
@@ -264,7 +289,7 @@ const AdminBlog = () => {
                   <Settings className="w-4 h-4 mr-2" /> Settings
                 </Button>
               )}
-              <Button variant="outline" onClick={signOut}>
+              <Button variant="outline" onClick={handleSignOut}>
                 <LogOut className="w-4 h-4 mr-2" /> Sign Out
               </Button>
             </div>

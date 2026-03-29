@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useRef, useState, ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { User, Session } from "@supabase/supabase-js";
 
@@ -16,11 +10,7 @@ interface AuthContextType {
   hasContentAccess: boolean;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
-  signUp: (
-    email: string,
-    password: string,
-    fullName: string,
-  ) => Promise<{ error: Error | null }>;
+  signUp: (email: string, password: string, fullName: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
 }
 
@@ -32,49 +22,70 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isModerator, setIsModerator] = useState(false);
   const [loading, setLoading] = useState(true);
+  const authRequestRef = useRef(0);
 
-  const checkRoles = async (userId: string) => {
-    const { data } = await supabase
+  const fetchRoles = async (userId: string) => {
+    const { data, error } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", userId);
-    const roles = (data || []).map((r) => r.role);
-    setIsAdmin(roles.includes("admin"));
-    setIsModerator(roles.includes("moderator"));
+
+    if (error) {
+      console.error("Failed to load user roles", error);
+      return { isAdmin: false, isModerator: false };
+    }
+
+    const roles = (data || []).map((record) => record.role);
+    return {
+      isAdmin: roles.includes("admin"),
+      isModerator: roles.includes("moderator"),
+    };
   };
 
   useEffect(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        await checkRoles(session.user.id);
-      } else {
+    let isMounted = true;
+
+    const applySession = async (nextSession: Session | null) => {
+      const requestId = ++authRequestRef.current;
+
+      if (!isMounted) return;
+
+      setSession(nextSession);
+      setUser(nextSession?.user ?? null);
+
+      if (!nextSession?.user) {
         setIsAdmin(false);
         setIsModerator(false);
+        setLoading(false);
+        return;
       }
+
+      setLoading(true);
+      const roles = await fetchRoles(nextSession.user.id);
+
+      if (!isMounted || requestId !== authRequestRef.current) return;
+
+      setIsAdmin(roles.isAdmin);
+      setIsModerator(roles.isModerator);
       setLoading(false);
+    };
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+      void applySession(nextSession);
     });
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        checkRoles(session.user.id);
-      }
-      setLoading(false);
+    void supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
+      void applySession(currentSession);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      isMounted = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
     return { error: error as Error | null };
   };
 
@@ -91,23 +102,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
+    if (error) throw error;
   };
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        session,
-        isAdmin,
-        isModerator,
-        hasContentAccess: isAdmin || isModerator,
-        loading,
-        signIn,
-        signUp,
-        signOut,
-      }}
-    >
+    <AuthContext.Provider value={{ user, session, isAdmin, isModerator, hasContentAccess: isAdmin || isModerator, loading, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );
