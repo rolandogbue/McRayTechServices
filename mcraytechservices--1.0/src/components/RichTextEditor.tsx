@@ -28,6 +28,8 @@ import {
   Minus,
 } from "lucide-react";
 import { useEffect } from "react";
+import HardBreak from "@tiptap/extension-hard-break";
+import Paragraph from "@tiptap/extension-paragraph";
 
 interface RichTextEditorProps {
   content: string;
@@ -65,15 +67,25 @@ const RichTextEditor = ({
 }: RichTextEditorProps) => {
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
+      StarterKit.configure({
+        heading: { levels: [1, 2, 3] },
+      }),
       Underline,
-      Image.configure({ inline: false, allowBase64: true }),
+      HardBreak.configure({
+        keepMarks: true,
+      }),
+      Image.configure({ inline: false, allowBase64: false }),
       Link.configure({
         openOnClick: false,
-        HTMLAttributes: { class: "text-primary underline" },
+        HTMLAttributes: {
+          class: "text-primary underline",
+          target: "_blank",
+        },
       }),
       Placeholder.configure({ placeholder }),
-      TextAlign.configure({ types: ["heading", "paragraph"] }),
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
     ],
     content,
     onUpdate: ({ editor }) => {
@@ -81,19 +93,21 @@ const RichTextEditor = ({
     },
     editorProps: {
       attributes: {
-        class:
-          "prose prose-sm dark:prose-invert max-w-none min-h-[250px] p-4 focus:outline-none",
+        class: "tiptap-editor max-w-none min-h-[250px] p-4 focus:outline-none",
       },
     },
   });
 
   useEffect(() => {
-    if (editor && content !== editor.getHTML()) {
-      editor.commands.setContent(content);
-    }
-  }, [content]);
+    if (!editor) return;
 
-  if (!editor) return null;
+    const currentHTML = editor.getHTML();
+
+    if (content !== currentHTML) {
+      editor.commands.setContent(content, false);
+    }
+  }, [content, editor]);
+  // if (!editor) return null;
 
   const addLink = () => {
     const url = window.prompt("Enter URL:");
