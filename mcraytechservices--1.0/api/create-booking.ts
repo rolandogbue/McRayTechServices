@@ -1,6 +1,9 @@
-import { supabaseAdmin } from "../server/supabase-admin";
-import { isSlotAvailable, createCalendarEvent } from "../server/google-calendar";
-import { sendEmails } from "../server/email";
+import { supabaseAdmin } from "../server/supabase-admin.js";
+import {
+  isSlotAvailable,
+  createCalendarEvent,
+} from "../server/google-calendar.js";
+import { sendEmails } from "../server/email.js";
 import { parse, addMinutes } from "date-fns";
 
 export default async function handler(req, res) {
@@ -22,7 +25,7 @@ export default async function handler(req, res) {
     const start = parse(
       `${bookingDate} ${bookingTime}`,
       "yyyy-MM-dd h:mm a",
-      new Date()
+      new Date(),
     );
     const end = addMinutes(start, 30);
 
@@ -46,7 +49,7 @@ export default async function handler(req, res) {
       `Strategy Call – ${name}`,
       message || "",
       start,
-      end
+      end,
     );
 
     await sendEmails({
