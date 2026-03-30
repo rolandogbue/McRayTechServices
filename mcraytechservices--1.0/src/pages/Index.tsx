@@ -9,7 +9,7 @@ import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
 import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
-import DiscountPopup from "@/components/DiscountPopup";
+// import DiscountPopup from "@/components/DiscountPopup";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AnimatedSection } from "@/components/ScrollAnimations";
 import ConsentBanner from "../pages/ConsentBanner";
@@ -46,7 +46,7 @@ const Index = () => {
         <CTA />
       </AnimatedSection>
       <Footer />
-      <DiscountPopup />
+      {/* <DiscountPopup /> */}
       <ScrollToTop />
       <ConsentBanner />
     </div>

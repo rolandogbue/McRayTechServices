@@ -267,7 +267,7 @@ const AdminBlog = () => {
                 Create, edit, and manage your blog posts
               </p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <Button variant="outline" onClick={() => navigate("/blog")}>
                 <ArrowLeft className="w-4 h-4 mr-2" /> View Blog
               </Button>

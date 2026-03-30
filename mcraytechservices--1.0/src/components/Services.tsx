@@ -48,15 +48,6 @@ const Services = () => {
         "Messaging",
       ],
     },
-    // {
-    //   icon: <Search className="w-7 h-7" />,
-    //   title: "SEO & Web Performance",
-    //   description:
-    //     "Get found by customers actively searching for your services with optimized content and technical SEO.",
-    //   image:
-    //     "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=400&q=80",
-    //   features: ["On-Page SEO", "Local SEO", "Technical Audit", "Rankings"],
-    // },
     {
       icon: <TrendingUp className="w-7 h-7" />,
       title: "Digital Marketing",
@@ -86,20 +77,6 @@ const Services = () => {
         "Integrations",
       ],
     },
-    // {
-    //   icon: <Share2 className="w-7 h-7" />,
-    //   title: "Social Media Management",
-    //   description:
-    //     "Consistent, engaging presence that builds your audience and drives traffic to your business.",
-    //   image:
-    //     "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80",
-    //   features: [
-    //     "Content Creation",
-    //     "Posting Schedule",
-    //     "Community Mgmt",
-    //     "Analytics",
-    //   ],
-    // },
     {
       icon: <Code className="w-7 h-7" />,
       title: "Custom Software Solutions",

@@ -141,7 +141,7 @@ const BlogPost = () => {
           )}
 
           <div
-            className="prose prose-lg dark:prose-invert max-w-none text-foreground leading-relaxed"
+            className="blog-content max-w-none text-foreground leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: post.content || `<p>${post.excerpt}</p>`,
             }}

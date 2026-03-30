@@ -94,7 +94,7 @@ const Blog = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-primary text-primary-foreground">
+      <section className="pt-24 pb-16 gradient-bg text-primary-foreground">
         <div className="container mx-auto px-6">
           <FadeIn>
             <div className="max-w-4xl mx-auto text-center">
@@ -188,7 +188,7 @@ const Blog = () => {
                             {featuredPost.read_time}
                           </div>
                         </div>
-                        <Button className="w-fit">
+                        <Button className="w-fit gradient-bg">
                           Read Article <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                       </CardContent>
@@ -249,7 +249,10 @@ const Blog = () => {
                               {post.read_time}
                             </div>
                           </div>
-                          <Button variant="outline" className="w-full">
+                          <Button
+                            variant="outline"
+                            className="w-full gradient-bg"
+                          >
                             Read More <ArrowRight className="ml-2 w-4 h-4" />
                           </Button>
                         </CardContent>
@@ -264,7 +267,7 @@ const Blog = () => {
       )}
 
       {/* Newsletter CTA */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 gradient-bg text-primary-foreground">
         <div className="container mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -280,7 +283,7 @@ const Blog = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg text-foreground bg-background border border-border"
               />
-              <Button variant="premium" className="px-8">
+              <Button variant="premium" className="px-8 gradient-bg">
                 Subscribe
               </Button>
             </div>

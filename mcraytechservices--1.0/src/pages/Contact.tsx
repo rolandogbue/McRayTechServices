@@ -13,6 +13,7 @@ import { toast } from "sonner";
 import BookingModal from "@/components/BookingModal";
 import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
+import { FadeIn } from "@/components/ScrollAnimations";
 
 const Contact = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -38,29 +39,32 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 gradient-animated text-primary-foreground">
-        <div className="container justify-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Let's Grow Your
-              <span className="gradient-text">
-                {" "}
-                Business With The Right Technology
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/80 leading-relaxed">
-              We help small and medium businesses scale through high-performing
-              websites, business automation, and digital marketing. <br />
-              Start with a free strategy session or send us a message below.
-            </p>
-          </div>
+      <section className="pt-24 pb-16 gradient-bg text-primary-foreground">
+        <div className="container mx-auto px-6">
+          <FadeIn>
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Let's Grow Your
+                <span className="text-accent">
+                  {" "}
+                  Business With The Right Technology
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-primary-foreground/80 leading-relaxed">
+                We help small and medium businesses scale through
+                high-performing websites, business automation, and digital
+                marketing. <br />
+                Start with a free strategy session or send us a message below.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Contact Section */}
       <section className="py-16 section-muted">
         <div className="container justify-items-center justify-content-center">
-          <div className="grid lg:grid-cols-2 gap-12 ">
+          <FadeIn className="grid lg:grid-cols-2 gap-12 ">
             {/* Contact Form */}
             <Card className="floating-card ">
               <CardHeader>
@@ -269,7 +273,7 @@ const Contact = () => {
                 </Button>
               </Card>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 

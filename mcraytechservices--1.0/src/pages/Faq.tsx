@@ -78,23 +78,26 @@ const Faq = () => {
       />
       <Header />
 
-      {/* FAQ */}
-      <section className="pt-24 pb-16 gradient-animated text-primary-foreground">
-        <div className="container mx-auto px-6 justify-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-5xl md:text-6xl mb-6 leading-tight">
-              Frequently Asked
-              <span className="gradient-text"> Questions</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
-              Get answers to common questions about our all-in-one business
-              growth solutions.
-            </p>
-            <p className="mt-4 text-blue-100 leading-relaxed">
-              Learn what working with us looks like. Understand our processes
-              before you get started.
-            </p>
-          </div>
+      {/* FAQ Hero*/}
+      <section className="pt-24 pb-16 gradient-bg text-primary-foreground">
+        <div className="container mx-auto px-6">
+          <FadeIn>
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Frequently Asked
+                <span className="text-accent"> Questions</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl opacity-80 leading-relaxed">
+                Get answers to common questions about our all-in-one business
+                growth solutions.
+              </p>
+              <p className="mt-4 text-xl md:text-xl opacity-80 leading-relaxed">
+                Learn what working with us looks like. Understand our processes
+                before you get started.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -127,4 +130,3 @@ const Faq = () => {
 };
 
 export default Faq;
-

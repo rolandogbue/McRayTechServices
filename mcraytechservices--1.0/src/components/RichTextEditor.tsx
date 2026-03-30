@@ -93,7 +93,8 @@ const RichTextEditor = ({
     },
     editorProps: {
       attributes: {
-        class: "tiptap-editor max-w-none min-h-[250px] p-4 focus:outline-none",
+        class:
+          "tiptap-editor max-w-none max-h-[450px] p-4 focus:outline-none overflow-auto",
       },
     },
   });
@@ -107,7 +108,6 @@ const RichTextEditor = ({
       editor.commands.setContent(content, false);
     }
   }, [content, editor]);
-  // if (!editor) return null;
 
   const addLink = () => {
     const url = window.prompt("Enter URL:");

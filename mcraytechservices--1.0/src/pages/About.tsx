@@ -27,19 +27,21 @@ const About = () => {
       <Header />
 
       {/* About Hero */}
-      <section className="pt-24 pb-16 gradient-animated text-primary-foreground">
-        <div className="container justify-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-5xl md:text-6xl mb-6 leading-tight tracking-tight">
-              About
-              <span className="gradient-text"> McRay Tech Services</span>
-            </h1>
-            <p className="text-xl md:text-2xl leading-relaxed opacity-90">
-              Learn about our mission, values, and how our team delivers
-              technology solutions to help small businesses grow efficiently and
-              achieve measurable results.
-            </p>
-          </div>
+      <section className="pt-24 pb-16 gradient-bg text-primary-foreground">
+        <div className="container mx-auto px-6">
+          <FadeIn>
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                About
+                <span className="text-accent"> McRay Tech Services</span>
+              </h1>
+              <p className="text-xl md:text-2xl opacity-80 leading-relaxed">
+                Learn about our mission, values, and how our team delivers
+                technology solutions to help small businesses grow efficiently
+                and achieve measurable results.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
