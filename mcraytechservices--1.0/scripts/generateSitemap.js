@@ -1,37 +1,13 @@
-// import { SitemapStream, streamToPromise } from "sitemap";
-// import { writeFileSync } from "fs";
-
-// const sitemap = new SitemapStream({
-//   hostname: "https://mcraytechservices.com",
-// });
-
-// const routes = ["/", "/about", "/blog", "/faq", "/contact"];
-
-// async function generateSitemap() {
-//   routes.forEach((route) => {
-//     sitemap.write({
-//       url: route,
-//       changefreq: "weekly",
-//       priority: route === "/" ? 1.0 : 0.7,
-//     });
-//   });
-
-//   sitemap.end();
-
-//   const sitemapOutput = await streamToPromise(sitemap);
-
-//   writeFileSync("./public/sitemap.xml", sitemapOutput.toString());
-// }
-
-// generateSitemap();
+import dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
 
 import { SitemapStream, streamToPromise } from "sitemap";
 import { writeFileSync } from "fs";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  "YOUR_SUPABASE_URL",
-  "YOUR_SUPABASE_SERVICE_ROLE_KEY",
+  process.env.VITE_SUPABASE_URL,
+  process.env.VITE_SUPABASE_ANON_KEY,
 );
 
 const BASE_URL = "https://mcraytechservices.com";

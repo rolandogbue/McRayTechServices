@@ -14,7 +14,7 @@ export const generateBlogSEO = (post: {
 }) => {
   const baseUrl = "https://mcraytechservices.com";
   const url = `${baseUrl}/blog/${post.slug}`;
-  const image = post.image_url || `${baseUrl}/default-og.jpg`;
+  const image = post.image_url || `${baseUrl}/Logo(McRay).png`;
 
   return {
     title: `${post.title} | McRay Tech Blog`,

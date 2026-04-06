@@ -44,8 +44,15 @@ export default function SEO({
         name="twitter:card"
         content={image ? "summary_large_image" : "summary"}
       />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta
+        name="twitter:title"
+        content="Best Web Design, Marketing, CRM Automation & Custom Software Company in Abuja | McRay Tech Services"
+      />
+      <meta name="twitter:site" content="@mcraytechservcs" />
+      <meta
+        name="twitter:description"
+        content="Grow your business with one trusted partner. McRay Tech Services helps companies increase revenue and streamline operations. We implement CRM systems, automate marketing and workflows, build high-converting websites, develop custom software, and manage digital growth for businesses in Abuja and across Nigeria. Book a free consultation today!."
+      />
       {image && <meta name="twitter:image" content={image} />}
 
       {/* JSON-LD Structured Data */}
