@@ -5,6 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import BookingModal from "@/components/BookingModal";
 import { CTAActionConfig } from "@/config/ctaActions";
 import { useCTAAction } from "@/config/useCTAAction";
+import { useNavigate } from "react-router-dom";
 
 const slides: Array<{
   badge: string;
@@ -16,59 +17,68 @@ const slides: Array<{
   imageAlt: string;
 }> = [
   {
-    badge: "Your Growth Partner",
-    headline: "Grow Your Business with",
-    headlineHighlight: "One Trusted Partner",
+    badge: "THE GROWTH PARTNER BUILT FOR BUSINESSES THAT BUILD TO LAST",
+    headline: "Your business. Built to grow.",
+    headlineHighlight: "Built to last.",
     description:
-      "We help small and medium businesses attract more customers, increase sales, and save time — all from a single trusted partner.",
+      "McRay Tech Services is the AI-powered growth partner for forward-thinking SMBs — combining digital marketing, automation, and cloud technology into one modular system. One trusted partner. Measurable results.",
     cta: {
-      label: "Schedule Free Strategy Session",
+      label: "Book a Free Strategy Call",
       type: "BOOK_STRATEGY",
     },
     image: "./middle-aged-hispanic-business-people-web-optimized.jpg",
     imageAlt: "Professional team collaboration meeting",
+    stats: [
+      { value: "1", label: "PARTNER FOR EVERYTHING" },
+      { value: "3x", label: "FASTER THAN HIRING" },
+      { value: "∞", label: "SCALABLE WITH YOU" },
+    ],
   },
   {
-    badge: "All-In-One Solution",
-    headline: "Stop Managing",
-    headlineHighlight: "Multiple Vendors",
+    badge: "THE PROBLEM WITH MULTIPLE VENDORS.",
+    headline: "One system. One team",
+    headlineHighlight: "One result.",
     description:
-      "Website, Branding, Marketing, and Automation — we handle everything while you focus on serving your clients.",
+      "Most businesses waste time and money juggling a web agency here, a marketing freelancer there, and an IT person somewhere else — with nobody accountable for the full picture. McRay replaces all of it.",
     cta: {
-      label: "See Our Services",
-      type: "SCROLL_SERVICES",
+      label: "See How It Works",
+      type: "SCROLL_PROCESS",
     },
     image: "./Multi-vendor-hassle.png",
     imageAlt: "Business owner overwhelmed with multiple vendors",
+    stats: [
+      { value: "5+", label: "TOOLS REPLACED" },
+      { value: "0", label: "VENDOR CHAOS" },
+      { value: "100%", label: "ACCOUNTABILITY" },
+    ],
   },
   {
-    badge: "Proven Results",
-    headline: "More Customers. More Sales.",
-    headlineHighlight: "Less Hassle.",
+    badge: "WHAT OUR CLIENTS EXPERIENCE",
+    headline: "More customers. More revenue.",
+    headlineHighlight: "Less friction.",
     description:
-      "Our clients see measurable growth in leads, conversions, and revenue within 90 days. Let us do the same for you.",
+      "Our partners see measurable growth in leads, conversions, and revenue within 90 days — without overhead of hiring, the confusion of multiple vendors, or the risk of starting over.",
     cta: {
       label: "View Success Stories",
       type: "SCROLL_TESTIMONIALS",
     },
     image: "./authentic-small-youthful-marketing-agency-web-optimized.jpg",
     imageAlt: "Happy team celebrating business success and growth",
+    stats: [
+      { value: "90 Days", label: "TO SEE RESULTS" },
+      { value: "2–5x", label: "LEAD GROWTH" },
+      { value: "+ROI", label: "MEASURABLE IMPACT" },
+    ],
   },
 ];
 
-const stats = [
-  { value: "50+", label: "SMBs Served" },
-  { value: "4.9/5", label: "Client Rating" },
-  { value: "3x", label: "Avg. Lead Growth" },
-];
-
 const Hero = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const navigate = useNavigate();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleCTAAction = useCTAAction({
-    openBookingModal: () => setBookingOpen(true),
+    openBookingModal: () => navigate("/book"),
   });
 
   const scrollPrev = useCallback(() => {
@@ -100,12 +110,12 @@ const Hero = () => {
     };
   }, [emblaApi, onSelect]);
 
-  // Auto-advance every 6 seconds
+  // Auto-advance every 15 seconds
   useEffect(() => {
     if (!emblaApi) return;
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 6000);
+    }, 15000);
     return () => clearInterval(interval);
   }, [emblaApi]);
 
@@ -126,12 +136,15 @@ const Hero = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {slides.map((slide, index) => (
-                <div key={index} className="flex-[0_0_100%] min-w-0">
+                <div
+                  key={index}
+                  className="flex-[0_0_100%] min-w-0 overflow-hidden"
+                >
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left content */}
                     <div className="text-left">
                       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8 hover:bg-primary/15 transition-colors duration-300">
-                        <Check className="w-4 h-4 text-primary" />
+                        <span className="text-primary"> &mdash;</span>
                         <span className="text-sm font-medium text-primary">
                           {slide.badge}
                         </span>
@@ -139,14 +152,53 @@ const Hero = () => {
 
                       <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
                         {slide.headline}
-                        <span className="block gradient-text">
+                        <span className="block gradient-text mt-5">
                           {slide.headlineHighlight}
                         </span>
                       </h1>
 
-                      <p className="text-lg md:text-xl mb-8 text-muted-foreground leading-relaxed max-w-xl">
+                      <p
+                        className={`text-lg md:text-xl ${index === 1 ? "mb-4" : "mb-8"} text-muted-foreground leading-relaxed max-w-xl`}
+                      >
                         {slide.description}
                       </p>
+
+                      {/* Supporting detail for slide 2 */}
+                      {index === 1 && (
+                        <div className="mb-8 space-y-2 max-w-xl">
+                          <div className="flex items-center gap-2 text-destructive/80">
+                            <span className="font-bold text-lg"> ✗</span>
+                            <span className="text-sm text-muted-foreground">
+                              Web agency + marketing freelancer + IT person
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2 text-primary">
+                            <span className="font-bold text-lg"> ✓</span>
+                            <span className="text-sm font-medium">
+                              McRay — one modular, AI-powered system for
+                              everything
+                            </span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Proof badge for slide 3 */}
+                      {index === 2 && (
+                        <div className="mb-6 max-w-xl">
+                          <div className="inline-flex items-start gap-3 px-4 py-3 rounded-xl bg-primary/5 border border-primary/15">
+                            <span className="text-lg mt-0.5">💬</span>
+                            <div>
+                              <p className="text-sm text-foreground font-medium italic">
+                                "₦6M in sales from one Google contact — without
+                                a single meeting."
+                              </p>
+                              <p className="text-xs text-muted-foreground mt-1">
+                                — Building Materials Client, Abuja
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
 
                       <div className="flex flex-col sm:flex-row gap-4 mb-12">
                         <Button
@@ -161,13 +213,16 @@ const Hero = () => {
 
                       {/* Stats */}
                       <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
-                        {stats.map((stat, statIndex) => (
-                          <div key={statIndex} className="group cursor-default">
-                            <div className="font-display text-2xl md:text-3xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300 inline-block">
-                              {stat.value}
+                        {slide.stats.map((stat, statIndex) => (
+                          <div
+                            key={statIndex}
+                            className="group cursor-default text-center"
+                          >
+                            <div className="font-display text-3xl md:text-3xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300 inline-block">
+                              {slide.stats[statIndex].value}
                             </div>
                             <div className="text-sm text-muted-foreground">
-                              {stat.label}
+                              {slide.stats[statIndex].label}
                             </div>
                           </div>
                         ))}
@@ -262,8 +317,6 @@ const Hero = () => {
           </div>
         </div>
       </section>
-
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </>
   );
 };

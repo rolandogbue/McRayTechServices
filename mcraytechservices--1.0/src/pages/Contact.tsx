@@ -14,9 +14,10 @@ import BookingModal from "@/components/BookingModal";
 import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
 import { FadeIn } from "@/components/ScrollAnimations";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const navigate = useNavigate();
   const { title, description, keywords, robots } = SEO_CONFIG.contact;
   const [state, handleSubmit] = useForm("contact-form");
 
@@ -62,7 +63,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 section-muted">
+      <section className="py-24 section-muted">
         <div className="container justify-items-center justify-content-center">
           <FadeIn className="grid lg:grid-cols-2 gap-12 ">
             {/* Contact Form */}
@@ -129,18 +130,10 @@ const Contact = () => {
                       name="service"
                       className="w-full h-10 px-3 py-2 text-sm bg-background border border-input rounded-md focus-ring"
                     >
-                      <option value="">Select a service</option>
-                      <option value="complete-package">
-                        Complete Growth Package
-                      </option>
-                      <option value="branding">Branding & Design</option>
-                      <option value="website">Website Development</option>
-                      <option value="seo">SEO & Digital Marketing</option>
-                      <option value="automation">Business Automation</option>
-                      <option value="social-media">
-                        Social Media Management
-                      </option>
-                      <option value="consultation">Free Consultation</option>
+                      <option value="">Select Partner Plan</option>
+                      <option value="complete-package">Foundation Plan</option>
+                      <option value="branding">Accelerator Plan</option>
+                      <option value="seo">Partner Plan</option>
                     </select>
                   </div>
 
@@ -196,9 +189,6 @@ const Contact = () => {
                       <p className="text-muted-foreground">
                         solutions@mcraytechservices.com
                       </p>
-                      <p className="text-muted-foreground">
-                        support@mcraytechservices.com
-                      </p>
                     </div>
                   </div>
                 </Card>
@@ -210,10 +200,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Call Us</h3>
-                      <p className="text-muted-foreground">
-                        +234 (805) 192-7074
-                      </p>
-                      <p className="text-muted-foreground">+1 (410) 929-1326</p>
+                      <p className="text-muted-foreground">+234 805 192-7074</p>
                     </div>
                   </div>
                 </Card>
@@ -224,13 +211,8 @@ const Contact = () => {
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Visit Us</h3>
-                      <p className="text-muted-foreground">
-                        BLK C40 NAHS KURUDU II, Und St, Gidan Mangoro,
-                      </p>
-                      <p className="text-muted-foreground">
-                        Abuja 900109, Federal Capital Territory
-                      </p>
+                      <h3 className="font-semibold text-lg">Location</h3>
+                      <p className="text-muted-foreground">Abuja, Nigeria</p>
                     </div>
                   </div>
                 </Card>
@@ -265,7 +247,7 @@ const Contact = () => {
                   right technology and systems.
                 </p>
                 <Button
-                  onClick={() => setBookingOpen(true)}
+                  onClick={() => navigate("/book")}
                   variant="secondary"
                   className="bg-background btn-shine text-primary hover:bg-muted hover:scale-105"
                 >
@@ -294,7 +276,6 @@ const Contact = () => {
       </section>
 
       <Footer />
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </div>
   );
 };

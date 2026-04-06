@@ -1,26 +1,17 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import BookingModal from "./BookingModal";
-import { useCTAAction } from "@/config/useCTAAction";
+import { useNavigate } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
+import { FadeIn } from "@/components/ScrollAnimations";
 
 const CTA = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const navigate = useNavigate();
 
   const features = [
-    "Free 30-Minute Strategy Session",
+    "Free 30-Minute Strategy Call",
     "Custom Growth Roadmap",
-    "No Long-Term Commitment",
+    "No Obligation, No Pressure",
   ];
-
-  const primaryCTA = {
-    label: "Schedule Free Strategy Session",
-    type: "BOOK_STRATEGY",
-  };
-
-  const handleCTAAction = useCTAAction({
-    openBookingModal: () => setBookingOpen(true),
-  });
 
   return (
     <>
@@ -40,17 +31,21 @@ const CTA = () => {
           style={{ animationDelay: "-5s" }}
         />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <FadeIn className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
+            <Badge
+              variant="outline"
+              className="mb-4 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
+            >
+              GET STARTED
+            </Badge>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary-foreground">
-              Ready to Grow Your
-              <span className="block text-primary-foreground/90">
-                Business?
-              </span>
+              Ready to build a business that grows and lasts?
             </h2>
             <p className="text-xl mb-10 text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto">
-              Let's discuss how we can help you attract more customers, save
-              time, and grow your revenue — all from one trusted partner.
+              Book a free 30-minute strategy call. We'll map your current
+              position, identify your biggest growth opportunities, and
+              recommend the right modular plan — no pressure, no obligation.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-12">
@@ -69,22 +64,22 @@ const CTA = () => {
               <Button
                 size="lg"
                 className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 py-6 text-lg rounded-xl hover:scale-105 hover:shadow-soft-xl group btn-shine"
-                onClick={() => handleCTAAction(primaryCTA.type)}
+                onClick={() => navigate("/book")}
               >
-                {primaryCTA.label}
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Book Your Free Strategy Call
+              </Button>
+              <Button
+                size="lg"
+                className="bg-primary/10 text-primary-foreground hover:bg-primary/20 px-8 py-6 text-lg rounded-xl hover:scale-105 hover:shadow-soft-xl group btn-shine"
+                onClick={() => navigate("services")}
+                variant="outline"
+              >
+                Explore Our Services
               </Button>
             </div>
-
-            <p className="text-sm text-primary-foreground/60 mt-8 transition-opacity duration-300 hover:text-primary-foreground/80">
-              Trusted by 100+ small and medium businesses • Free IT Consulting
-              included
-            </p>
           </div>
-        </div>
+        </FadeIn>
       </section>
-
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </>
   );
 };

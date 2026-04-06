@@ -46,7 +46,7 @@ const About = () => {
       </section>
 
       {/* About Content */}
-      <section className="py-20 section-muted">
+      <section className="py-24 section-muted">
         <FadeIn className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -177,7 +177,7 @@ const About = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 section-muted">
+      <section className="py-24 section-muted">
         <FadeIn className="container">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">

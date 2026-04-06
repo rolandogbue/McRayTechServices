@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { generateBlogSEO } from "@/config/seo";
 
 interface Post {
   id: string;
@@ -20,6 +22,9 @@ interface Post {
 
 const BlogPost = () => {
   const { slug } = useParams();
+
+  if (!slug) return null;
+
   const navigate = useNavigate();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
@@ -43,46 +48,14 @@ const BlogPost = () => {
     fetchPost();
   }, [slug, navigate]);
 
-  useEffect(() => {
-    if (!post) return;
-    document.title = `${post.title} | Blog`;
-    const setMeta = (property: string, content: string) => {
-      let el =
-        document.querySelector(`meta[property="${property}"]`) ||
-        document.querySelector(`meta[name="${property}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        if (property.startsWith("og:")) {
-          el.setAttribute("property", property);
-        } else {
-          el.setAttribute("name", property);
-        }
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    setMeta("description", post.excerpt);
-    setMeta("og:title", post.title);
-    setMeta("og:description", post.excerpt);
-    setMeta("og:type", "article");
-    setMeta("og:url", window.location.href);
-    if (post.image_url) {
-      setMeta("og:image", post.image_url);
-    }
-    setMeta("twitter:card", post.image_url ? "summary_large_image" : "summary");
-    setMeta("twitter:title", post.title);
-    setMeta("twitter:description", post.excerpt);
-    if (post.image_url) {
-      setMeta("twitter:image", post.image_url);
-    }
-    return () => {
-      document.title = "Blog";
-    };
-  }, [post]);
-
   if (loading || !post) {
     return (
       <div className="min-h-screen bg-background">
+        <SEO
+          title="Loading article..."
+          description="Loading blog content"
+          robots="noindex,nofollow"
+        />
         <Header />
         <div className="pt-32 pb-20 flex items-center justify-center">
           <p className="text-muted-foreground">Loading...</p>
@@ -100,8 +73,18 @@ const BlogPost = () => {
     });
   };
 
+  const seo = generateBlogSEO({
+    title: post.title,
+    excerpt: post.excerpt,
+    slug: post.slug,
+    image_url: post.image_url,
+    created_at: post.created_at,
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO {...seo} />
+
       <Header />
       <article className="pt-28 pb-20">
         <div className="container mx-auto px-6 max-w-3xl">

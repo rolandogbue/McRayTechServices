@@ -5,6 +5,52 @@ interface PageSEO {
   robots?: string;
 }
 
+export const generateBlogSEO = (post: {
+  title: string;
+  excerpt: string;
+  slug: string;
+  image_url?: string | null;
+  created_at?: string;
+}) => {
+  const baseUrl = "https://mcraytechservices.com";
+  const url = `${baseUrl}/blog/${post.slug}`;
+  const image = post.image_url || `${baseUrl}/default-og.jpg`;
+
+  return {
+    title: `${post.title} | McRay Tech Blog`,
+    description: post.excerpt,
+    url,
+    image,
+    type: "article" as const,
+    robots: "index,follow",
+
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      image: [image],
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": url,
+      },
+      author: {
+        "@type": "Organization",
+        name: "McRay Tech Services",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "McRay Tech Services",
+        logo: {
+          "@type": "ImageObject",
+          url: `${baseUrl}/logo.png`, // ensure this exists
+        },
+      },
+      datePublished: post.created_at,
+    },
+  };
+};
+
 const SEO_CONFIG: Record<string, PageSEO> = {
   home: {
     title:

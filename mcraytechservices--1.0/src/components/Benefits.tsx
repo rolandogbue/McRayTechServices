@@ -1,11 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import {
-  Clock,
-  DollarSign,
-  User,
-  Rocket,
+  Target,
+  Cpu,
+  Layers,
+  ShieldCheck,
   Headphones,
-  BarChart3,
+  LineChart,
+  User,
 } from "lucide-react";
 import {
   FadeIn,
@@ -16,59 +17,59 @@ import {
 const Benefits = () => {
   const benefits = [
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Save Time",
+      icon: <Target className="w-6 h-6" />,
+      title: "Outcome-Focused, Not Task-Focused",
       description:
-        "Stop juggling multiple vendors and tools. We handle everything in one place so you can focus on your clients.",
-      stat: "20+ hrs",
-      statLabel: "Saved Weekly",
+        "We measure our success by your results — leads generated, revenue growth, time saved — not by deliverables checked off a list.",
+      stat: "3× Faster",
+      statLabel: "Time to Results",
     },
     {
-      icon: <DollarSign className="w-6 h-6" />,
-      title: "Reduce Costs",
+      icon: <Cpu className="w-6 h-6" />,
+      title: "AI-Powered & Cloud-Efficient",
       description:
-        "Get agency-quality work without the agency price tag. One partner means fewer overhead costs.",
-      stat: "Up to 40%",
-      statLabel: "Cost Savings",
+        "We embed intelligent, cloud-based automation into everything we build — so your business runs leaner, faster, and with less operational overhead.",
+      stat: "40% Lower",
+      statLabel: "Operating Costs",
     },
     {
-      icon: <User className="w-6 h-6" />,
-      title: "Single Partner",
+      icon: <Layers className="w-6 h-6" />,
+      title: "Modular & Recession-Resilient",
       description:
-        "No more coordination headaches. One team, one vision, one solution for all your digital needs.",
+        "Our plans flex with your business. Scale up in good times, right-size in tough ones — without losing momentum or starting over.",
+      stat: "100%",
+      statLabel: "Flexible Systems",
+    },
+    {
+      icon: <ShieldCheck className="w-6 h-6" />,
+      title: "One Partner, Full Accountability",
+      description:
+        "No vendor fragmentation. No finger-pointing. One team owns your strategy, execution, and results — from day one through every stage of growth.",
       stat: "1",
-      statLabel: "Point of Contact",
-    },
-    {
-      icon: <Rocket className="w-6 h-6" />,
-      title: "Faster Results",
-      description:
-        "See measurable growth in leads and sales within your first quarter working with us.",
-      stat: "90 Days",
-      statLabel: "To See Results",
+      statLabel: "Accountable Partner",
     },
     {
       icon: <Headphones className="w-6 h-6" />,
-      title: "Expert Support",
+      title: "Embedded Expertise",
       description:
-        "Get IT consulting and strategic guidance at no extra cost. We're invested in your success.",
-      stat: "Free",
-      statLabel: "Consulting",
+        "Strategic guidance and technical execution are built into your system — ensuring every decision, campaign, and workflow is aligned with growth, not guesswork.",
+      stat: "Always-On",
+      statLabel: "Expert Oversight",
     },
     {
-      icon: <BarChart3 className="w-6 h-6" />,
-      title: "Full Transparency",
+      icon: <LineChart className="w-6 h-6" />,
+      title: "Operational Clarity",
       description:
-        "Know exactly how your marketing and systems are performing with regular reports and updates.",
-      stat: "Weekly",
-      statLabel: "Reports",
+        "Every system, campaign, and performance metric is visible and measurable — giving you full confidence in what’s working, what’s not, and where to scale.",
+      stat: "End-to-End",
+      statLabel: "Visibility",
     },
   ];
 
   return (
     <section
       id="benefits"
-      className="py-24 section-primary relative overflow-hidden"
+      className="py-32 section-primary relative overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full">
@@ -87,16 +88,16 @@ const Benefits = () => {
               variant="outline"
               className="mb-4 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
             >
-              Why Choose Us
+              WHY MCRAY TECH SERVICES
             </Badge>
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              Your Business Deserves
-              <span className="gradient-text"> Better Support</span>
+              One partner. Total accountability.
+              <span className="gradient-text"> Real results.</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Instead of working with multiple vendors, you get a single trusted
-              partner who ensures your business runs smoothly while you focus on
-              serving your clients. Our focus on long-term optimization, affordability, and local business realities enables businesses to achieve measurable results rather than one-time digital projects.
+              Most agencies are great at one thing. We're built to make all the
+              pieces work together — because growth requires your marketing,
+              technology, and operations to move in sync.
             </p>
 
             {/* Feature image */}
@@ -121,7 +122,7 @@ const Benefits = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">
-                      Join 100+ Growing Businesses
+                      Join Nigerian Growing Businesses
                     </div>
                     <div className="text-sm text-muted-foreground">
                       Who trust us with their growth
@@ -129,6 +130,16 @@ const Benefits = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mt-6 flex justify-start">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-medium bg-primary text-primary-foreground rounded-xl shadow-soft-md hover:shadow-glow hover:scale-105 transition-all duration-300 min-w-[250px]"
+              >
+                Talk To Our Team
+              </a>
             </div>
           </FadeIn>
 

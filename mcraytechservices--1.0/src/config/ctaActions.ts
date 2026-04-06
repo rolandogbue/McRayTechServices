@@ -1,6 +1,6 @@
 export type CTAActionType =
   | "BOOK_STRATEGY"
-  | "SCROLL_SERVICES"
+  | "SCROLL_PROCESS"
   | "SCROLL_TESTIMONIALS";
 
 export interface CTAActionConfig {

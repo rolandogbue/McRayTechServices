@@ -3,18 +3,19 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ArrowRight } from "lucide-react";
 import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ThemeToggle";
-import BookingModal from "./BookingModal";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Insights", href: "/blog" },
-    { label: "Faq", href: "/faq" },
-    { label: "Contact", href: "/contact" },
+    // { label: "HOME", href: "/" },
+    { label: "ABOUT", href: "/about" },
+    { label: "CASE STUDY", href: "/case-study" },
+    { label: "PLANS", href: "/plans" },
+    { label: "BLOGS", href: "/blog" },
+    { label: "FAQ", href: "/faq" },
+    { label: "CONTACT", href: "/contact" },
   ];
 
   return (
@@ -46,7 +47,7 @@ const Header = () => {
               <ThemeToggle />
               <Button
                 className="gradient-bg text-primary-foreground rounded-xl group btn-shine shadow-glow hover:shadow-glow-lg hover:scale-[1.02]"
-                onClick={() => setBookingOpen(true)}
+                onClick={() => navigate("/book")}
               >
                 Free Strategy Call
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -80,7 +81,7 @@ const Header = () => {
                     <div className="flex flex-col space-y-3 pt-6">
                       <Button
                         className="gradient-bg text-primary-foreground shadow-glow"
-                        onClick={() => setBookingOpen(true)}
+                        onClick={() => navigate("/book")}
                       >
                         Free Strategy Call
                       </Button>
@@ -92,8 +93,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </>
   );
 };

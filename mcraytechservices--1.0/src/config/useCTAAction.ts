@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { CTAActionType } from "./ctaActions";
+import { useNavigate } from "react-router-dom";
 
 interface UseCTAActionParams {
   openBookingModal: () => void;
@@ -23,8 +24,8 @@ export const useCTAAction = ({ openBookingModal }: UseCTAActionParams) => {
           openBookingModal();
           break;
 
-        case "SCROLL_SERVICES":
-          scrollToSection("services");
+        case "SCROLL_PROCESS":
+          scrollToSection("process");
           break;
 
         case "SCROLL_TESTIMONIALS":

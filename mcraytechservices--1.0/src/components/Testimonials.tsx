@@ -170,7 +170,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-24 bg-secondary/30 overflow-hidden"
+      className="py-32 bg-secondary/30 overflow-hidden"
     >
       <div className="container mx-auto px-6">
         <FadeIn className="text-center mb-16">

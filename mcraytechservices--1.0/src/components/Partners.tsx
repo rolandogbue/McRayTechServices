@@ -29,15 +29,17 @@ const Partners = () => {
               variant="outline"
               className="text-sm px-4 py-1 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
             >
-              Trusted Partners
+              BUSINESSES WE'VE WORKED WITH
             </Badge>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-            Trusted by Leading Brands
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            Real business.
+            <span className="gradient-text"> Real Results</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Join hundreds of successful businesses that trust us to accelerate
-            their growth
+            From building materials to hospitality, real estate to retail —
+            McRay Tech Services partners with forward-thinking businesses across
+            Abuja and Nigeria.
           </p>
         </div>
 

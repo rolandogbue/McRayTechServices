@@ -2,14 +2,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Globe,
-  Palette,
   Search,
-  TrendingUp,
-  Zap,
+  Megaphone,
+  Bot,
   Share2,
   Code,
   Headphones,
+  RefreshCw,
 } from "lucide-react";
+
 import {
   StaggerContainer,
   StaggerItem,
@@ -20,109 +21,78 @@ const Services = () => {
   const services = [
     {
       icon: <Globe className="w-7 h-7" />,
-      title: "Website Development",
+      title: "Website Development & Branding",
       description:
-        "Custom, conversion-focused websites that work 24/7 to attract customers and generate leads.",
+        "Lean, fast, high-converting websites built on reliable cloud infrastructure. A brand identity that earns trust, and reflects your values.",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
-      features: [
-        "Responsive Design",
-        "Fast Loading",
-        "Lead Capture",
-        "Easy CMS",
-        "SEO Optimized",
-        "eCommerce Solutions",
-      ],
     },
     {
-      icon: <Palette className="w-7 h-7" />,
-      title: "Branding & Identity",
-      description:
-        "Professional brand identity that builds trust and recognition with your target audience.",
-      image:
-        "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=400&q=80",
-      features: [
-        "Logo Design",
-        "Brand Guidelines",
-        "Visual Assets",
-        "Messaging",
-      ],
-    },
-    {
-      icon: <TrendingUp className="w-7 h-7" />,
+      icon: <Megaphone className="w-7 h-7" />,
       title: "Digital Marketing",
       description:
-        "Targeted campaigns that turn prospects into paying clients across all digital channels.",
+        "Targeted SEO, ethical ad campaigns, and content strategies that attract the right customers without wasteful spend or spray-and-pray tactics.",
       image:
         "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=400&q=80",
-      features: [
-        "Google Ads",
-        "Social Ads",
-        "Email Marketing",
-        "Retargeting",
-        "SEO",
-      ],
     },
     {
-      icon: <Zap className="w-7 h-7" />,
-      title: "Automation",
+      icon: <Bot className="w-7 h-7" />,
+      title: "AI-powered Automation",
       description:
-        "Streamline operations and save hours every week with smart automation and workflow tools.",
+        "Cloud-based, low-energy automations that eliminate manual work across follow-ups, scheduling, and reporting — saving time and reducing your operational footprint.",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-      features: [
-        "CRM Setup",
-        "Email Automation",
-        "Workflow Tools",
-        "Integrations",
-      ],
     },
     {
       icon: <Code className="w-7 h-7" />,
       title: "Custom Software Solutions",
       description:
-        "Tailored applications and tools built specifically for your unique business needs.",
+        "Modular, purpose-built software designed to fit your operations exactly — scalable as you grow, without the bloat of tools you'll never use.",
       image:
         "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
-      features: ["Web Apps", "Integrations", "Dashboards", "APIs"],
     },
     {
       icon: <Headphones className="w-7 h-7" />,
-      title: "Free IT Consulting",
+      title: "IT Consulting",
       description:
-        "Expert technology guidance and strategic advice at no extra cost — we're your partner.",
+        "Strategic guidance on tools, cloud migration, and infrastructure — with an eye on efficiency, resilience, and long-term cost reduction.",
       image:
         "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=400&q=80",
-      features: [
-        "Tech Strategy",
-        "Tool Selection",
-        "Best Practices",
-        "Support",
-      ],
+    },
+    {
+      icon: <RefreshCw className="w-7 h-7" />,
+      title: "Ongoing Partnership",
+      description:
+        "We grow with you. As your business evolves — through market shifts, recessions, or technology changes — your systems adapt without starting over.",
+      image:
+        "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFydG5lcnNoaXB8ZW58MHx8MHx8fDA%3D",
     },
   ];
 
   return (
-    <section id="services" className="py-24 section-muted">
+    <section
+      id="services"
+      className="py-32 section-primary relative overflow-hidden"
+    >
       <div className="container mx-auto px-6 justify-center">
         <FadeIn className="text-center mb-16">
           <Badge
             variant="outline"
             className="mb-4 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
           >
-            Our Services
+            WHAT WE DO
           </Badge>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            Everything You Need to
-            <span className="gradient-text"> Grow Your Business</span>
+            Modular by design.
+            <span className="gradient-text"> Sustainable by default.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Stop juggling multiple vendors. Get website, marketing, automation,
-            and support from one trusted partner.
+            Every capability we offer is cloud-based, energy-efficient, and
+            built to scale with you — not against you. Start with what you need
+            today. Add more as you grow. Nothing wasted, nothing redundant.
           </p>
         </FadeIn>
 
-        {/* <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <StaggerItem key={index}>
@@ -147,16 +117,6 @@ const Services = () => {
                   <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                     {service.description}
                   </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {service.features.map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-105"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
                 </CardContent>
               </Card>
             </StaggerItem>

@@ -14,7 +14,7 @@ const Process = () => {
       icon: <Phone className="w-7 h-7" />,
       title: "Discovery Call",
       description:
-        "Free consultation to understand your goals, challenges, and opportunities.",
+        "We spend 30 minutes understanding your business, your goals, and where your biggest growth opportunities lie.",
       details: [
         "30-minute call",
         "No obligation",
@@ -25,8 +25,9 @@ const Process = () => {
     {
       step: "02",
       icon: <FileText className="w-7 h-7" />,
-      title: "Strategy & Proposal",
-      description: "Custom roadmap tailored to your business needs and budget.",
+      title: "Growth Blueprint",
+      description:
+        "We deliver a tailored strategy with clear priorities, timelines, and the exact services your business needs right now.",
       details: [
         "Detailed plan",
         "Clear pricing",
@@ -39,7 +40,7 @@ const Process = () => {
       icon: <Rocket className="w-7 h-7" />,
       title: "Build & Launch",
       description:
-        "We create your brand, website, and marketing systems with regular updates.",
+        "We execute. Systems are built, campaigns are launched, and automations are live. You stay informed without being buried in details.",
       details: [
         "Weekly updates",
         "Your feedback",
@@ -50,9 +51,9 @@ const Process = () => {
     {
       step: "04",
       icon: <TrendingUp className="w-7 h-7" />,
-      title: "Grow & Optimize",
+      title: "Optimize & Scale",
       description:
-        "Ongoing management, automation, and performance optimization.",
+        "We track what's working, refine what isn't, and continue expanding your capabilities as your business grows.",
       details: [
         "Monthly reports",
         "Continuous improvement",
@@ -65,7 +66,7 @@ const Process = () => {
   return (
     <section
       id="process"
-      className="py-24 section-accent relative overflow-hidden"
+      className="py-32 section-accent relative overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 tech-grid opacity-30" />
@@ -76,15 +77,15 @@ const Process = () => {
             variant="outline"
             className="mb-4 border-primary/30 text-primary hover:bg-primary/10 transition-colors"
           >
-            How It Works
+            HOW IT WORKS
           </Badge>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            Simple Process,
-            <span className="gradient-text"> Real Results</span>
+            From onboarding to growth in
+            <span className="gradient-text"> four clear steps.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We make working together easy. Here's how we'll help your business
-            grow.
+            We make it easy to get started. No technical jargon, no wasted time
+            — just a clear path to a business that runs smarter.
           </p>
         </FadeIn>
 
@@ -118,7 +119,7 @@ const Process = () => {
                     <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
                       {step.description}
                     </p>
-                    <div className="space-y-2">
+                    {/* <div className="space-y-2">
                       {step.details.map((detail, detailIndex) => (
                         <div
                           key={detailIndex}
@@ -130,7 +131,7 @@ const Process = () => {
                           </span>
                         </div>
                       ))}
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               </StaggerItem>

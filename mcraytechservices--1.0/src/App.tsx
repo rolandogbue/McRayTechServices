@@ -7,13 +7,16 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "@/pages/Index";
 import About from "@/pages/About";
-import Faq from "@/pages/Faq";
+import CaseStudy from "@/pages/CaseStudy";
+// import Plan from "@/pages/Plan";
 import Blog from "@/pages/Blog";
-import BlogPost from "./pages/BlogPost";
+import Faq from "@/pages/Faq";
+import BlogPost from "@/pages/BlogPost";
 import Contact from "@/pages/Contact";
-import Login from "./pages/Login";
-import AdminBlog from "./pages/AdminBlog";
-import AdminSettings from "./pages/AdminSettings";
+import Book from "@/pages/Book";
+import Login from "@/pages/Login";
+import AdminBlog from "@/pages/AdminBlog";
+import AdminSettings from "@/pages/AdminSettings";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import Cookies from "@/pages/Cookies";
@@ -33,10 +36,13 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
+              <Route path="/case-study" element={<CaseStudy />} />
+              {/* <Route path="/plans" element={<Plan />} /> */}
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/book" element={<Book />} />
               <Route path="/login" element={<Login />} />
               <Route path="/admin/blog" element={<AdminBlog />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
