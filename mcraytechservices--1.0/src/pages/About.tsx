@@ -10,10 +10,10 @@ const About = () => {
   const { title, description, keywords, robots } = SEO_CONFIG.about;
 
   const stats = [
+    { number: "2022", label: "McRay Tech Services was founded" },
+    { number: "Abuja", label: "Based and Rooted, serving Nigeria" },
+    { number: "1", label: "Partner For Everything" },
     { number: "100%", label: "Happy Clients" },
-    { number: "50+", label: "Projects Completed" },
-    { number: "5+", label: "Team Members" },
-    { number: "3+", label: "Years Experience" },
   ];
 
   return (
@@ -51,31 +51,45 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6 font-display">
-                About Our Agency
+                From a freelancer to Growth Partner. Built On The Same Belief.
               </h2>
 
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                We started with a simple mission: to empower small and medium
-                businesses in Nigeria and across Africa with integrated,
-                efficient, and scalable digital solutions — eliminating the
-                frustration of managing multiple vendors. Too many capable
-                businesses struggle to grow because their websites, marketing,
-                and automation are handled by separate providers with
-                disconnected systems and no single point of accountability.
+                McRay Tech Services started in 2022 with a simple observation:
+                most small businesses in Nigeria couldn't afford to compete
+                digitally. Not because they lacked ambition — but because the
+                tools, agencies, and systems available to them were either too
+                expensive, too fragmented, or built for someone else entirely.
+                we started as a freelance operation with one mission: give small
+                businesses access to the digital infrastructure that levels the
+                playing field.
               </p>
 
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                At McRay Tech Services, we bring everything together. We design
-                and manage unified websites, automation, and business growth
-                systems that work seamlessly as one. Our integrated approach
-                removes operational friction, improves efficiency, and delivers
-                better results faster.
+                Three years of working directly with Nigerian SMBs taught us
+                something important. The businesses that struggled most weren't
+                the ones without a website or a marketing campaign. They were
+                the ones with no connected systems — a web agency here, a
+                freelancer there, an IT person somewhere else, and nobody
+                accountable for the picture. Fixing one piece at a time wasn't
+                enough. The whole thing needed to work together.
               </p>
 
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Our work acts as business immunity—strengthening operations,
-                protecting momentum, and enabling small and medium businesses to
-                compete effectively and grow sustainably.
+                That's why McRay Tech Services restructured into what it is
+                today — a full digital growth partner for small and medium
+                businesses that want to grow faster, operate smarter, and build
+                something that lasts. Same mission. Stronger Infrastructure. One
+                modular system covering your website, marketing, automation,
+                custom software, and IT consulting — built around your business,
+                not around ours.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                We are based in Abuja and serve businesses across Nigeria. We
+                don't build and disappear. Our retainer model means we stay
+                invested in your results because your growth is how we measure
+                our own. We become an extension of your team, not just another
+                vendor.
               </p>
 
               <div className="grid grid-cols-2 gap-6">
@@ -96,10 +110,14 @@ const About = () => {
                   <Award className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Built From Experience
+                  </h3>
                   <p className="text-muted-foreground">
-                    Certified professionals in development, marketing, and
-                    automation working as one cohesive unit.
+                    Three years of working directly with Nigeria SMBs means we
+                    understand the real constraints — budget, bandwidth, and the
+                    limits of what generic tools actually deliver in this
+                    market.
                   </p>
                 </div>
               </div>
@@ -109,10 +127,14 @@ const About = () => {
                   <Rocket className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Results-Driven</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Outcome-Focused
+                  </h3>
                   <p className="text-muted-foreground">
-                    We focus on metrics that matter - lead generation,
-                    conversions, and business growth.
+                    We measure success by your revenue, your leads, and your
+                    time saved. Not by deliverables checked off a list. Our
+                    retainer model keeps us accountable to results, not just
+                    outputs.
                   </p>
                 </div>
               </div>
@@ -122,10 +144,12 @@ const About = () => {
                   <Heart className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Client-Focused</h3>
+                  <h3 className="text-xl font-semibold mb-2">Built to Last</h3>
                   <p className="text-muted-foreground">
-                    Your success is our success. We become an extension of your
-                    team, not just another vendor.
+                    We don't build and disappear. Every system we deliver is
+                    designed to grow with your business — modular enough to
+                    start small, resilient enough to hold up when the market
+                    shifts.
                   </p>
                 </div>
               </div>
@@ -242,8 +266,8 @@ const About = () => {
               Our Journey
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              From a small idea to a full digital transformation agency — here’s
-              how we got here.
+              From a small idea to a full digital growth partner — here’s how we
+              got here.
             </p>
           </div>
 
@@ -264,13 +288,13 @@ const About = () => {
                 title: "Team Growth",
                 text: "Our team expanded to include experts across design, development, marketing, and operations.",
               },
-              {
-                year: "2026",
-                title: "Scaling Impact",
-                text: "We are on track to complete 100 projects and support businesses across multiple industries.",
-              },
               // {
               //   year: "2026",
+              //   title: "Scaling Impact",
+              //   text: "We are on track to complete 100 projects and support businesses across multiple industries.",
+              // },
+              // {
+              //   year: "2027",
               //   title: "Scaling Impact",
               //   text: "We achieved 100+ completed projects and supported businesses across multiple industries.",
               // },
