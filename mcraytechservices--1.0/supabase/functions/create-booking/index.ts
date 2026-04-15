@@ -337,11 +337,11 @@ serve(async (req) => {
     resend.emails
       .send({
         /* business email */
-        from: "Free Strategy Session <bookings@mcraytechservices.com>",
+        from: "Free Strategy Call <bookings@mcraytechservices.com>",
         to: ["solutions@mcraytechservices.com"],
         subject: "📅 New Booking Received",
         html: `
-     <h2>Free Strategy Session Booking</h2>
+     <h2>Free Strategy Call</h2>
      <p><strong>Name:</strong> ${name}</p>
      <p><strong>Email:</strong> ${email}</p>
      <p><strong>Phone:</strong> ${phone || "N/A"}</p>
@@ -367,18 +367,17 @@ serve(async (req) => {
         subject: "Booking Confirmed",
         html: `
      <p>Hello ${name}, <br><br>
-     Thank you for booking a free strategy session with us!</p>
-     <h3>This session is designed to:</h3>
+     Thank you for booking a free strategy call with us!</p>
+     <h3>This call is designed to:</h3>
      <ul>
-      <li>Learn more about your business, goals, and identify key challenges in your business operations</li><br>
-      <li>Explore opportunities for growth and efficiency</li><br>
+      <li>Understand your business, your goals, and where your biggest growth opportunities lie</li><br>
       <li>Develop a strategic plan tailored to your needs</li><br>
       <li>Answer any questions you may have about services</li><br>
      </ul>
       <h3>Your booking details:</h3>
       <p><strong>Date:</strong> ${formatDateReadable(bookingDate)}</p>
       <p><strong>Time:</strong> ${bookingTime} (WAT)</p>
-      <p><strong>Meeting Link:</strong><br>
+      <p><strong>Meeting Link:</strong>
       ${
         calendarResult.meetLink
           ? `<a href="${calendarResult.meetLink}">${calendarResult.meetLink}</a>`
@@ -387,8 +386,8 @@ serve(async (req) => {
       </p>
       <h3>Preparation Tips:</h3>
       <p>Please make sure you're in a quiet space and bring along any key information you'd like us to know about your business.</p>
-      <p>If you need to reschedule, please contact us. We look forward to seeing you.</p><br>
-      <p>— McRay Tech Services Team 🖤</p>
+      <p>If you need to reschedule, please contact us. We look forward to seeing you.</p>
+      <p>— McRay Tech Services Team 💚</p>
    `,
       })
       .catch(console.error);

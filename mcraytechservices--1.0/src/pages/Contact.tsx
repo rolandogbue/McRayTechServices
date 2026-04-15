@@ -45,17 +45,16 @@ const Contact = () => {
           <FadeIn>
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Let's Grow Your
+                Let's Talk About What
                 <span className="text-accent">
                   {" "}
-                  Business With The Right Technology
+                  Your Business <i>Needs Next</i>
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-primary-foreground/80 leading-relaxed">
-                We help small and medium businesses scale through
-                high-performing websites, business automation, and digital
-                marketing. <br />
-                Start with a free strategy session or send us a message below.
+                Book a free 30-minute Strategy Call or send us a message. We
+                will review your situation and respond with 24 hours. We look
+                forward to connecting with you!
               </p>
             </div>
           </FadeIn>
@@ -160,7 +159,7 @@ const Contact = () => {
                   >
                     {state.submitting
                       ? "Sending..."
-                      : "Request Free Strategy Session"}
+                      : "Request Free Strategy Call"}
                   </Button>
 
                   <ValidationError errors={state.errors} />
@@ -174,7 +173,7 @@ const Contact = () => {
                 <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                   Prefer to reach us directly? You can contact us using the
-                  details below or book a free strategy session.
+                  details below or book a free strategy call.
                 </p>
               </div>
 
@@ -238,9 +237,7 @@ const Contact = () => {
 
               {/* CTA */}
               <Card className="gradient-bg text-primary-foreground p-8">
-                <h3 className="text-2xl font-bold mb-4">
-                  Free Strategy Session
-                </h3>
+                <h3 className="text-2xl font-bold mb-4">Free Strategy Call</h3>
                 <p className="mb-6">
                   Book a complimentary 30-minute consultation to discuss your
                   business goals and discover how we can help you scale with the
@@ -251,7 +248,7 @@ const Contact = () => {
                   variant="secondary"
                   className="bg-background btn-shine text-primary hover:bg-muted hover:scale-105"
                 >
-                  Book Free Strategy Session
+                  Book Free Strategy Call
                 </Button>
               </Card>
             </div>

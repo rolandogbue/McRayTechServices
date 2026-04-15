@@ -11,8 +11,8 @@ const Header = () => {
   const navLinks = [
     // { label: "HOME", href: "/" },
     { label: "ABOUT", href: "/about" },
-    { label: "CASE STUDY", href: "/case-study" },
-    { label: "PLANS", href: "/plans" },
+    // { label: "CASE STUDY", href: "/case-study" },
+    // { label: "PLANS", href: "/plans" },
     { label: "BLOGS", href: "/blog" },
     { label: "FAQ", href: "/faq" },
     { label: "CONTACT", href: "/contact" },
