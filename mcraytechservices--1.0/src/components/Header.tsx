@@ -9,7 +9,6 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navLinks = [
-    // { label: "HOME", href: "/" },
     { label: "ABOUT", href: "/about" },
     // { label: "CASE STUDIES", href: "/case-studies" },
     // { label: "PLANS", href: "/plans" },

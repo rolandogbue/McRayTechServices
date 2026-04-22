@@ -13,6 +13,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ScrollAnimations";
+import { Link } from "react-router-dom";
 
 const Benefits = () => {
   const benefits = [
@@ -134,12 +135,12 @@ const Benefits = () => {
 
             {/* CTA Button */}
             <div className="mt-6 flex justify-start">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-medium bg-primary text-primary-foreground rounded-xl shadow-soft-md hover:shadow-glow hover:scale-105 transition-all duration-300 min-w-[250px]"
               >
                 Talk To Our Team
-              </a>
+              </Link>
             </div>
           </FadeIn>
 
