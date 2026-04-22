@@ -7,7 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "@/pages/Index";
 import About from "@/pages/About";
-import CaseStudy from "@/pages/CaseStudy";
+import CaseStudy from "@/pages/CaseStudies";
 // import Plan from "@/pages/Plan";
 import Blog from "@/pages/Blog";
 import Faq from "@/pages/Faq";
@@ -17,6 +17,9 @@ import Book from "@/pages/Book";
 import Login from "@/pages/Login";
 import AdminBlog from "@/pages/AdminBlog";
 import AdminSettings from "@/pages/AdminSettings";
+import CaseStudies from "@/pages/CaseStudies";
+import CaseStudyDetail from "@/pages/CaseStudyDetail";
+import AdminCaseStudies from "@/pages/AdminCaseStudies";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import Cookies from "@/pages/Cookies";
@@ -46,6 +49,12 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/admin/blog" element={<AdminBlog />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+              <Route
+                path="/admin/case-studies"
+                element={<AdminCaseStudies />}
+              />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/cookies" element={<Cookies />} />

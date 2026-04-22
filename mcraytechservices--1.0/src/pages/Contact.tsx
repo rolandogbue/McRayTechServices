@@ -69,7 +69,7 @@ const Contact = () => {
             <Card className="floating-card ">
               <CardHeader>
                 <CardTitle className="text-2xl text-center">
-                  Start with a Free Strategy Session
+                  Send us a Message
                 </CardTitle>
                 <p className="text-muted-foreground text-center">
                   We’ll review your business needs and respond within 24 hours.
@@ -129,10 +129,10 @@ const Contact = () => {
                       name="service"
                       className="w-full h-10 px-3 py-2 text-sm bg-background border border-input rounded-md focus-ring"
                     >
-                      <option value="">Select Partner Plan</option>
-                      <option value="complete-package">Foundation Plan</option>
-                      <option value="branding">Accelerator Plan</option>
-                      <option value="seo">Partner Plan</option>
+                      <option value="">Select Partnership Plan</option>
+                      <option value="complete-package">Foundation</option>
+                      <option value="branding">Accelerator</option>
+                      <option value="seo">Partner</option>
                     </select>
                   </div>
 
@@ -143,7 +143,7 @@ const Contact = () => {
                       name="message"
                       required
                       rows={10}
-                      placeholder="Briefly tell us about your business and what you’d like help with (website, SEO, automation, marketing, or systems)."
+                      placeholder="Briefly tell us about your business and what you’d like help with."
                     />
                     <ValidationError
                       prefix="Message"

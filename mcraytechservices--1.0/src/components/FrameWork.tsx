@@ -67,7 +67,7 @@ const FrameWork = () => {
             </StaggerItem>
           ))}
         </StaggerContainer>
-        <FadeIn>
+        <FadeIn className="mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-12 border-solid border-2 border-primary/20 rounded-2xl p-8 bg-background">
             {/* Text Content */}
             <div className="flex flex-col justify-center w-full md:w-2/3 text-left">

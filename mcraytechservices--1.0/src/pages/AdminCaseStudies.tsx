@@ -5,8 +5,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import RichTextEditor from "@/components/RichTextEditor";
 import ImageUpload from "@/components/ImageUpload";
+import CaseStudyGallery from "@/components/CaseStudyGallery";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
@@ -22,11 +22,7 @@ import {
   LogOut,
   Eye,
   EyeOff,
-  Star,
-  StarOff,
   ArrowLeft,
-  Settings,
-  FolderOpen,
 } from "lucide-react";
 import {
   AlertDialog,
@@ -40,55 +36,52 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-interface BlogPost {
+interface CaseStudy {
   id: string;
   title: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  read_time: string;
+  client: string | null;
+  description: string;
+  results: string;
   image_url: string | null;
-  featured: boolean;
   published: boolean;
+  slug: string;
   created_at: string;
 }
 
-const CATEGORIES = [
-  "Branding",
-  "SEO",
-  "Digital Marketing",
-  "Automation",
-  "Web Development",
-  "Social Media",
-  "General",
-];
-
-const emptyPost = {
+const emptyForm = {
   title: "",
-  excerpt: "",
-  content: "",
-  category: "General",
-  read_time: "5 min read",
+  client: "",
+  description: "",
+  results: "",
   image_url: "",
-  featured: false,
   published: false,
+  challenge: "",
+  solution: "",
+  services: "",
+  testimonial_quote: "",
+  testimonial_author: "",
+  industry: "",
+  duration: "",
+  featured: false,
 };
 
-const AdminBlog = () => {
-  const {
-    user,
-    isAdmin,
-    hasContentAccess,
-    loading: authLoading,
-    signOut,
-  } = useAuth();
+const AdminCaseStudies = () => {
+  const { user, hasContentAccess, loading: authLoading, signOut } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [studies, setStudies] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
-  const [form, setForm] = useState(emptyPost);
+  const [form, setForm] = useState(emptyForm);
+  const [galleryImages, setGalleryImages] = useState<
+    Array<{
+      id: string;
+      image_url: string;
+      caption: string;
+      sort_order: number;
+    }>
+  >([]);
 
   useEffect(() => {
     if (!authLoading && (!user || !hasContentAccess)) {
@@ -97,40 +90,35 @@ const AdminBlog = () => {
   }, [user, hasContentAccess, authLoading, navigate]);
 
   useEffect(() => {
-    if (authLoading) return;
-
-    if (!user || !hasContentAccess) {
+    if (authLoading || !user || !hasContentAccess) {
       setLoading(false);
       return;
     }
-
-    void fetchPosts();
+    void fetchStudies();
   }, [authLoading, hasContentAccess, user?.id]);
 
-  const fetchPosts = async () => {
+  const fetchStudies = async () => {
     setLoading(true);
     const { data, error } = await supabase
-      .from("blog_posts")
+      .from("case_studies")
       .select("*")
       .order("created_at", { ascending: false });
-
     if (error) {
       toast({
-        title: "Error loading posts",
+        title: "Error loading case studies",
         description: error.message,
         variant: "destructive",
       });
     } else {
-      setPosts(data || []);
+      setStudies(data || []);
     }
-
     setLoading(false);
   };
 
   const handleSave = async () => {
-    if (!form.title.trim() || !form.excerpt.trim()) {
+    if (!form.title.trim() || !form.description.trim()) {
       toast({
-        title: "Title and excerpt are required",
+        title: "Title and description are required",
         variant: "destructive",
       });
       return;
@@ -144,101 +132,135 @@ const AdminBlog = () => {
       .replace(/-+/g, "-")
       .replace(/^-|-$/g, "");
 
-    const postData = {
+    const payload = {
       title: form.title.trim(),
-      excerpt: form.excerpt.trim(),
-      content: form.content.trim(),
-      category: form.category,
-      read_time: form.read_time,
+      client: form.client.trim() || null,
+      description: form.description.trim(),
+      results: form.results.trim(),
       image_url: form.image_url?.trim() || null,
-      featured: form.featured,
       published: form.published,
-      author_id: user?.id,
+      challenge: form.challenge.trim(),
+      solution: form.solution.trim(),
+      services: form.services.trim(),
+      testimonial_quote: form.testimonial_quote.trim(),
+      testimonial_author: form.testimonial_author.trim(),
+      industry: form.industry.trim(),
+      duration: form.duration.trim(),
+      featured: form.featured,
       slug,
     };
 
+    let studyId = editing;
+
     if (editing) {
       const { error } = await supabase
-        .from("blog_posts")
-        .update(postData)
+        .from("case_studies")
+        .update(payload)
         .eq("id", editing);
       if (error) {
         toast({
-          title: "Error updating post",
+          title: "Error updating",
           description: error.message,
           variant: "destructive",
         });
         return;
       }
-      toast({ title: "Post updated successfully" });
+      toast({ title: "Case study updated" });
     } else {
-      const { error } = await supabase.from("blog_posts").insert(postData);
-      if (error) {
+      const { data: inserted, error } = await supabase
+        .from("case_studies")
+        .insert(payload)
+        .select("id")
+        .single();
+      if (error || !inserted) {
         toast({
-          title: "Error creating post",
-          description: error.message,
+          title: "Error creating",
+          description: error?.message,
           variant: "destructive",
         });
         return;
       }
-      toast({ title: "Post created successfully" });
+      studyId = inserted.id;
+      toast({ title: "Case study created" });
+    }
+
+    // Save gallery images
+    if (studyId) {
+      await supabase
+        .from("case_study_images")
+        .delete()
+        .eq("case_study_id", studyId);
+      if (galleryImages.length > 0) {
+        const rows = galleryImages.map((img, i) => ({
+          case_study_id: studyId!,
+          image_url: img.image_url,
+          caption: img.caption || "",
+          sort_order: i,
+        }));
+        await supabase.from("case_study_images").insert(rows);
+      }
     }
 
     setEditing(null);
     setCreating(false);
-    setForm(emptyPost);
-    await fetchPosts();
+    setForm(emptyForm);
+    setGalleryImages([]);
+    await fetchStudies();
   };
 
   const handleDelete = async (id: string) => {
-    const { error } = await supabase.from("blog_posts").delete().eq("id", id);
+    const { error } = await supabase.from("case_studies").delete().eq("id", id);
     if (error) {
       toast({
-        title: "Error deleting post",
+        title: "Error deleting",
         description: error.message,
         variant: "destructive",
       });
       return;
     }
-
-    toast({ title: "Post deleted" });
-    await fetchPosts();
+    toast({ title: "Case study deleted" });
+    await fetchStudies();
   };
 
   const handleSignOut = async () => {
-    try {
-      await signOut();
-      toast({ title: "Signed out successfully" });
-      navigate("/login", { replace: true });
-    } catch (error) {
-      toast({
-        title: "Sign out failed",
-        description:
-          error instanceof Error ? error.message : "Please try again.",
-        variant: "destructive",
-      });
-    }
+    await signOut();
+    toast({ title: "Signed out" });
+    navigate("/login", { replace: true });
   };
 
-  const startEdit = (post: BlogPost) => {
-    setEditing(post.id);
+  const startEdit = async (s: CaseStudy & Record<string, any>) => {
+    setEditing(s.id);
     setCreating(true);
     setForm({
-      title: post.title,
-      excerpt: post.excerpt,
-      content: post.content,
-      category: post.category,
-      read_time: post.read_time,
-      image_url: post.image_url || "",
-      featured: post.featured,
-      published: post.published,
+      title: s.title,
+      client: s.client || "",
+      description: s.description,
+      results: s.results,
+      image_url: s.image_url || "",
+      published: s.published,
+      challenge: s.challenge || "",
+      solution: s.solution || "",
+      services: s.services || "",
+      testimonial_quote: s.testimonial_quote || "",
+      testimonial_author: s.testimonial_author || "",
+      industry: s.industry || "",
+      duration: s.duration || "",
+      featured: s.featured || false,
     });
+    // Fetch gallery images
+    const { data: imgs } = await supabase
+      .from("case_study_images")
+      .select("*")
+      .eq("case_study_id", s.id)
+      .order("sort_order");
+    setGalleryImages(imgs || []);
   };
 
   const cancelEdit = () => {
     setEditing(null);
     setCreating(false);
-    setForm(emptyPost);
+    setForm(emptyForm);
+    setGalleryImages([]);
   };
 
   if (authLoading || loading) {
@@ -262,38 +284,30 @@ const AdminBlog = () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
             <div>
               <h1 className="text-3xl font-bold text-foreground">
-                Blog Management
+                Case Studies
               </h1>
               <p className="text-muted-foreground mt-1">
-                Create, edit, and manage your blog posts
+                Manage your portfolio & case studies
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Button variant="outline" onClick={() => navigate("/blog")}>
-                <ArrowLeft className="w-4 h-4 mr-2" /> View Blog
+            <div className="flex gap-3 flex-wrap">
+              <Button
+                variant="outline"
+                onClick={() => navigate("/case-studies")}
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" /> View Public Page
+              </Button>
+              <Button variant="outline" onClick={() => navigate("/admin/blog")}>
+                Blog Posts
               </Button>
               {!creating && (
                 <Button
                   onClick={() => {
                     setCreating(true);
-                    setForm(emptyPost);
+                    setForm(emptyForm);
                   }}
                 >
-                  <Plus className="w-4 h-4 mr-2" /> New Post
-                </Button>
-              )}
-              <Button
-                variant="outline"
-                onClick={() => navigate("/admin/case-studies")}
-              >
-                <FolderOpen className="w-4 h-4 mr-2" /> Case Studies
-              </Button>
-              {isAdmin && (
-                <Button
-                  variant="outline"
-                  onClick={() => navigate("/admin/settings")}
-                >
-                  <Settings className="w-4 h-4 mr-2" /> Settings
+                  <Plus className="w-4 h-4 mr-2" /> New Case Study
                 </Button>
               )}
               <Button variant="outline" onClick={handleSignOut}>
@@ -306,8 +320,8 @@ const AdminBlog = () => {
           {creating && (
             <Card className="mb-8 shadow-soft-lg border-accent/20">
               <CardHeader>
-                <CardTitle className="text-xl">
-                  {editing ? "Edit Post" : "Create New Post"}
+                <CardTitle>
+                  {editing ? "Edit Case Study" : "New Case Study"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -321,51 +335,142 @@ const AdminBlog = () => {
                       onChange={(e) =>
                         setForm({ ...form, title: e.target.value })
                       }
-                      placeholder="Post title"
+                      placeholder="Project title"
                     />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-1 block">
-                      Category
+                      Client (optional)
                     </label>
-                    <select
-                      value={form.category}
+                    <Input
+                      value={form.client}
                       onChange={(e) =>
-                        setForm({ ...form, category: e.target.value })
+                        setForm({ ...form, client: e.target.value })
                       }
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    >
-                      {CATEGORIES.map((c) => (
-                        <option key={c} value={c}>
-                          {c}
-                        </option>
-                      ))}
-                    </select>
+                      placeholder="Client name"
+                    />
                   </div>
                 </div>
 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1 block">
-                    Excerpt *
+                    Description / Overview *
                   </label>
                   <Textarea
-                    value={form.excerpt}
+                    value={form.description}
                     onChange={(e) =>
-                      setForm({ ...form, excerpt: e.target.value })
+                      setForm({ ...form, description: e.target.value })
                     }
-                    placeholder="Brief summary of the post"
+                    placeholder="Brief overview of the project"
+                    rows={3}
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-1 block">
+                    The Challenge
+                  </label>
+                  <Textarea
+                    value={form.challenge}
+                    onChange={(e) =>
+                      setForm({ ...form, challenge: e.target.value })
+                    }
+                    placeholder="What problem did the client face?"
+                    rows={3}
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-1 block">
+                    Our Solution
+                  </label>
+                  <Textarea
+                    value={form.solution}
+                    onChange={(e) =>
+                      setForm({ ...form, solution: e.target.value })
+                    }
+                    placeholder="How did we solve it?"
+                    rows={3}
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-1 block">
+                    Results / Impact (one per line for bullet points)
+                  </label>
+                  <Textarea
+                    value={form.results}
+                    onChange={(e) =>
+                      setForm({ ...form, results: e.target.value })
+                    }
+                    placeholder="e.g. 150% increase in organic traffic&#10;₦6M in sales from Google"
+                    rows={3}
+                  />
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1 block">
+                      Industry
+                    </label>
+                    <Input
+                      value={form.industry}
+                      onChange={(e) =>
+                        setForm({ ...form, industry: e.target.value })
+                      }
+                      placeholder="e.g. Real Estate"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1 block">
+                      Duration
+                    </label>
+                    <Input
+                      value={form.duration}
+                      onChange={(e) =>
+                        setForm({ ...form, duration: e.target.value })
+                      }
+                      placeholder="e.g. 3 months"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1 block">
+                      Services (comma-separated)
+                    </label>
+                    <Input
+                      value={form.services}
+                      onChange={(e) =>
+                        setForm({ ...form, services: e.target.value })
+                      }
+                      placeholder="Web Design, SEO, Branding"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-1 block">
+                    Client Testimonial Quote
+                  </label>
+                  <Textarea
+                    value={form.testimonial_quote}
+                    onChange={(e) =>
+                      setForm({ ...form, testimonial_quote: e.target.value })
+                    }
+                    placeholder="What did the client say about working with you?"
                     rows={2}
                   />
                 </div>
 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1 block">
-                    Content
+                    Testimonial Author
                   </label>
-                  <RichTextEditor
-                    content={form.content}
-                    onChange={(html) => setForm({ ...form, content: html })}
-                    placeholder="Start writing your blog post..."
+                  <Input
+                    value={form.testimonial_author}
+                    onChange={(e) =>
+                      setForm({ ...form, testimonial_author: e.target.value })
+                    }
+                    placeholder="e.g. Jane Doe, CEO of Company"
                   />
                 </div>
 
@@ -374,20 +479,13 @@ const AdminBlog = () => {
                   onChange={(url) => setForm({ ...form, image_url: url })}
                 />
 
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1 block">
-                    Read Time
-                  </label>
-                  <Input
-                    value={form.read_time}
-                    onChange={(e) =>
-                      setForm({ ...form, read_time: e.target.value })
-                    }
-                    placeholder="5 min read"
-                  />
-                </div>
+                <CaseStudyGallery
+                  caseStudyId={editing}
+                  images={galleryImages}
+                  onChange={setGalleryImages}
+                />
 
-                <div className="flex flex-wrap gap-6 items-center pt-2">
+                <div className="flex items-center gap-6 pt-2">
                   <div className="flex items-center gap-2">
                     <Switch
                       checked={form.published}
@@ -413,7 +511,7 @@ const AdminBlog = () => {
                 <div className="flex gap-3 pt-4">
                   <Button onClick={handleSave}>
                     <Save className="w-4 h-4 mr-2" />{" "}
-                    {editing ? "Update Post" : "Create Post"}
+                    {editing ? "Update" : "Create"}
                   </Button>
                   <Button variant="outline" onClick={cancelEdit}>
                     <X className="w-4 h-4 mr-2" /> Cancel
@@ -423,34 +521,34 @@ const AdminBlog = () => {
             </Card>
           )}
 
-          {/* Posts List */}
-          {posts.length === 0 && !creating ? (
+          {/* List */}
+          {studies.length === 0 && !creating ? (
             <Card className="p-12 text-center">
               <p className="text-muted-foreground text-lg mb-4">
-                No blog posts yet
+                No case studies yet
               </p>
               <Button
                 onClick={() => {
                   setCreating(true);
-                  setForm(emptyPost);
+                  setForm(emptyForm);
                 }}
               >
-                <Plus className="w-4 h-4 mr-2" /> Create Your First Post
+                <Plus className="w-4 h-4 mr-2" /> Add Your First Case Study
               </Button>
             </Card>
           ) : (
             <div className="space-y-4">
-              {posts.map((post) => (
+              {studies.map((s) => (
                 <Card
-                  key={post.id}
+                  key={s.id}
                   className="hover:shadow-soft transition-shadow duration-200"
                 >
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row gap-4">
-                      {post.image_url && (
+                      {s.image_url && (
                         <img
-                          src={post.image_url}
-                          alt={post.title}
+                          src={s.image_url}
+                          alt={s.title}
                           className="w-full md:w-40 h-24 object-cover rounded-lg flex-shrink-0"
                         />
                       )}
@@ -458,17 +556,22 @@ const AdminBlog = () => {
                         <div className="flex items-start justify-between gap-4">
                           <div className="min-w-0">
                             <h3 className="text-lg font-semibold text-foreground truncate">
-                              {post.title}
+                              {s.title}
                             </h3>
+                            {s.client && (
+                              <p className="text-xs text-muted-foreground">
+                                Client: {s.client}
+                              </p>
+                            )}
                             <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                              {post.excerpt}
+                              {s.description}
                             </p>
                           </div>
                           <div className="flex gap-2 flex-shrink-0">
                             <Button
                               size="sm"
                               variant="outline"
-                              onClick={() => startEdit(post)}
+                              onClick={() => startEdit(s)}
                             >
                               <Edit className="w-4 h-4" />
                             </Button>
@@ -485,17 +588,16 @@ const AdminBlog = () => {
                               <AlertDialogContent>
                                 <AlertDialogHeader>
                                   <AlertDialogTitle>
-                                    Delete this post?
+                                    Delete this case study?
                                   </AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    This action cannot be undone. This will
-                                    permanently delete "{post.title}".
+                                    This cannot be undone.
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
                                   <AlertDialogCancel>Cancel</AlertDialogCancel>
                                   <AlertDialogAction
-                                    onClick={() => handleDelete(post.id)}
+                                    onClick={() => handleDelete(s.id)}
                                   >
                                     Delete
                                   </AlertDialogAction>
@@ -505,11 +607,10 @@ const AdminBlog = () => {
                           </div>
                         </div>
                         <div className="flex flex-wrap gap-2 mt-3">
-                          <Badge variant="outline">{post.category}</Badge>
                           <Badge
-                            variant={post.published ? "default" : "secondary"}
+                            variant={s.published ? "default" : "secondary"}
                           >
-                            {post.published ? (
+                            {s.published ? (
                               <>
                                 <Eye className="w-3 h-3 mr-1" /> Published
                               </>
@@ -519,13 +620,8 @@ const AdminBlog = () => {
                               </>
                             )}
                           </Badge>
-                          {post.featured && (
-                            <Badge className="bg-accent text-accent-foreground">
-                              <Star className="w-3 h-3 mr-1" /> Featured
-                            </Badge>
-                          )}
                           <span className="text-xs text-muted-foreground self-center">
-                            {new Date(post.created_at).toLocaleDateString()}
+                            {new Date(s.created_at).toLocaleDateString()}
                           </span>
                         </div>
                       </div>
@@ -542,4 +638,4 @@ const AdminBlog = () => {
   );
 };
 
-export default AdminBlog;
+export default AdminCaseStudies;

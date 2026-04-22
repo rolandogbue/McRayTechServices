@@ -107,6 +107,104 @@ export type Database = {
         };
         Relationships: [];
       };
+      case_studies: {
+        Row: {
+          challenge: string;
+          client: string | null;
+          created_at: string;
+          description: string;
+          duration: string;
+          featured: boolean;
+          id: string;
+          image_url: string | null;
+          industry: string;
+          published: boolean;
+          results: string;
+          services: string;
+          slug: string;
+          solution: string;
+          testimonial_author: string;
+          testimonial_quote: string;
+          title: string;
+          updated_at: string;
+        };
+        Insert: {
+          challenge?: string;
+          client?: string | null;
+          created_at?: string;
+          description?: string;
+          duration?: string;
+          featured?: boolean;
+          id?: string;
+          image_url?: string | null;
+          industry?: string;
+          published?: boolean;
+          results?: string;
+          services?: string;
+          slug: string;
+          solution?: string;
+          testimonial_author?: string;
+          testimonial_quote?: string;
+          title: string;
+          updated_at?: string;
+        };
+        Update: {
+          challenge?: string;
+          client?: string | null;
+          created_at?: string;
+          description?: string;
+          duration?: string;
+          featured?: boolean;
+          id?: string;
+          image_url?: string | null;
+          industry?: string;
+          published?: boolean;
+          results?: string;
+          services?: string;
+          slug?: string;
+          solution?: string;
+          testimonial_author?: string;
+          testimonial_quote?: string;
+          title?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      case_study_images: {
+        Row: {
+          caption: string | null;
+          case_study_id: string;
+          created_at: string;
+          id: string;
+          image_url: string;
+          sort_order: number;
+        };
+        Insert: {
+          caption?: string | null;
+          case_study_id: string;
+          created_at?: string;
+          id?: string;
+          image_url: string;
+          sort_order?: number;
+        };
+        Update: {
+          caption?: string | null;
+          case_study_id?: string;
+          created_at?: string;
+          id?: string;
+          image_url?: string;
+          sort_order?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "case_study_images_case_study_id_fkey";
+            columns: ["case_study_id"];
+            isOneToOne: false;
+            referencedRelation: "case_studies";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       profiles: {
         Row: {
           created_at: string;

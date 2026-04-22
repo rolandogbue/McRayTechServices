@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import SEO_CONFIG from "@/config/seo";
 import Partners from "@/components/Partners";
+import FeaturedCaseStudies from "@/components/FeaturedCaseStudies";
 import Testimonials from "@/components/Testimonials";
 // import DiscountPopup from "@/components/DiscountPopup";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -46,10 +47,13 @@ const Index = () => {
         <Process />
       </AnimatedSection>
       <AnimatedSection>
+        <Benefits />
+      </AnimatedSection>
+      <AnimatedSection>
         <Plan />
       </AnimatedSection>
       <AnimatedSection>
-        <Benefits />
+        <FeaturedCaseStudies />
       </AnimatedSection>
       <AnimatedSection>
         <Testimonials />

@@ -68,14 +68,15 @@ const CTA = () => {
               >
                 Book Your Free Strategy Call
               </Button>
-              <Button
-                size="lg"
-                className="bg-primary/10 text-primary-foreground hover:bg-primary/20 px-8 py-6 text-lg rounded-xl hover:scale-105 hover:shadow-soft-xl group btn-shine"
-                onClick={() => navigate("services")}
-                variant="outline"
-              >
-                Explore Our Services
-              </Button>
+              <a href="#services">
+                <Button
+                  size="lg"
+                  className="bg-primary/10 text-primary-foreground hover:bg-primary/20 px-8 py-6 text-lg rounded-xl hover:scale-105 hover:shadow-soft-xl group btn-shine"
+                  variant="outline"
+                >
+                  Explore Our Services
+                </Button>
+              </a>
             </div>
           </div>
         </FadeIn>

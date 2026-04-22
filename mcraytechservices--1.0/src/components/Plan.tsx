@@ -6,8 +6,10 @@ import {
   StaggerItem,
   FadeIn,
 } from "@/components/ScrollAnimations";
-
+import { useNavigate } from "react-router-dom";
 const Plan = () => {
+  const navigate = useNavigate();
+
   const pricingPlans = [
     {
       tier: "Tier 01",
@@ -146,6 +148,7 @@ const Plan = () => {
                         ? "bg-primary text-primary-foreground hover:opacity-90"
                         : "border border-border hover:border-primary hover:text-primary"
                     }`}
+                    onClick={() => navigate("/contact")}
                   >
                     {plan.cta}
                   </button>
